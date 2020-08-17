@@ -13,6 +13,32 @@ namespace minij
 {
     public partial class Form1 : Form
     {
+        Dictionary<string, string> reserved = new Dictionary<string, string>()
+        {
+            { "void", "T_void"},
+            { "int", "T_ValueType"},
+            { "double", "T_ValueType"},
+            { "boolean", "T_ValueType"},
+            { "string", "T_ValueType"},
+            { "class", "T_ReferenceType"},
+            { "const", "T_ValueType"},
+            { "interface", "T_ReferenceType"},
+            { "null", "T_ValueType"},
+            { "this", "T_ReferenceType"},
+            { "extends", "T_KeyWord"},
+            { "implements", "T_KeyWord"},
+            { "for", "T_KeyWord"},
+            { "while", "T_KeyWord"},
+            { "if", "T_KeyWord"},
+            { "else", "T_KeyWord"},
+            { "return", "T_KeyWord"},
+            { "break", "T_KeyWord"},
+            { "New", "T_KeyWord"},
+            { "System", "T_JavaLang"},
+            { "out", "T_SystemClass"},
+            { "println", "T_Method"}
+        };
+
         public Form1()
         {
             InitializeComponent();
