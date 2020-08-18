@@ -41,7 +41,7 @@ namespace minij
         };
 
 
-        public void LexicalAnalysis(string input) 
+        public string LexicalAnalysis(string input) 
         {
             string temp = "";
             string response = "";
@@ -68,15 +68,37 @@ namespace minij
                             temp = "";
                             i--;
                         }
+                        else
+                        {
+                            //check if the next char is operator                                                     
+                            if (item.Length > 1)
+                            {
+                                if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                {
+                                    lines.IndexOf(item);
+                                    response += AnalyzeOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
+                                    i++;
+                                }
+                                else
+                                {
+                                    response += AnalyzeOperator(item, item[i].ToString(), cont, i);
+                                }
+                            }
+                            else
+                            {
+                                response += AnalyzeOperator(item, item[i].ToString(), cont, i);
+                            }
+                        }
                     }
                     else
                     {
                         temp += item[i];
                     }
                 }
-
                 cont++;
             }
+
+            return response; 
         }
 
         public string AnalyzeString(string line, string input, int cont)
@@ -87,14 +109,19 @@ namespace minij
                 int start = line.IndexOf(input) + 1;
                 int end = start + input.Length - 1;
                 var result = reserved.Where(pair => pair.Key == input).ToArray();
+                Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
                 return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
             }
             return "";
         }
 
-        public string AnalyzeOperator(string input)
+        public string AnalyzeOperator(string line, string input, int cont, int index)
         {
-            return "";
+            int start = line.IndexOf(input, index) + 1;
+            int end = start + input.Length - 1;
+            var result = operators.Where(x => x.Equals(input)).ToArray();
+            Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
+            return $"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}\n";
         }
     }
 }

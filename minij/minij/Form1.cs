@@ -54,7 +54,8 @@ namespace minij
 
         private void analizeLex_btn_Click(object sender, EventArgs e)
         {
-            Data.Instance.fr.LexicalAnalysis(fileTextBox.Text);
+            string output = Data.Instance.fr.LexicalAnalysis(fileTextBox.Text);
+            MessageBox.Show(output);
         }
     }
 }
