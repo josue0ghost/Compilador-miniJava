@@ -39,6 +39,12 @@ namespace minij
             { "println", "T_Method"}
         };
 
+        List<string> operators = new List<string>() 
+        { "+", "-", "*", "/", "%", "<", "<=", ">", ">=", "=", "==",
+          "!=", "&&", "||", "!", ";", ",", ".", "[]", "()", "{}",
+          "[", "]", "(", ")", "{", "}" 
+        };
+
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +53,7 @@ namespace minij
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog oFD = new OpenFileDialog();
-            oFD.Filter = "txt files (*.txt)|*.txt";
+            oFD.Filter = "Frag files (*.frag)|*.frag";
             if (oFD.ShowDialog() == DialogResult.OK)
             {
                 fileTextBox.Text = Read(oFD.FileName);
@@ -59,7 +65,7 @@ namespace minij
             string freaded = "";
             using (StreamReader sr = new StreamReader(path))
             {
-                freaded = sr.ReadToEnd();
+                freaded = sr.ReadToEnd();               
             }
             return freaded;
         }
@@ -67,7 +73,7 @@ namespace minij
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFD = new SaveFileDialog();
-            saveFD.Filter = "txt files (*.txt)|*.txt";
+            saveFD.Filter = "Frag files (*.frag)|*.frag";
             if (saveFD.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter writer = new StreamWriter(saveFD.OpenFile()))
@@ -77,5 +83,63 @@ namespace minij
                 }
             }
         }
+
+        private void analizeLex_btn_Click(object sender, EventArgs e)
+        {
+            string temp = "";            
+            string response = "";
+            int cont = 1; 
+            string input = fileTextBox.Text;                       
+            List<string> lines = input.Split('\n').ToList();
+
+            foreach (string item in lines) 
+            {                
+                for (int i = 0; i < item.Length; i++)
+                {
+                    if (Char.IsWhiteSpace(item[i])) {
+                        if (temp != "")
+                        {
+                            response += AnalyzeString(item, temp, cont);
+                            temp = "";                            
+                        }
+                    }
+                    else if (operators.Contains(item[i].ToString()))
+                    {
+                        if (temp != "") 
+                        {
+                            response += AnalyzeString(item, temp, cont);
+                            temp = "";
+                            i--;
+                        }
+
+                    }
+                    else
+                    {
+                        temp += item[i];
+                    }
+                }
+
+                cont++;
+            }
+            MessageBox.Show(response);
+        }
+
+        public string AnalyzeString(string line, string input, int cont) {            
+            //check the dictionary for reserved words 
+            if (reserved.ContainsKey(input))
+            {
+                int start = line.IndexOf(input) + 1;
+                int end = start + input.Length - 1; 
+                var result = reserved.Where(pair => pair.Key == input).ToArray();                
+                return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
+            }
+            return "";
+        }
+
+        public string AnalyzeOperator(string input) {
+            return "";
+        }
+
+
     }
 }
