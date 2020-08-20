@@ -117,7 +117,7 @@ namespace minij
 
         public string AnalyzeOperator(string line, string input, int cont, int index)
         {
-            int start = line.IndexOf(input, index) + 1;
+            int start = line.IndexOf(input, index) + 1;            
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");

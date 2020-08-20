@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace minij
 {
-	static class RegularExpressions
+	class RegularExpressions
 	{
 		// Formato:
 		//static Regex id = new Regex("pattern");
+		public void RecognizeString()
+        {
+			string pattern = "\\\"(.*?)\\\""; // si es una cadena 
+			string pattern2 = "\\\"\\w+"; // string sin terminar 
+			string pattern3 = "[\\0+\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres
+			Regex rgx = new Regex(pattern3);
+		}
 
 	}
 }
