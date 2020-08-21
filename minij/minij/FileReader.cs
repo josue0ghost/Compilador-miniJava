@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace minij
 {
@@ -42,57 +43,31 @@ namespace minij
 
 
         public string LexicalAnalysis(string input) 
-        {
-            string temp = "";
+        {            
             string response = "";
             int cont = 1;            
             List<string> lines = input.Split('\n').ToList();
 
-            foreach (string item in lines)
+            foreach (string line in lines)
             {
-                for (int i = 0; i < item.Length; i++)
+                string[] items = Regex.Split(line, "\\s+");
+                
+                foreach (var item in items)
                 {
-                    if (Char.IsWhiteSpace(item[i]))
+                    if (!string.IsNullOrWhiteSpace(item))
                     {
-                        if (temp != "")
+                        if (reserved.ContainsKey(item))
                         {
-                            response += AnalyzeString(item, temp, cont);
-                            temp = "";
+                            response += FormatReserved(line, item, cont);
                         }
-                    }
-                    else if (operators.Contains(item[i].ToString()))
-                    {
-                        if (temp != "")
+                        else if (operators.Contains(item))
                         {
-                            response += AnalyzeString(item, temp, cont);
-                            temp = "";
-                            i--;
+                            response += FormatOperator(line, item, cont);
                         }
                         else
                         {
-                            //check if the next char is operator                                                     
-                            if (item.Length > 1)
-                            {
-                                if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
-                                {
-                                    lines.IndexOf(item);
-                                    response += AnalyzeOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
-                                    i++;
-                                }
-                                else
-                                {
-                                    response += AnalyzeOperator(item, item[i].ToString(), cont, i);
-                                }
-                            }
-                            else
-                            {
-                                response += AnalyzeOperator(item, item[i].ToString(), cont, i);
-                            }
+
                         }
-                    }
-                    else
-                    {
-                        temp += item[i];
                     }
                 }
                 cont++;
@@ -101,23 +76,27 @@ namespace minij
             return response; 
         }
 
-        public string AnalyzeString(string line, string input, int cont)
+        public string FormatReserved(string line, string input, int cont)
         {
-            //check the dictionary for reserved words 
-            if (reserved.ContainsKey(input))
-            {
-                int start = line.IndexOf(input) + 1;
-                int end = start + input.Length - 1;
-                var result = reserved.Where(pair => pair.Key == input).ToArray();
-                Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
-                return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
-            }
-            return "";
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;
+            var result = reserved.Where(pair => pair.Key == input).ToArray();
+            Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
+            return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
         }
 
-        public string AnalyzeOperator(string line, string input, int cont, int index)
+        public string FormatOperator(string line, string input, int cont)
         {
-            int start = line.IndexOf(input, index) + 1;            
+            int start = line.IndexOf(input) + 1;            
+            int end = start + input.Length - 1;
+            var result = operators.Where(x => x.Equals(input)).ToArray();
+            Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
+            return $"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}\n";
+        }
+
+        public string FormatOperator(string line, string input, int cont, int index)
+        {
+            int start = line.IndexOf(input, index) + 1;
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
