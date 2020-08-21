@@ -103,6 +103,15 @@ namespace minij
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
         }
 
+        public string FormatIdentifier(string line, string input, int cont)
+        {
+            Match match = Regex.Match(input, RegularExpressions.idPattern, RegexOptions.IgnoreCase);
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;
+            string result = match.Value;
+            Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Identifier");
+            return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
+        }
         public string ReadString(string line, string input, int cont) 
         {
             string response = "";
