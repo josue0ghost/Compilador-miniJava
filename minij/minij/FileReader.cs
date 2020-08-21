@@ -48,29 +48,12 @@ namespace minij
             int cont = 1;            
             List<string> lines = input.Split('\n').ToList();
 
+            // 
             foreach (string line in lines)
             {
                 string[] items = Regex.Split(line, "\\s+");
                 
-                foreach (var item in items)
-                {
-                    if (!string.IsNullOrWhiteSpace(item))
-                    {
-                        if (reserved.ContainsKey(item))
-                        {
-                            response += FormatReserved(line, item, cont);
-                        }
-                        else if (operators.Contains(item))
-                        {
-                            response += FormatOperator(line, item, cont);
-                        }
-                        else
-                        {
-                            response += ReadString(line, item, cont);
-                        }
-                    }
-                }
-                cont++;
+                // leer programa
             }
 
             return response; 
@@ -111,57 +94,6 @@ namespace minij
             string result = match.Value;
             Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Identifier");
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
-        }
-        public string ReadString(string line, string input, int cont) 
-        {
-            string response = "";
-            string temp = "";
-
-            //read char by char 
-            for (int i = 0; i < input.Length; i++)
-            {
-                //check if the token is an operator
-                if (operators.Contains(input[i].ToString()))
-                {
-                    if (temp != "")
-                    {
-                        response += Analysis(line, temp, cont);
-                        temp = "";
-                        i--;
-                    }
-                    else
-                    {
-                        if (i + 1 < input.Length)
-                        {
-                            if (operators.Contains((input[i].ToString() + input[i + 1].ToString())))
-                            {
-                                line.IndexOf(input);
-                                response += FormatOperator(line, (input[i].ToString() + input[i + 1].ToString()), cont, i);
-                                i++;
-                            }
-                            else
-                            {
-                                response += FormatOperator(line, input[i].ToString(), cont, i);
-                            }
-                        }
-                        else
-                        {
-                            response += FormatOperator(line, input[i].ToString(), cont, i);
-                        }
-                    }
-                }
-                else
-                {
-                    temp += input[i];
-                }
-
-                if (temp != "" && i == input.Length - 1)
-                {
-                    response += Analysis(line, temp, cont);
-                }
-            }
-
-            return response;
         }
 
         public string Analysis(string line, string input, int cont) 
