@@ -17,7 +17,10 @@ namespace minij
 			string pattern2 = "\\\"\\w+"; // string sin terminar 
 			string pattern3 = "[\\0+\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres
 			Regex rgx = new Regex(pattern3);
+
+
 		}
 
+		public static string idPattern = @"\b[A-Z]+\b";
 	}
 }
