@@ -66,7 +66,7 @@ namespace minij
                         }
                         else
                         {
-
+                            response += ReadString(line, item, cont);
                         }
                     }
                 }
@@ -101,6 +101,68 @@ namespace minij
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
             return $"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}\n";
+        }
+
+        public string ReadString(string line, string input, int cont) 
+        {
+            string response = "";
+            string temp = "";
+
+            //read char by char 
+            for (int i = 0; i < input.Length; i++)
+            {
+                //check if the token is an operator
+                if (operators.Contains(input[i].ToString()))
+                {
+                    if (temp != "")
+                    {
+                        response += Analysis(line, temp, cont);
+                        temp = "";
+                        i--;
+                    }
+                    else
+                    {
+                        if (i + 1 < input.Length)
+                        {
+                            if (operators.Contains((input[i].ToString() + input[i + 1].ToString())))
+                            {
+                                line.IndexOf(input);
+                                response += FormatOperator(line, (input[i].ToString() + input[i + 1].ToString()), cont, i);
+                                i++;
+                            }
+                            else
+                            {
+                                response += FormatOperator(line, input[i].ToString(), cont, i);
+                            }
+                        }
+                        else
+                        {
+                            response += FormatOperator(line, input[i].ToString(), cont, i);
+                        }
+                    }
+                }
+                else
+                {
+                    temp += input[i];
+                }
+
+                Console.WriteLine(temp);
+            }
+
+            return response;
+        }
+
+        public string Analysis(string line, string input, int cont) 
+        {
+            if (reserved.ContainsKey(input))
+            {
+                return FormatReserved(line, input, cont);
+            }
+            else
+            {
+                //use regex
+            }
+            return "";
         }
     }
 }
