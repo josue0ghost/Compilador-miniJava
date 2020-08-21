@@ -91,7 +91,7 @@ namespace minij
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
-            return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
+            return $"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}\n";
         }
 
         public string FormatOperator(string line, string input, int cont, int index)
@@ -100,7 +100,7 @@ namespace minij
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
-            return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
+            return $"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}\n";
         }
 
         public string ReadString(string line, string input, int cont) 
@@ -146,10 +146,7 @@ namespace minij
                     temp += input[i];
                 }
 
-                if (temp != "" && i == input.Length - 1)
-                {
-                    response += Analysis(line, temp, cont);
-                }
+                Console.WriteLine(temp);
             }
 
             return response;
@@ -161,9 +158,9 @@ namespace minij
             {
                 return FormatReserved(line, input, cont);
             }
-            else if (input.Contains("\"")) // use regex
+            else
             {
-                return RegularExpressions.RecognizeString(line, input, cont);
+                //use regex
             }
             return "";
         }
