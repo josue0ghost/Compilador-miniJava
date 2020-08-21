@@ -61,5 +61,7 @@ namespace minij
 			return "";
 		}
 
+		public static string idPattern = @"\b[A-Z]+\b";
+
 	}
 }
