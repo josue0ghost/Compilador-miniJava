@@ -80,7 +80,7 @@ namespace minij
 			return "";
 		}
 
-		public static string idPattern = @"\b[A-Z]+\b";
+		public static string idPattern = @"[\$]*[A-Z]([A-Z0-9^\$])+\b";
 
 	}
 }
