@@ -54,7 +54,8 @@ namespace minij
 
         private void analizeLex_btn_Click(object sender, EventArgs e)
         {
-            string output = Data.Instance.fr.LexicalAnalysis(fileTextBox.Text);
+            string noComments = RegularExpressions.replaceCommentsToNothing(fileTextBox.Text);
+            string output = Data.Instance.fr.LexicalAnalysis(noComments);
             MessageBox.Show(output);
         }
     }

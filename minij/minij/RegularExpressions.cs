@@ -11,6 +11,25 @@ namespace minij
 	{
 		// Formato:
 		//static Regex id = new Regex("pattern");
+		public static string replaceCommentsToNothing(string input)
+		{
+			string blockComments = @"/\*(.*?)\*/";
+			string lineComments = @"//(.*?)\r?\n";
+			string strings = @"""((\\[^\n]|[^""\n])*)""";
+			string verbatimStrings = @"@(""[^""]*"")+";
+
+			string noComments = Regex.Replace(input, 
+				blockComments + "|" + lineComments + "|" + strings + "|" + verbatimStrings,
+				me => {
+					if (me.Value.StartsWith("/*") || me.Value.StartsWith("//"))
+						return me.Value.StartsWith("//") ? Environment.NewLine : "";
+					// Keep the literal strings
+					return me.Value;
+				},
+				RegexOptions.Singleline);
+			return noComments;
+		}
+
 		public static string RecognizeString(string line, string input, int cont)
 		{
 			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
