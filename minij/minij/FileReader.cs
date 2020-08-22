@@ -50,9 +50,7 @@ namespace minij
 
             // 
             foreach (string line in lines)
-            {
-                string[] items = Regex.Split(line, "\\s+");
-                
+            {                
                 // leer programa
             }
 
