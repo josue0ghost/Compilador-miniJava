@@ -165,8 +165,16 @@ namespace minij
         {            
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
-            Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is Token_Identifier");
+            Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_IntConstant");
             return $"'{input}'\t line {cont} cols {start}-{end} is T_IntConstant\n";
+        }
+
+        public string FormatBool(string line, string input, int cont)
+        {
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;
+            Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_BooleanConstant");
+            return $"'{input}'\t line {cont} cols {start}-{end} is T_BooleanConstant\n";
         }
 
         public string Analysis(string line, string input, int cont) 
@@ -182,6 +190,10 @@ namespace minij
             else if (Regex.Match(input, RegularExpressions.intPattern).Success)
             {
                 return FormatInt(line, input, cont);
+            }
+            else if (Regex.Match(input, RegularExpressions.boolean).Success)
+            {
+                return FormatBool(line, input, cont);
             }
             else
             {

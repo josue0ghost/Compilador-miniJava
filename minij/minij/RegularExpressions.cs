@@ -32,7 +32,7 @@ namespace minij
 
 		public static string RecognizeString(string line, string input, int cont)
 		{
-			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
+			string pattern = @"""((\\[^\n]|[^""\n])*)"""; ; // si es una cadena válida
 			string pattern2 = "\\\"(.*)?"; // string sin terminar 
 			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres			
 
@@ -86,6 +86,8 @@ namespace minij
 		public static string doublePattern = @"([1-9]\d+\.\d*|\d\.\d*)";
 
 		public static string exponent = @"([1-9]\d+\.\d*[eE][\+-]?\d+|\d\.\d*[eE][\+-]?\d+)";
+
+		public static string boolean = @"true|false";
 
 	}
 }
