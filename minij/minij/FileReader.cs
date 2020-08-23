@@ -9,6 +9,8 @@ namespace minij
 {
     class FileReader
     {
+        public static string errors = "";
+
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
             { "void", "T_void"},
@@ -183,8 +185,11 @@ namespace minij
                             if (!int.TryParse(item[i].ToString(), out int y))
                             {
                                 gettinInteger = false;
-                                response += Analysis(item, temp, cont);
-                                temp = "";
+                                if (temp != "")
+                                {
+                                    response += Analysis(item, temp, cont);
+                                    temp = "";
+                                }                                                              
                             }
                         }
                         //else if (gettinDouble && (item[i] != 'e' && item[i] != 'E'))
@@ -212,6 +217,7 @@ namespace minij
                     response += Analysis(item, temp, cont);
                     temp = "";
                 }
+
                 cont++;
             }
 
@@ -248,11 +254,30 @@ namespace minij
         public string FormatIdentifier(string line, string input, int cont)
         {
             Match match = Regex.Match(input, RegularExpressions.idPattern, RegexOptions.IgnoreCase);
-            int start = line.IndexOf(input) + 1;
-            int end = start + input.Length - 1;
-            string result = match.Value;
-            Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Identifier");
-            return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
+
+            if (match.Success)
+            {
+                int start = line.IndexOf(input) + 1;
+                int end = start + input.Length - 1;
+                string result = match.Value;
+                Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Identifier");
+                
+                if (input.Length > 31)
+                {
+                    errors += $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed identifier\n"; 
+                    return $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed\n";
+                }
+                else
+                {
+                    return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
+                }                
+            }
+            else 
+            {
+                errors += $"ERROR line {cont}, Unrecognized input: {input}\n";
+                return $"ERROR line {cont}, Unrecognized input: {input}\n";
+            }
+
         }
 
         public string FormatDouble(string line, string input, int cont, string result)
@@ -262,6 +287,7 @@ namespace minij
             Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Double");
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Double\n";
         }
+
         public string FormatInt(string line, string input, int cont)
         {            
             int start = line.IndexOf(input) + 1;

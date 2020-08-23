@@ -13,6 +13,7 @@ namespace minij
 {
     public partial class Form1 : Form
     {
+        string fileName = "";
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace minij
             if (oFD.ShowDialog() == DialogResult.OK)
             {
                 fileTextBox.Text = Read(oFD.FileName);
+                fileName = Path.GetFileName(oFD.FileName).Replace(".frag", ".out"); 
             }
         }
 
@@ -54,9 +56,32 @@ namespace minij
 
         private void analizeLex_btn_Click(object sender, EventArgs e)
         {
+            // create directory on project folder
+            string basePath = string.Format(@"{0}Outputs\", AppContext.BaseDirectory);
+            DirectoryInfo directory = Directory.CreateDirectory(basePath);
+
             string noComments = RegularExpressions.replaceCommentsToNothing(fileTextBox.Text);
             string output = Data.Instance.fr.LexicalAnalysis(noComments);
             MessageBox.Show(output);
+
+
+            if (output != "")
+            {
+                using (StreamWriter file = new StreamWriter(basePath + fileName))
+                {
+                    file.WriteLine(output);
+                    file.Close();
+                }
+            }
+
+            if (FileReader.errors != "")
+            {
+                using (StreamWriter file = new StreamWriter(basePath + "ERRORS-" + fileName))
+                {
+                    file.WriteLine(FileReader.errors);
+                    file.Close();
+                }
+            }
         }
     }
 }

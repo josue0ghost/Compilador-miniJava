@@ -32,9 +32,9 @@ namespace minij
 
 		public static string RecognizeString(string line, string input, int cont)
 		{
-			string pattern = @"""((\\[^\n]|[^""\n])*)"""; ; // si es una cadena válida
+			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
 			string pattern2 = "\\\"(.*)?"; // string sin terminar 
-			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres			
+			string pattern3 = "[\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres			
 
 			Regex rgx = new Regex(pattern);
 			Regex check = new Regex(pattern3);
@@ -61,6 +61,7 @@ namespace minij
 					}
 
 					aux += "INVALID STRING\n";
+					FileReader.errors += aux;
 					return aux; 
 				}
             }
@@ -71,7 +72,8 @@ namespace minij
 				
 				if (rgx.IsMatch(input))
 				{
-					return $"{input}\t line {cont} cols {start}-{end} ERROR, UNFINISHED STRING\n";
+					FileReader.errors += $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
+					return $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
 				}
 			}		
 			
@@ -81,7 +83,7 @@ namespace minij
 
 		public static string idPattern = @"[\$]*[A-Z]([A-Z0-9^\$])*\b";
 
-		public static string intPattern = @"(^[0-9]\d+|(0x|0X)(\d|[a-fA-F])+)";
+		public static string intPattern = @"(^[1-9]*\d+|(0x|0X)(\d|[a-fA-F])+)";
 
 		public static string doublePattern = @"(\d+\.\d*([eE][\+-]?\d+)?)";
 
