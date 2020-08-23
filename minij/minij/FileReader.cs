@@ -50,6 +50,7 @@ namespace minij
             List<string> lines = input.Split('\n').ToList();
             bool gettinStrings = false;
             bool gettinInteger = false;
+            bool concatNext = true;
             bool gettinDouble = false;
 
             foreach (string item in lines)
@@ -114,8 +115,9 @@ namespace minij
                                         response += FormatOperator(item, item[i].ToString(), cont, i);
                                     }
                                 }
-                                catch (Exception)
+                                catch (Exception) // operator is at the end of line
                                 {
+                                    response += FormatOperator(item, item[i].ToString(), cont, i);
                                 }
                             }
                             else
@@ -126,6 +128,7 @@ namespace minij
                     }
                     else
                     {
+                        List<char> hexDigits = new List<char>() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
                         if (item[i] == '"' && !gettinStrings)
                         {
                             gettinStrings = true;
@@ -136,9 +139,66 @@ namespace minij
                         }
                         else if (int.TryParse(item[i].ToString(), out int x) && !gettinStrings && temp == "")
                         {
-                            gettinInteger = true;
+                            try
+                            {
+                                if (x == 0 && (item[i + 1] == 'x' || item[i + 1] == 'X')) // posibility to being an hex value
+                                {
+                                    temp += item[i];
+                                    temp += item[i + 1];
+                                    i += 2;
+                                    gettinInteger = false;
+                                    while (i < item.Length)
+                                    {
+                                        if (hexDigits.Contains(item[i]))
+                                        {
+                                            temp += item[i];
+                                            i++;
+                                        }
+                                        else
+                                        {
+                                            i--;
+                                            concatNext = false;
+                                            break;
+                                        }
+                                    }
+                                    response += Analysis(item, temp, cont);
+                                }
+                                else
+                                {
+                                    gettinInteger = true;
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                gettinInteger = true;
+                            }
                         }
-                        temp += item[i];
+                        else if (gettinInteger)
+                        {
+                            if (!int.TryParse(item[i].ToString(), out int y))
+                            {
+                                gettinInteger = false;
+                                response += Analysis(item, temp, cont);
+                                temp = "";
+                            }
+                        }
+                        //else if (gettinDouble && (item[i] != 'e' && item[i] != 'E'))
+                        //{
+                        //    gettinDouble = false;
+                        //    response += Analysis(item, temp, cont);
+                        //    temp = "";
+                        //    i--;
+                        //    concatNext = false;
+                        //}
+
+                        if (concatNext)
+                        {
+                            temp += item[i];
+                        }
+                        else
+                        {
+                            concatNext = true;
+                        }
                     }
                 }
 
