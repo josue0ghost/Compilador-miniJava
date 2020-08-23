@@ -32,10 +32,9 @@ namespace minij
 
 		public static string RecognizeString(string line, string input, int cont)
 		{
-			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
+			string pattern = @"""((\\[^\n]|[^""\n])*)"""; ; // si es una cadena válida
 			string pattern2 = "\\\"(.*)?"; // string sin terminar 
-			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres
-			string pattern4 = "(.*)?\\\""; // string sin terminar 2
+			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres			
 
 			Regex rgx = new Regex(pattern);
 			Regex check = new Regex(pattern3);
@@ -85,6 +84,8 @@ namespace minij
 		public static string intPattern = @"([1-9]\d+|\d|(0x|0X)\d+[a-fA-F]+)";
 
 		public static string doublePattern = @"(\d+\.\d*([eE][\+-]?\d+)?)";
+
+		public static string boolean = @"true|false";
 
 	}
 }
