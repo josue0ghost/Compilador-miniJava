@@ -42,19 +42,64 @@ namespace minij
         };
 
 
-        public string LexicalAnalysis(string input) 
-        {            
+        public string LexicalAnalysis(string input)
+        {
+            string temp = "";
             string response = "";
-            int cont = 1;            
+            int cont = 1;
             List<string> lines = input.Split('\n').ToList();
 
-            // 
-            foreach (string line in lines)
-            {                
-                // leer programa
+            foreach (string item in lines)
+            {
+                for (int i = 0; i < item.Length; i++)
+                {
+                    if (Char.IsWhiteSpace(item[i]))
+                    {
+                        if (temp != "")
+                        {
+                            response += Analysis(item, temp, cont);
+                            temp = "";
+                        }
+                    }
+                    else if (operators.Contains(item[i].ToString()))
+                    {
+                        if (temp != "")
+                        {
+                            response += Analysis(item, temp, cont);
+                            temp = "";
+                            i--;
+                        }
+                        else
+                        {
+                            //check if the next char is operator                                                     
+                            if (item.Length > 1)
+                            {
+                                if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                {
+                                    lines.IndexOf(item);
+                                    response += FormatOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
+                                    i++;
+                                }
+                                else
+                                {
+                                    response += FormatOperator(item, item[i].ToString(), cont, i);
+                                }
+                            }
+                            else
+                            {
+                                response += FormatOperator(item, item[i].ToString(), cont, i);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        temp += item[i];
+                    }
+                }
+                cont++;
             }
 
-            return response; 
+            return response;
         }
 
         public string FormatReserved(string line, string input, int cont)
