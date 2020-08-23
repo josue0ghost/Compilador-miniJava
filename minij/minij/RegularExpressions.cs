@@ -34,8 +34,7 @@ namespace minij
 		{
 			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
 			string pattern2 = "\\\"(.*)?"; // string sin terminar 
-			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres
-			string pattern4 = "(.*)?\\\""; // string sin terminar 2
+			string pattern3 = "[\\0\r\n\\\"]"; // si contiene cualquiera de estos 3 caracteres			
 
 			Regex rgx = new Regex(pattern);
 			Regex check = new Regex(pattern3);

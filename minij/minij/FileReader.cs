@@ -161,6 +161,14 @@ namespace minij
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
         }
 
+        public string FormatInt(string line, string input, int cont)
+        {            
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;
+            Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is Token_Identifier");
+            return $"'{input}'\t line {cont} cols {start}-{end} is T_IntConstant\n";
+        }
+
         public string Analysis(string line, string input, int cont) 
         {
             if (reserved.ContainsKey(input))
@@ -171,11 +179,14 @@ namespace minij
             {
                 return RegularExpressions.RecognizeString(line, input, cont);
             }
+            else if (Regex.Match(input, RegularExpressions.intPattern).Success)
+            {
+                return FormatInt(line, input, cont);
+            }
             else
             {
                 return FormatIdentifier(line, input, cont);
-            }
-            return "";
+            }           
         }
     }
 }
