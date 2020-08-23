@@ -84,9 +84,7 @@ namespace minij
 
 		public static string intPattern = @"([1-9]\d+|\d|(0x|0X)\d+[a-fA-F]+)";
 
-		public static string doublePattern = @"([1-9]\d+\.\d*|\d\.\d*)";
-
-		public static string exponent = @"([1-9]\d+\.\d*[eE][\+-]?\d+|\d\.\d*[eE][\+-]?\d+)";
+		public static string doublePattern = @"(\d+\.\d*([eE][\+-]?\d+)?)";
 
 	}
 }
