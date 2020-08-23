@@ -227,6 +227,7 @@ namespace minij
             {
                 Match match = Regex.Match(input, RegularExpressions.doublePattern);
                 return FormatDouble(line, input, cont, match.Value);
+            }
             else if (Regex.Match(input, RegularExpressions.intPattern).Success)
             {
                 return FormatInt(line, input, cont);
