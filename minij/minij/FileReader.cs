@@ -49,6 +49,8 @@ namespace minij
             int cont = 1;
             List<string> lines = input.Split('\n').ToList();
             bool gettinStrings = false;
+            bool gettinInteger = false;
+            bool gettinDouble = false;
 
             foreach (string item in lines)
             {
@@ -73,9 +75,26 @@ namespace minij
                     {
                         if (temp != "")
                         {
-                            response += Analysis(item, temp, cont);
-                            temp = "";
-                            i--;
+                            if (gettinStrings) // if a operator is between '"' is not really an operator
+                            {
+                                temp += item[i];
+                            }
+                            else if (gettinInteger && item[i] == '.') // if a '.' is after a number, is a double var
+                            {
+                                gettinInteger = false;
+                                gettinDouble = true;
+                                temp += item[i];
+                            }
+                            else if (gettinDouble && (item[i] == '+' || item[i] == '-')) // exponential double
+                            {
+                                temp += item[i];
+                            }
+                            else
+                            {
+                                response += Analysis(item, temp, cont);
+                                temp = "";
+                                i--;
+                            }
                         }
                         else
                         {
@@ -115,8 +134,18 @@ namespace minij
                         {
                             gettinStrings = false;
                         }
+                        else if (int.TryParse(item[i].ToString(), out int x) && !gettinStrings && temp == "")
+                        {
+                            gettinInteger = true;
+                        }
                         temp += item[i];
                     }
+                }
+
+                if (temp != "") // No analyzed item
+                {
+                    response += Analysis(item, temp, cont);
+                    temp = "";
                 }
                 cont++;
             }
@@ -161,6 +190,14 @@ namespace minij
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
         }
 
+        public string FormatDouble(string line, string input, int cont, string result)
+        {
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;
+            Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Double");
+            return $"'{result}'\t line {cont} cols {start}-{end} is Token_Double\n";
+        }
+
         public string Analysis(string line, string input, int cont) 
         {
             if (reserved.ContainsKey(input))
@@ -170,6 +207,11 @@ namespace minij
             else if (input.Contains("\"")) // use regex
             {
                 return RegularExpressions.RecognizeString(line, input, cont);
+            }
+            else if (Regex.Match(input, RegularExpressions.doublePattern).Success)
+            {
+                Match match = Regex.Match(input, RegularExpressions.doublePattern);
+                return FormatDouble(line, input, cont, match.Value);
             }
             else
             {
