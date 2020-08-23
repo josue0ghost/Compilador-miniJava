@@ -161,7 +161,12 @@ namespace minij
                                             break;
                                         }
                                     }
+                                    if (i == item.Length)
+                                    {
+                                        concatNext = false;
+                                    }
                                     response += Analysis(item, temp, cont);
+                                    temp = "";
                                 }
                                 else
                                 {
