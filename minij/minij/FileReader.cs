@@ -106,9 +106,13 @@ namespace minij
                             {
                                 try
                                 {
-                                    if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                    if (item[i].ToString() + item[i + 1].ToString() == "*/")
                                     {
-                                        lines.IndexOf(item);
+                                        response += FormatUnpairedComment(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
+                                        i++;
+                                    }
+                                    else if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                    {
                                         response += FormatOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
                                         i++;
                                     }
@@ -302,6 +306,14 @@ namespace minij
             int end = start + input.Length - 1;
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_BooleanConstant");
             return $"'{input}'\t line {cont} cols {start}-{end} is T_BooleanConstant\n";
+        }
+
+        public string FormatUnpairedComment(string line, string input, int cont, int index)
+        {
+            int start = line.IndexOf(input) + 1;
+            int end = start + input.Length - 1;          
+            errors += $"ERROR line {cont}, Unpaired comment: {input}\n";
+            return $"ERROR line {cont}, Unpaired comment: {input}\n";
         }
 
         public string Analysis(string line, string input, int cont) 
