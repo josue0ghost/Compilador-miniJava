@@ -48,6 +48,7 @@ namespace minij
             string response = "";
             int cont = 1;
             List<string> lines = input.Split('\n').ToList();
+            bool gettinStrings = false;
 
             foreach (string item in lines)
             {
@@ -57,8 +58,15 @@ namespace minij
                     {
                         if (temp != "")
                         {
-                            response += Analysis(item, temp, cont);
-                            temp = "";
+                            if (!gettinStrings)
+                            {
+                                response += Analysis(item, temp, cont);
+                                temp = "";
+                            }
+                            else
+                            {
+                                temp += item[i];
+                            }
                         }
                     }
                     else if (operators.Contains(item[i].ToString()))
@@ -74,15 +82,21 @@ namespace minij
                             //check if the next char is operator                                                     
                             if (item.Length > 1)
                             {
-                                if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                try
                                 {
-                                    lines.IndexOf(item);
-                                    response += FormatOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
-                                    i++;
+                                    if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
+                                    {
+                                        lines.IndexOf(item);
+                                        response += FormatOperator(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        response += FormatOperator(item, item[i].ToString(), cont, i);
+                                    }
                                 }
-                                else
+                                catch (Exception)
                                 {
-                                    response += FormatOperator(item, item[i].ToString(), cont, i);
                                 }
                             }
                             else
@@ -93,6 +107,14 @@ namespace minij
                     }
                     else
                     {
+                        if (item[i] == '"' && !gettinStrings)
+                        {
+                            gettinStrings = true;
+                        }
+                        else if (item[i] == '"' && gettinStrings)
+                        {
+                            gettinStrings = false;
+                        }
                         temp += item[i];
                     }
                 }
@@ -148,6 +170,10 @@ namespace minij
             else if (input.Contains("\"")) // use regex
             {
                 return RegularExpressions.RecognizeString(line, input, cont);
+            }
+            else
+            {
+                return FormatIdentifier(line, input, cont);
             }
             return "";
         }
