@@ -30,7 +30,7 @@ namespace minij
 			return noComments;
 		}
 
-		public static string RecognizeString(string line, string input, int cont)
+		public static string RecognizeString(string line, string input, int cont, bool lastLine)
 		{
 			string pattern = "\\\"(.*?)\\\""; // si es una cadena válida
 			string pattern2 = "\\\"(.*)?"; // string sin terminar 
@@ -53,7 +53,7 @@ namespace minij
 				}
                 else
                 {
-					string aux = $"{input}\t line {cont} cols {start}-{end} ERROR found ";
+					string aux = $"{input}\t line {cont} cols {start}-{end} ERROR, found ";
 
 					foreach (Match match in check.Matches(test))
 					{
@@ -72,8 +72,16 @@ namespace minij
 				
 				if (rgx.IsMatch(input))
 				{
-					FileReader.errors += $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
-					return $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
+                    if (lastLine)
+                    {
+						FileReader.errors += $"{input}\t line {cont} cols {start}-{end} ERROR, EOF on a string\n";
+						return $"{input}\t line {cont} cols {start}-{end} ERROR, EOF on a string\n";
+					}
+                    else
+                    {
+						FileReader.errors += $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
+						return $"{input}\t line {cont} cols {start}-{end} ERROR, Unfinished string\n";
+					}
 				}
 			}		
 			

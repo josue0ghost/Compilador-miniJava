@@ -65,7 +65,7 @@ namespace minij
                         {
                             if (!gettinStrings)
                             {
-                                response += Analysis(item, temp, cont);
+                                response += Analysis(item, temp, cont, cont == lines.Count);
                                 temp = "";
                             }
                             else
@@ -94,7 +94,7 @@ namespace minij
                             }
                             else
                             {
-                                response += Analysis(item, temp, cont);
+                                response += Analysis(item, temp, cont, cont == lines.Count);
                                 temp = "";
                                 i--;
                             }
@@ -171,7 +171,7 @@ namespace minij
                                     {
                                         concatNext = false;
                                     }
-                                    response += Analysis(item, temp, cont);
+                                    response += Analysis(item, temp, cont, cont == lines.Count);
                                     temp = "";
                                 }
                                 else
@@ -191,7 +191,7 @@ namespace minij
                                 gettinInteger = false;
                                 if (temp != "")
                                 {
-                                    response += Analysis(item, temp, cont);
+                                    response += Analysis(item, temp, cont, cont == lines.Count);
                                     temp = "";
                                 }                                                              
                             }
@@ -218,7 +218,7 @@ namespace minij
 
                 if (temp != "") // No analyzed item
                 {
-                    response += Analysis(item, temp, cont);
+                    response += Analysis(item, temp, cont, cont == lines.Count);
                     temp = "";
                 }
 
@@ -265,15 +265,24 @@ namespace minij
                 int end = start + input.Length - 1;
                 string result = match.Value;
                 Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Identifier");
-                
-                if (input.Length > 31)
+
+                var combined = reserved.Where(value => match.Value.Contains(value.Key)).ToArray();
+
+                if (combined.Length > 0) // identifier contains a keyword
                 {
-                    errors += $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed identifier\n"; 
-                    return $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed\n";
+                    return $"'{result}'\t line {cont} cols {start}-{end}, Identifier contains '{combined[0].Key}' keyword\n";
                 }
                 else
                 {
-                    return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
+                    if (input.Length > 31)
+                    {
+                        errors += $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed identifier\n";
+                        return $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed\n";
+                    }
+                    else
+                    {
+                        return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
+                    }
                 }                
             }
             else 
@@ -316,7 +325,7 @@ namespace minij
             return $"ERROR line {cont}, Unpaired comment: {input}\n";
         }
 
-        public string Analysis(string line, string input, int cont) 
+        public string Analysis(string line, string input, int cont, bool lastLine) 
         {
             if (reserved.ContainsKey(input))
             {
@@ -324,7 +333,7 @@ namespace minij
             }
             else if (input.Contains("\"")) // use regex
             {
-                return RegularExpressions.RecognizeString(line, input, cont);
+                return RegularExpressions.RecognizeString(line, input, cont, lastLine);
             }
             else if (Regex.Match(input, RegularExpressions.doublePattern).Success)
             {
