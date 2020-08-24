@@ -207,7 +207,14 @@ namespace minij
 
                         if (concatNext)
                         {
-                            temp += item[i];
+                            if (RegularExpressions.Validate(item[i].ToString()) || operators.Contains(item[i].ToString()))
+                            {
+                                temp += item[i];
+                            }
+                            else
+                            {
+                                response += FormatIdentifier(item, item[i].ToString(), cont);
+                            }                   
                         }
                         else
                         {

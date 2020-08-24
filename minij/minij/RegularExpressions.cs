@@ -89,13 +89,22 @@ namespace minij
 			return "";
 		}
 
-		public static string idPattern = @"[\$]*[A-Z]([A-Z0-9^\$])*\b";
+		public static bool Validate(string input)
+		{			            
+			if (Regex.IsMatch(input, @"[\w$\d\""]"))
+            {
+				return true;  
+            }
+
+			return false;
+		}
+
+		public static string idPattern = @"^[\$]*[A-Z]([A-Z0-9^\$])*\b";
 
 		public static string intPattern = @"(^[1-9]*\d+|(0x|0X)(\d|[a-fA-F])+)";
 
 		public static string doublePattern = @"(\d+\.\d*([eE][\+-]?\d+)?)";
 
-		public static string boolean = @"true|false";
-
+		public static string boolean = @"true|false";		
 	}
 }
