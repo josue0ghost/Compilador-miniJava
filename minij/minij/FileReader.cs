@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace minij
 {
@@ -110,6 +111,11 @@ namespace minij
                                     {
                                         response += FormatUnpairedComment(item, (item[i].ToString() + item[i + 1].ToString()), cont, i);
                                         i++;
+                                    }
+                                    else if (item[i].ToString() + item[i + 1].ToString() == "/*")
+                                    {
+                                        response += FormatEOF(item, (item[i].ToString() + item[i + 1].ToString()), cont);
+                                        break;
                                     }
                                     else if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
                                     {
@@ -260,6 +266,13 @@ namespace minij
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
+        }
+
+        public string FormatEOF(string lines, string input, int cont)
+        {
+            int start = lines.IndexOf(input) + 1;    
+            errors += $"{input}\t line {cont} cols {start} ERROR, EOF on a comment\n"; 
+            return $"{input}\t line {cont} cols {start} ERROR, EOF on a comment\n";
         }
 
         public string FormatIdentifier(string line, string input, int cont)
