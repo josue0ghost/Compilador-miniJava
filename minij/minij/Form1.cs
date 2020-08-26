@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace minij
@@ -22,11 +23,11 @@ namespace minij
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog oFD = new OpenFileDialog();
-            oFD.Filter = "Frag files (*.frag)|*.frag";
+            //oFD.Filter = "Frag files (*.frag)|*.frag";
             if (oFD.ShowDialog() == DialogResult.OK)
             {
                 fileTextBox.Text = Read(oFD.FileName);
-                fileName = Path.GetFileName(oFD.FileName).Replace(".frag", ".out"); 
+                fileName = Path.GetFileName(oFD.FileName).Replace(Path.GetExtension(oFD.FileName), ".out");
             }
         }
 
