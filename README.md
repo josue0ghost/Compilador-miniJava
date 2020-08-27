@@ -26,4 +26,7 @@ El manejo de errores incluye para los identificadores, si las cadenas analizadas
 
 ## Fuentes 
 *Regex Class* (s.f.) Microsoft Documentation. Recuperado de: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1.
+
+
+
 *Regex para eliminar los comentarios de línea de C #* it-swarm.dev. Recuperado de: https://www.it-swarm.dev/es/c%23/regex-para-eliminar-los-comentarios-de-linea-de-c/969223761/.
