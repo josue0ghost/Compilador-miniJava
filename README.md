@@ -23,3 +23,7 @@ Las expresiones regulares utilizadas son:
 Adicional a estas expresiones regulares, se cuenta con el método ***Validate***, que revisa que los caracteres sean válidos, cualquier caracter que no pertenezca a los especificados serán ignorados y reportados. El método utiliza la siguente expresión regular: ***@"[\w$\d\""]"***.
 
 El manejo de errores incluye para los identificadores, si las cadenas analizadas no pertenecen a los identificadores se reportan como entradas no reconocidas, si los identificadores tienen una longitud que sobrepasa los 31 caracteres se truncan los siguientes y se reporta el error. El análisis de todos los tokens se muestra en pantalla además de generar dos archivos, uno general para la salida de todos los tokens y otro donde se reportan solo los errores, ambos generados en el directorio del proyecto: /bin/Debug/Outputs.
+
+## Fuentes 
+*Regex Class* (s.f.) Microsoft Documentation. Recuperado de: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1.
+*Regex para eliminar los comentarios de línea de C #* it-swarm.dev. Recuperado de: https://www.it-swarm.dev/es/c%23/regex-para-eliminar-los-comentarios-de-linea-de-c/969223761/.
