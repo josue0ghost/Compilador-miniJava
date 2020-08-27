@@ -62,7 +62,7 @@ namespace minij
             DirectoryInfo directory = Directory.CreateDirectory(basePath);
 
             string noComments = RegularExpressions.replaceCommentsToNothing(fileTextBox.Text);
-            string output = Data.Instance.fr.LexicalAnalysis(noComments);
+            string output = Data.Instance.fr.LexicalAnalysis(noComments, fileTextBox.Text.Split('\n').ToList());
             MessageBox.Show(output);
 
 

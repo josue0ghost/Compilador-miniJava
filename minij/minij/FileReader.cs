@@ -45,12 +45,14 @@ namespace minij
         };
 
 
-        public string LexicalAnalysis(string input)
+        public string LexicalAnalysis(string input, List<string> origin)
         {
             string temp = "";
             string response = "";
-            int cont = 1;
+            //int cont = 1;
+
             List<string> lines = input.Split('\n').ToList();
+            //List<string> lines = Regex.Split(input, "\r\n").ToList();
             bool gettinStrings = false;
             bool gettinInteger = false;
             bool concatNext = true;
@@ -58,6 +60,7 @@ namespace minij
 
             foreach (string item in lines)
             {
+                int cont = origin.FindIndex(x => x.Contains(item.Replace("\r", ""))) + 1;
                 for (int i = 0; i < item.Length; i++)
                 {
                     if (Char.IsWhiteSpace(item[i]))
@@ -235,7 +238,7 @@ namespace minij
                     temp = "";
                 }
 
-                cont++;
+                //cont++;
             }
 
             return response;
