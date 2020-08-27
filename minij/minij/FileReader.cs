@@ -216,7 +216,7 @@ namespace minij
 
                         if (concatNext)
                         {
-                            if (RegularExpressions.Validate(item[i].ToString()) || operators.Contains(item[i].ToString()))
+                            if (RegularExpressions.Validate(item[i].ToString()) || operators.Contains(item[i].ToString()) || gettinStrings)
                             {
                                 temp += item[i];
                             }
