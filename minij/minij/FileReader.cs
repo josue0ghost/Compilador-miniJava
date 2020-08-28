@@ -57,6 +57,7 @@ namespace minij
             bool gettinInteger = false;
             bool concatNext = true;
             bool gettinDouble = false;
+            bool finish = false; 
 
             foreach (string item in lines)
             {
@@ -118,6 +119,7 @@ namespace minij
                                     else if (item[i].ToString() + item[i + 1].ToString() == "/*")
                                     {
                                         response += FormatEOF(item, (item[i].ToString() + item[i + 1].ToString()), cont);
+                                        finish = true; 
                                         break;
                                     }
                                     else if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
@@ -230,6 +232,11 @@ namespace minij
                             concatNext = true;
                         }
                     }
+                }
+
+                if (finish)
+                {
+                    break;
                 }
 
                 if (temp != "") // No analyzed item
