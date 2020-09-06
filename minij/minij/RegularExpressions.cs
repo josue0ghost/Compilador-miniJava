@@ -99,7 +99,7 @@ namespace minij
 			return false;
 		}
 
-		public static string idPattern = @"^[\$]*[A-Z]([A-Z0-9^\$])*\b";
+		public static string idPattern = @"[\$A-Za-z0-9]+";
 
 		public static string intPattern = @"(^[1-9]*\d+|(0x|0X)(\d|[a-fA-F])+)";
 

@@ -57,7 +57,7 @@ namespace minij
             bool gettinInteger = false;
             bool concatNext = true;
             bool gettinDouble = false;
-
+            bool eofMultiComment = false; /* /* */
             foreach (string item in lines)
             {
                 int cont = origin.FindIndex(x => x.Contains(item.Replace("\r", ""))) + 1;
@@ -118,6 +118,7 @@ namespace minij
                                     else if (item[i].ToString() + item[i + 1].ToString() == "/*")
                                     {
                                         response += FormatEOF(item, (item[i].ToString() + item[i + 1].ToString()), cont);
+                                        eofMultiComment = true;
                                         break;
                                     }
                                     else if (operators.Contains((item[i].ToString() + item[i + 1].ToString())))
@@ -232,7 +233,11 @@ namespace minij
                     }
                 }
 
-                if (temp != "") // No analyzed item
+				if (eofMultiComment)
+				{
+					break;
+				}
+				if (temp != "") // No analyzed item
                 {
                     response += Analysis(item, temp, cont, cont == lines.Count);
                     temp = "";
@@ -280,7 +285,7 @@ namespace minij
 
         public string FormatIdentifier(string line, string input, int cont)
         {
-            Match match = Regex.Match(input, RegularExpressions.idPattern, RegexOptions.IgnoreCase);
+            Match match = Regex.Match(input, RegularExpressions.idPattern);
 
             if (match.Success)
             {
@@ -297,7 +302,7 @@ namespace minij
                 }
                 else
                 {
-                    if (input.Length > 31)
+                    if (result.Length > 31)
                     {
                         errors += $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed identifier\n";
                         return $"'{result.Substring(0, 31)}...'\t line {cont} cols {start}-{end} ERROR, Length not allowed\n";
