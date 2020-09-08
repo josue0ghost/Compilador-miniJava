@@ -11,7 +11,7 @@ namespace minij
     class FileReader
     {
         public static string errors = "";
-        static Dictionary<string, string> tokens = new Dictionary<string, string>();
+        public static Dictionary<string, string> tokens = new Dictionary<string, string>();
 
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
