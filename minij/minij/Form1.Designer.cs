@@ -34,6 +34,7 @@
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analizeLex_btn = new System.Windows.Forms.Button();
+            this.parser = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,11 +89,22 @@
             this.analizeLex_btn.UseVisualStyleBackColor = true;
             this.analizeLex_btn.Click += new System.EventHandler(this.analizeLex_btn_Click);
             // 
+            // parser
+            // 
+            this.parser.Location = new System.Drawing.Point(533, 57);
+            this.parser.Name = "parser";
+            this.parser.Size = new System.Drawing.Size(130, 23);
+            this.parser.TabIndex = 3;
+            this.parser.Text = "Análisis Sintáctico";
+            this.parser.UseVisualStyleBackColor = true;
+            this.parser.Click += new System.EventHandler(this.parser_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 450);
+            this.Controls.Add(this.parser);
             this.Controls.Add(this.analizeLex_btn);
             this.Controls.Add(this.fileTextBox);
             this.Controls.Add(this.menuStrip1);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
 		private System.Windows.Forms.Button analizeLex_btn;
-	}
+        private System.Windows.Forms.Button parser;
+    }
 }
 

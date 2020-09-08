@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace minij
 {
     class RecursiveParser
     {
+<<<<<<< Updated upstream
         public bool MatchConstant(string sConst)
         {
             if (Regex.Match(sConst, RegularExpressions.intPattern).Success)
@@ -101,11 +103,37 @@ namespace minij
                 //MatchI_
             }
             else // epsilon
+=======
+        public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
+
+        public RecursiveParser() { }
+
+        public RecursiveParser(List<KeyValuePair<string, string>> input)
+        {
+            tokens = input; 
+        }
+
+        // Recibe el diccionario con todos los tokens leídos
+        public string Parse()       
+        {
+            for (int i = 0; i < tokens.Count; i++)
+            {
+
+            }
+            return "";
+        }
+
+
+        public bool Match(string expected)
+        {
+            if (true)
+>>>>>>> Stashed changes
             {
 
             }
         }
 
+<<<<<<< Updated upstream
         public void MatchH()
         {
             //MatchG
@@ -200,5 +228,44 @@ namespace minij
             }
           
         }
+=======
+
+        public void Program(int i)
+        {
+            Decl(i);
+        }
+
+        public void Decl(int i) {
+
+            // Variable
+            if (tokens[i].Value.Equals("T_ValueType"))
+            {
+                if (tokens[i + 1].Value.Equals("Token_Identifier"))
+                {
+                    if (tokens[i + 2].Value.Equals(";"))
+                    {
+                        VariableDecl();
+                    }
+                }                
+            }
+            else // func
+            {
+                FunctionDecl();
+            }
+        }
+
+        public void VariableDecl() 
+        {
+            Variable();
+        }
+
+        public void FunctionDecl() { }
+
+        public void Variable() { }
+
+        public void Type() { }
+
+
+>>>>>>> Stashed changes
     }
 }

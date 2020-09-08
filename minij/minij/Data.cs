@@ -19,5 +19,6 @@ namespace minij
 		}
 
 		public FileReader fr = new FileReader();
+		public RecursiveParser rp = new RecursiveParser();
 	}
 }

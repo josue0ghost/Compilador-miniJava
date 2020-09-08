@@ -84,5 +84,10 @@ namespace minij
                 }
             }
         }
+
+        private void parser_Click(object sender, EventArgs e)
+        {
+            Data.Instance.rp = new RecursiveParser(Data.Instance.fr.getTokens());
+        }
     }
 }
