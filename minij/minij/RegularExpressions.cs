@@ -106,6 +106,9 @@ namespace minij
 
 		public static string doublePattern = @"(\d+\.\d*([eE][\+-]?\d+)?)";
 
-		public static string boolean = @"true|false";		
+		public static string boolean = @"true|false";	
+		
+		public static string strPattern = "\\\"(.*?)\\\"";
+
 	}
 }
