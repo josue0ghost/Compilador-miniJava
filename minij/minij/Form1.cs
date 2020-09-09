@@ -83,11 +83,23 @@ namespace minij
                     file.Close();
                 }
             }
+
+            parser.Enabled = true;
         }
 
         private void parser_Click(object sender, EventArgs e)
         {
             Data.Instance.rp = new RecursiveParser(Data.Instance.fr.getTokens());
+            string output = Data.Instance.rp.Parse();
+
+            if (output == "")
+            {
+                MessageBox.Show("El archivo es sintácticamente correcto");
+            }
+            else
+            {
+                MessageBox.Show(output);
+            }
         }
     }
 }

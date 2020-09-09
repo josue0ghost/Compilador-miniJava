@@ -91,6 +91,7 @@
             // 
             // parser
             // 
+            this.parser.Enabled = false;
             this.parser.Location = new System.Drawing.Point(533, 57);
             this.parser.Name = "parser";
             this.parser.Size = new System.Drawing.Size(130, 23);

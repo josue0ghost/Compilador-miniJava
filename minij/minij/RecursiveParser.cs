@@ -11,59 +11,112 @@ namespace minij
     class RecursiveParser
     {
         public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
+        KeyValuePair<string, string> actual;
+        List<string> error = new List<string>();
 
         public RecursiveParser() { }
 
         public RecursiveParser(List<KeyValuePair<string, string>> input)
         {
             tokens = input;
+            actual = tokens.First();
+            tokens.Remove(actual);
         }
 
-        // Recibe el diccionario con todos los tokens leídos
-        public string Parse()
+        public string Parse() 
         {
-            for (int i = 0; i < tokens.Count; i++)
-            {
-
-            }
-            return "";
+            Program();
+            return string.Join("\n", error.ToArray()); 
         }
 
-        public void Program(int i)
+        public void GetNextToken()
         {
-            Decl(i);
-        }
-
-        public void Decl(int i)
-        {
-
-            // Variable
-            if (tokens[i].Value.Equals("T_ValueType"))
+            if (tokens.Count > 0)
             {
-                if (tokens[i + 1].Value.Equals("Token_Identifier"))
-                {
-                    if (tokens[i + 2].Value.Equals(";"))
-                    {
-                        VariableDecl();
-                    }
-                }
-            }
-            else // func
-            {
-                FunctionDecl();
+                actual = tokens.First();
+                tokens.Remove(actual);
             }
         }
 
-        public void VariableDecl()
+        public void Match(string expected)
         {
-            Variable();
+            if (actual.Value.Equals(expected))
+            {
+                GetNextToken();
+            }
+            else
+            {
+                Error(expected);
+            }
         }
 
-        public void FunctionDecl() { }
+        public void Error(string expected)
+        {
+            error.Add($"SYNTAX ERROR: expected {expected}, got {actual.Value}");
+        }
 
-        public void Variable() { }
+        public void Program()
+        {
+            Decl();
+        }
 
-        public void Type() { }
+        public void Decl()
+        {
+            if (VariableDecl() && error.Count > 0)
+            {
+                error.Remove(error.Last());
+            }
+            else if (FunctionDecl() && error.Count > 0)
+            {
+                error.Remove(error.Last());
+            }
+        }
+
+        public bool VariableDecl()
+        {
+            return Variable();            
+        }
+
+        public bool FunctionDecl() 
+        {
+
+            return false; 
+        }
+
+        public bool Variable() 
+        {
+            if (actual.Value.Equals("T_ValueType"))
+            {
+                Type();
+                Match("Token_Identifier");
+                Match(";");
+                return true; 
+            }
+            else
+            {
+                Error("T_ValueType");
+                return false; 
+            }
+
+        }
+
+        public void Type() 
+        {
+            if (actual.Value.Equals("T_ValueType"))
+            {
+                Match("T_ValueType");
+            }
+            else if (tokens.First().Key.Equals("[]")) // array 
+            {
+                Match("T_ValueType");
+                Match("[]");
+            }
+            else // variable
+            {
+                Error("T_ValueType");
+            }
+
+        }
 
         public bool MatchConstant(string sConst)
         {
