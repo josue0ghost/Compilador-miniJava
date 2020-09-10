@@ -74,12 +74,45 @@ namespace minij
 
         public bool VariableDecl()
         {
-            return Variable();            
+            bool flag = Variable();
+            Match(";");
+            return flag;
         }
 
         public bool FunctionDecl() 
         {
+            if (actual.Value.Equals("T_ValueType"))
+            {
+                Type();
+                Match("Token_Identifier");
+                Match("(");
 
+                // Formals es nullable
+                if (!tokens.First().Value.Equals(")"))
+                {
+                    Formals();
+                }                
+                Match(")");
+                Stmt();
+
+                return true;
+            }
+            else if (actual.Value.Equals("T_void"))
+            {
+                Match("void");
+                Match("Token_Identifier");
+                Match("(");
+
+                // Formals es nullable
+                if (!tokens.First().Value.Equals(")"))
+                {
+                    Formals();
+                }
+                Match(")");
+                Stmt();
+
+                return true;
+            }
             return false; 
         }
 
@@ -88,8 +121,7 @@ namespace minij
             if (actual.Value.Equals("T_ValueType"))
             {
                 Type();
-                Match("Token_Identifier");
-                Match(";");
+                Match("Token_Identifier");               
                 return true; 
             }
             else
@@ -115,6 +147,26 @@ namespace minij
             {
                 Error("T_ValueType");
             }
+
+        }
+
+        public void Formals()
+        {
+            Variable();
+
+            if (tokens.First().Value.Equals(","))
+            {
+                Match(",");
+            }
+
+            if (tokens.First().Value.Equals("T_ValueType"))
+            {
+                Formals();
+            }
+        }
+
+        public void Stmt()
+        { 
 
         }
 
