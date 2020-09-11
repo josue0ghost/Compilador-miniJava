@@ -69,7 +69,7 @@ namespace minij
 
         public void Error(string expected)
         {
-            error.Add($"SYNTAX ERROR: TOKEN: {actual.Key}, expected {expected}, got {actual.Value}");
+            error.Add($"SYNTAX ERROR: TOKEN: {actual.Key}. Expected {expected}, got {actual.Value}");
         }
 
         public void Program()
@@ -79,18 +79,10 @@ namespace minij
 
         public void Decl()
         {
-            if (Declaration().Equals(false)) // true indica que la derivación corresponde a esta producción
-            {
-                error.RemoveAt(error.Count - 1);
-            }
-            
-            if (Method().Equals(false))
-            {
-                error.RemoveAt(error.Count - 1);
-            }
+            Declaration();
         }
 
-        public bool Declaration()
+        public void Declaration()
         {
             if (actual.Value.Equals("T_ValueType"))
             {
@@ -111,19 +103,8 @@ namespace minij
                 {
                     Match("()");
                 }
-
-                return true;
             }
-            else
-            {
-                Error("T_ValueType");
-                return false; 
-            }
-        }
-
-        public bool Method() 
-        {
-            if (actual.Value.Equals("T_void"))
+            else if (actual.Value.Equals("T_void"))
             {
                 Match("T_void");
                 Match("Token_Identifier");
@@ -138,15 +119,13 @@ namespace minij
                 {
                     Match("()");
                 }
-
-                return true;
             }
             else
             {
-                Error("T_ValueType");
-                return false;
+                Error(actual.Value);
             }
         }
+
 
         public void Formals()
         {
