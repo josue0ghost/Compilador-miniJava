@@ -2,15 +2,18 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace minij
 {
     class RecursiveParser
     {
-        public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
+        public List<KeyValuePair<string, string>> tokens;
+        public List<KeyValuePair<string, string>> stack;
         KeyValuePair<string, string> actual;
         List<string> error = new List<string>();
 
@@ -19,6 +22,7 @@ namespace minij
         public RecursiveParser(List<KeyValuePair<string, string>> input)
         {
             tokens = input;
+            stack = new List<KeyValuePair<string, string>>();
             actual = tokens.First();
             tokens.Remove(actual);
         }
@@ -38,10 +42,22 @@ namespace minij
             }
         }
 
+        public void Revert()
+        {
+            int size = stack.Count();
+            for (int i = 0; i < size; i++)
+            {
+                tokens.Insert(0, stack.Last());
+                error.RemoveAt(error.Count - 1);
+                stack.RemoveAt(stack.Count - 1);
+            }
+        }
+
         public void Match(string expected)
         {
-            if (actual.Value.Equals(expected))
+            if (actual.Value.Equals(expected) || actual.Key.Equals(expected))
             {
+                stack.Add(actual);
                 GetNextToken();
             }
             else
@@ -62,22 +78,50 @@ namespace minij
 
         public void Decl()
         {
-            if (VariableDecl() && error.Count > 0)
+            if (Declaration().Equals(false)) // true indica que la derivación corresponde a esta producción
             {
-                error.Remove(error.Last());
+                Revert();
             }
-            else if (FunctionDecl() && error.Count > 0)
+            else if (Method().Equals(false))
             {
-                error.Remove(error.Last());
+                Revert();
             }
         }
 
-        public bool VariableDecl()
+        public bool Declaration()
         {
-            bool flag = Variable();
-            Match(";");
-            return flag;
+            if (actual.Value.Equals("T_ValueType"))
+            {
+                Type();
+                Match("Token_Identifier");
+
+                if (actual.Value.Equals(";"))
+                {
+                    Match(";");                   
+                }
+                else if (actual.Value.Equals("("))
+                {
+                    Match("(");
+                    Formals();
+                    Match(")");
+                }
+                else if (actual.Value.Equals("()"))
+                {
+                    Match("()");
+                }
+
+                return true;
+            }
+            else
+            {
+                Error("T_ValueType");
+                return false; 
+            }
         }
+
+        public bool Method() { return true;  }
+
+        public bool Formals() { return false;  } 
 
         public bool FunctionDecl() 
         {
@@ -116,59 +160,74 @@ namespace minij
             return false; 
         }
 
-        public bool Variable() 
-        {
-            if (actual.Value.Equals("T_ValueType"))
-            {
-                Type();
-                Match("Token_Identifier");               
-                return true; 
-            }
-            else
-            {
-                Error("T_ValueType");
-                return false; 
-            }
-
-        }
 
         public void Type() 
         {
             if (actual.Value.Equals("T_ValueType"))
             {
-                Match("T_ValueType");
+                if (tokens.First().Value.Equals("[]"))
+                {
+                    Match("T_ValueType"); // array
+                    Match("[]");
+                }
+                else
+                {
+                    Match("T_ValueType"); // type normal
+                }
             }
-            else if (tokens.First().Key.Equals("[]")) // array 
-            {
-                Match("T_ValueType");
-                Match("[]");
-            }
-            else // variable
+            else 
             {
                 Error("T_ValueType");
             }
 
         }
 
-        public void Formals()
-        {
-            Variable();
-
-            if (tokens.First().Value.Equals(","))
-            {
-                Match(",");
-            }
-
-            if (tokens.First().Value.Equals("T_ValueType"))
-            {
-                Formals();
-            }
-        }
 
         public void Stmt()
-        { 
-
+        {
+            if (WhileStmt() && error.Count > 0)
+            {
+                error.Remove(error.Last());
+            }
+            else if (ReturnStmt() && error.Count > 0)
+            {
+                error.Remove(error.Last());
+            }
         }
+
+        public bool WhileStmt() 
+        {
+            if (actual.Value.Equals("T_KeyWord"))
+            {
+                Match("while");
+                Match("(");
+                MatchExpr();
+                Match(")");
+                Stmt();
+                return true; 
+            }
+            else
+            {
+                Error("T_ValueType");
+                return false;
+            }
+        }
+
+        public bool ReturnStmt() 
+        {
+            if (actual.Value.Equals("T_KeyWord"))
+            {
+                Match("return");
+                
+                if (!tokens.First().Value.Equals(";"))
+                {
+                    MatchExpr();
+                }
+                Match(";");
+            }
+            return false; 
+        }
+ 
 
         public bool MatchConstant(string sConst)
         {
