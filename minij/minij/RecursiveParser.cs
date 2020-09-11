@@ -148,48 +148,17 @@ namespace minij
             }
         }
 
-        public bool Formals()
-        { 
-
-            return false;  
-        } 
-
-        public bool FunctionDecl() 
+        public void Formals()
         {
-            if (actual.Value.Equals("T_ValueType"))
+            Type();
+            Match("Token_Identifier");
+
+            if (actual.Value.Equals(","))
             {
-                Type();
-                Match("Token_Identifier");
-                Match("(");
-
-                // Formals es nullable
-                if (!tokens.First().Value.Equals(")"))
-                {
-                    Formals();
-                }                
-                Match(")");
-                Stmt();
-
-                return true;
-            }
-            else if (actual.Value.Equals("T_void"))
-            {
-                Match("void");
-                Match("Token_Identifier");
-                Match("(");
-
-                // Formals es nullable
-                if (!tokens.First().Value.Equals(")"))
-                {
-                    Formals();
-                }
-                Match(")");
-                Stmt();
-
-                return true;
-            }
-            return false; 
-        }
+                Match(",");
+                Formals();
+            }            
+        } 
 
 
         public void Type() 
