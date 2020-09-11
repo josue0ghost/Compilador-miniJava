@@ -80,10 +80,13 @@ namespace minij
         {
             if (Declaration().Equals(false)) // true indica que la derivación corresponde a esta producción
             {
+                error.RemoveAt(error.Count - 1);
                 Revert();
             }
-            else if (Method().Equals(false))
+            
+            if (Method().Equals(false))
             {
+                error.RemoveAt(error.Count - 1);
                 Revert();
             }
         }
@@ -119,7 +122,32 @@ namespace minij
             }
         }
 
-        public bool Method() { return true;  }
+        public bool Method() 
+        {
+            if (actual.Value.Equals("T_void"))
+            {
+                Match("T_void");
+                Match("Token_Identifier");
+
+                if (actual.Value.Equals("("))
+                {
+                    Match("(");
+                    Formals();
+                    Match(")");
+                }
+                else if (actual.Value.Equals("()"))
+                {
+                    Match("()");
+                }
+
+                return true;
+            }
+            else
+            {
+                Error("T_ValueType");
+                return false;
+            }
+        }
 
         public bool Formals() { return false;  } 
 
