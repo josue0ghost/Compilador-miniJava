@@ -63,12 +63,13 @@ namespace minij
             else
             {
                 Error(expected);
+                GetNextToken();
             }
         }
 
         public void Error(string expected)
         {
-            error.Add($"SYNTAX ERROR: expected {expected}, got {actual.Value}");
+            error.Add($"SYNTAX ERROR: TOKEN: {actual.Key}, expected {expected}, got {actual.Value}");
         }
 
         public void Program()
@@ -81,13 +82,11 @@ namespace minij
             if (Declaration().Equals(false)) // true indica que la derivación corresponde a esta producción
             {
                 error.RemoveAt(error.Count - 1);
-                Revert();
             }
             
             if (Method().Equals(false))
             {
                 error.RemoveAt(error.Count - 1);
-                Revert();
             }
         }
 
@@ -149,7 +148,11 @@ namespace minij
             }
         }
 
-        public bool Formals() { return false;  } 
+        public bool Formals()
+        { 
+
+            return false;  
+        } 
 
         public bool FunctionDecl() 
         {
