@@ -40,6 +40,11 @@ namespace minij
                 actual = tokens.First();
                 tokens.Remove(actual);
             }
+
+            if (actual.Value.Equals("{") || actual.Value.Equals("}"))
+            {
+                GetNextToken();
+            }
         }
 
         public void Revert()
@@ -98,10 +103,12 @@ namespace minij
                     Match("(");
                     Formals();
                     Match(")");
+                    Stmt();
                 }
                 else if (actual.Value.Equals("()"))
                 {
                     Match("()");
+                    Stmt();
                 }
             }
             else if (actual.Value.Equals("T_void"))
@@ -114,10 +121,12 @@ namespace minij
                     Match("(");
                     Formals();
                     Match(")");
+                    Stmt();
                 }
                 else if (actual.Value.Equals("()"))
                 {
                     Match("()");
+                    Stmt();
                 }
             }
             else
@@ -129,14 +138,21 @@ namespace minij
 
         public void Formals()
         {
-            Type();
-            Match("Token_Identifier");
-
-            if (actual.Value.Equals(","))
+            if (actual.Value.Equals("T_ValueType"))
             {
-                Match(",");
-                Formals();
-            }            
+                Type();
+                Match("Token_Identifier");
+                
+                if (actual.Value.Equals(","))
+                {
+                    Match(",");
+                    Formals();
+                }
+            }
+            else
+            {
+                Error("T_ValueType");
+            }
         } 
 
 
@@ -164,17 +180,17 @@ namespace minij
 
         public void Stmt()
         {
-            if (WhileStmt() && error.Count > 0)
+            if (actual.Key.Equals("while"))
             {
-                error.Remove(error.Last());
+                WhileStmt();
             }
-            else if (ReturnStmt() && error.Count > 0)
+            else if (actual.Key.Equals("return"))
             {
-                error.Remove(error.Last());
+                ReturnStmt();
             }
         }
 
-        public bool WhileStmt() 
+        public void WhileStmt() 
         {
             if (actual.Value.Equals("T_KeyWord"))
             {
@@ -183,28 +199,25 @@ namespace minij
                 MatchExpr();
                 Match(")");
                 Stmt();
-                return true; 
             }
             else
             {
-                Error("T_ValueType");
-                return false;
+                Error("T_KeyWord");
             }
         }
 
-        public bool ReturnStmt() 
+        public void ReturnStmt() 
         {
             if (actual.Value.Equals("T_KeyWord"))
             {
                 Match("return");
                 
-                if (!tokens.First().Value.Equals(";"))
+                if (!actual.Value.Equals(";"))
                 {
                     MatchExpr();
                 }
                 Match(";");
             }
-            return false; 
         }
  
 
