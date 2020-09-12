@@ -241,17 +241,9 @@ namespace minij
         {
             if (actual.Value.Equals("T_KeyWord"))
             {
-                Match("return");
-                
-<<<<<<< HEAD
-<<<<<<< HEAD
-                if (!actual.token.Value.Equals(";")) //&& !actual.Key.Equals("while") && !actual.Key.Equals("return"))
-=======
-                if (!actual.Value.Equals(";") && !actual.Key.Equals("while") && !actual.Key.Equals("return"))
->>>>>>> parent of e291633... adding line number
-=======
+                Match("return");               
+
                 if (!actual.Value.Equals(";")) //&& !actual.Key.Equals("while") && !actual.Key.Equals("return"))
->>>>>>> parent of 5a2d0ee... cambios
                 {
                     MatchExpr();
                 }
