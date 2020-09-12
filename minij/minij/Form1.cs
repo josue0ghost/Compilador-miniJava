@@ -44,7 +44,7 @@ namespace minij
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFD = new SaveFileDialog();
-            saveFD.Filter = "Frag files (*.frag)|*.frag";
+            saveFD.Filter = "Frag files (*.frag)|*.frag|(*.txt)|*.txt";
             if (saveFD.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter writer = new StreamWriter(saveFD.OpenFile()))
@@ -52,39 +52,45 @@ namespace minij
                     writer.WriteLine(fileTextBox.Text);
                     writer.Dispose();
                 }
+                fileName = fileTextBox.Text;
             }
         }
 
         private void analizeLex_btn_Click(object sender, EventArgs e)
         {
-            // create directory on project folder
-            string basePath = string.Format(@"{0}Outputs\", AppContext.BaseDirectory);
-            DirectoryInfo directory = Directory.CreateDirectory(basePath);
-
-            string noComments = RegularExpressions.replaceCommentsToNothing(fileTextBox.Text);
-            string output = Data.Instance.fr.LexicalAnalysis(noComments, fileTextBox.Text.Split('\n').ToList());
-            MessageBox.Show(output);
-
-
-            if (output != "")
+            if (fileName == "")
             {
-                using (StreamWriter file = new StreamWriter(basePath + fileName))
-                {
-                    file.WriteLine(output);
-                    file.Close();
-                }
+                MessageBox.Show("GUARDE EL ARCHIVO");
             }
-
-            if (FileReader.errors != "")
+            else
             {
-                using (StreamWriter file = new StreamWriter(basePath + "ERRORS-" + fileName))
-                {
-                    file.WriteLine(FileReader.errors);
-                    file.Close();
-                }
-            }
+                // create directory on project folder
+                string basePath = string.Format(@"{0}Outputs\", AppContext.BaseDirectory);
+                DirectoryInfo directory = Directory.CreateDirectory(basePath);
 
-            parser.Enabled = true;
+                string noComments = RegularExpressions.replaceCommentsToNothing(fileTextBox.Text);
+                string output = Data.Instance.fr.LexicalAnalysis(noComments, fileTextBox.Text.Split('\n').ToList());
+                MessageBox.Show(output);
+
+                if (output != "")
+                {
+                    using (StreamWriter file = new StreamWriter(basePath + fileName))
+                    {
+                        file.WriteLine(output);
+                        file.Close();
+                    }
+                }
+
+                if (FileReader.errors != "")
+                {
+                    using (StreamWriter file = new StreamWriter(basePath + "ERRORS-" + fileName))
+                    {
+                        file.WriteLine(FileReader.errors);
+                        file.Close();
+                    }
+                }
+                parser.Enabled = true;
+            }
         }
 
         private void parser_Click(object sender, EventArgs e)
