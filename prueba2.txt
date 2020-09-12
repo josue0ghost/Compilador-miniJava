@@ -1,0 +1,16 @@
+int cont;
+boolean main(){
+	cont = true
+	; return // se espera una expresión o (;) no palabra clave
+	while ( cont - cont ) {
+		while ( Condicion2 != false ) {
+			cont = cont + 1;
+			
+			Condicion2 = false;
+		}
+		cont = while (true); // no es posible realizar esta asignación
+		Condicion = false;
+	}
+
+	return 0;
+}

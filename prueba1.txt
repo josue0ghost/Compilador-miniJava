@@ -1,0 +1,14 @@
+int main(){
+	int cont;
+	while ( Condicion == true ) {
+		while ( Condicion2 != false ) {
+			cont = cont + 1;
+			
+			Condicion2 = false;
+		}
+		cont = cont + cont;
+		Condicion = false;
+	}
+
+	return 58;
+}
