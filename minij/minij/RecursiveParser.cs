@@ -43,7 +43,14 @@ namespace minij
 
             if (actual.Value.Equals("{") || actual.Value.Equals("}"))
             {
-                GetNextToken();
+                if (tokens.Count > 0)
+                {
+                    GetNextToken();
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
