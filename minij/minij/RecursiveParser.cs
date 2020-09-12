@@ -12,17 +12,17 @@ namespace minij
 {
     class RecursiveParser
     {
-        public List<KeyValuePair<string, string>> tokens;
-        public List<KeyValuePair<string, string>> stack;
-        KeyValuePair<string, string> actual;
+        public List<Lexeme> tokens;
+        //public List<KeyValuePair<string, string>> stack;
+        Lexeme actual;
         List<string> error = new List<string>();
 
         public RecursiveParser() { }
 
-        public RecursiveParser(List<KeyValuePair<string, string>> input)
+        public RecursiveParser(List<Lexeme> input)
         {
             tokens = input;
-            stack = new List<KeyValuePair<string, string>>();
+            //stack = new List<KeyValuePair<string, string>>();
             actual = tokens.First();
             tokens.Remove(actual);
         }
@@ -41,7 +41,7 @@ namespace minij
                 tokens.Remove(actual);
             }
 
-            if (actual.Value.Equals("{") || actual.Value.Equals("}"))
+            if (actual.token.Value.Equals("{") || actual.token.Value.Equals("}"))
             {
                 if (tokens.Count > 0)
                 {
@@ -54,22 +54,22 @@ namespace minij
             }
         }
 
-        public void Revert()
-        {
-            int size = stack.Count();
-            for (int i = 0; i < size; i++)
-            {
-                tokens.Insert(0, stack.Last());
-                error.RemoveAt(error.Count - 1);
-                stack.RemoveAt(stack.Count - 1);
-            }
-        }
+        //public void Revert()
+        //{
+        //    int size = stack.Count();
+        //    for (int i = 0; i < size; i++)
+        //    {
+        //        tokens.Insert(0, stack.Last());
+        //        error.RemoveAt(error.Count - 1);
+        //        stack.RemoveAt(stack.Count - 1);
+        //    }
+        //}
 
         public void Match(string expected)
         {
-            if (actual.Value.Equals(expected) || actual.Key.Equals(expected))
+            if (actual.token.Value.Equals(expected) || actual.token.Key.Equals(expected))
             {
-                stack.Add(actual);
+                //stack.Add(actual);
                 GetNextToken();
             }
             else
@@ -81,14 +81,14 @@ namespace minij
 
         public void Error(string expected)
         {
-            error.Add($"SYNTAX ERROR: TOKEN: {actual.Key}. Expected {expected}, got {actual.Value}");
+            error.Add($"SYNTAX ERROR: Expected '{expected}', got '{actual.token.Value}', line {actual.cont}.");
         }
 
         public void Program()
         {
             Decl();
 
-            if (actual.Value.Equals("T_ValueType") || actual.Value.Equals("T_void"))
+            if (actual.token.Value.Equals("T_ValueType") || actual.token.Value.Equals("T_void"))
             {
                 Program();
             }
@@ -101,41 +101,41 @@ namespace minij
 
         public void Declaration()
         {
-            if (actual.Value.Equals("T_ValueType"))
+            if (actual.token.Value.Equals("T_ValueType"))
             {
                 Type();
                 Match("Token_Identifier");
 
-                if (actual.Value.Equals(";"))
+                if (actual.token.Value.Equals(";"))
                 {
                     Match(";");                   
                 }
-                else if (actual.Value.Equals("("))
+                else if (actual.token.Value.Equals("("))
                 {
                     Match("(");
                     Formals();
                     Match(")");
                     Stmt();
                 }
-                else if (actual.Value.Equals("()"))
+                else if (actual.token.Value.Equals("()"))
                 {
                     Match("()");
                     Stmt();
                 }
             }
-            else if (actual.Value.Equals("T_void"))
+            else if (actual.token.Value.Equals("T_void"))
             {
                 Match("T_void");
                 Match("Token_Identifier");
 
-                if (actual.Value.Equals("("))
+                if (actual.token.Value.Equals("("))
                 {
                     Match("(");
                     Formals();
                     Match(")");
                     Stmt();
                 }
-                else if (actual.Value.Equals("()"))
+                else if (actual.token.Value.Equals("()"))
                 {
                     Match("()");
                     Stmt();
@@ -143,19 +143,19 @@ namespace minij
             }
             else
             {
-                Error(actual.Value);
+                Error(actual.token.Value);
             }
         }
 
 
         public void Formals()
         {
-            if (actual.Value.Equals("T_ValueType"))
+            if (actual.token.Value.Equals("T_ValueType"))
             {
                 Type();
                 Match("Token_Identifier");
                 
-                if (actual.Value.Equals(","))
+                if (actual.token.Value.Equals(","))
                 {
                     Match(",");
                     Formals();
@@ -170,9 +170,9 @@ namespace minij
 
         public void Type() 
         {
-            if (actual.Value.Equals("T_ValueType"))
+            if (actual.token.Value.Equals("T_ValueType"))
             {
-                if (tokens.First().Value.Equals("[]"))
+                if (tokens.First().token.Value.Equals("[]"))
                 {
                     Match("T_ValueType"); // array
                     Match("[]");
@@ -192,21 +192,21 @@ namespace minij
 
         public void Stmt()
         {
-            if (actual.Key.Equals("while"))
+            if (actual.token.Key.Equals("while"))
             {
                 WhileStmt();
                 Stmt();
             }
-            else if (actual.Key.Equals("return"))
+            else if (actual.token.Key.Equals("return"))
             {
                 ReturnStmt();
                 Stmt();
             }
             else if // deriva Expr
                 (
-                actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") || actual.Value.Equals("T_IntConstant") ||
-                actual.Value.Equals("Token_Double") || actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
-                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")
+                actual.token.Value.Equals("(") || actual.token.Value.Equals("Token_Identifier") || actual.token.Value.Equals("T_IntConstant") ||
+                actual.token.Value.Equals("Token_Double") || actual.token.Value.Equals("T_BooleanConstant") || actual.token.Value.Equals("T_StringConstant") ||
+                actual.token.Key.Equals("null") || actual.token.Key.Equals("this") || actual.token.Key.Equals("New") || actual.token.Value.Equals("-")
                 )
             {
                 MatchExpr();
@@ -223,7 +223,7 @@ namespace minij
 
         public void WhileStmt() 
         {
-            if (actual.Value.Equals("T_KeyWord"))
+            if (actual.token.Value.Equals("T_KeyWord"))
             {
                 Match("while");
                 Match("(");
@@ -239,7 +239,7 @@ namespace minij
 
         public void ReturnStmt() 
         {
-            if (actual.Value.Equals("T_KeyWord"))
+            if (actual.token.Value.Equals("return"))
             {
                 Match("return");
                 
@@ -248,7 +248,7 @@ namespace minij
                     MatchExpr();
                 }
 
-                if (actual.Value.Equals(";"))
+                if (actual.token.Value.Equals(";"))
                 {
                     Match(";");
                 }
@@ -262,9 +262,9 @@ namespace minij
 
         public void Constant(out bool match)
         {
-            if (actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") || 
-                actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") || 
-                actual.Value.Equals("null"))
+            if (actual.token.Value.Equals("T_IntConstant") || actual.token.Value.Equals("Token_Double") || 
+                actual.token.Value.Equals("T_BooleanConstant") || actual.token.Value.Equals("T_StringConstant") || 
+                actual.token.Value.Equals("null"))
             {
                 match = true;
             }
@@ -276,24 +276,26 @@ namespace minij
 
         public void MatchLValue()
         {
-            if (actual.Value.Equals("Token_Identifier"))
+            if (actual.token.Value.Equals("Token_Identifier"))
             {
                 GetNextToken();
                 return;
             }
-            else if (actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") ||
-                actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") ||
-                actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
-                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")) 
+            else if // deriva Expr
+                (
+                actual.token.Value.Equals("(") || actual.token.Value.Equals("Token_Identifier") || actual.token.Value.Equals("T_IntConstant") ||
+                actual.token.Value.Equals("Token_Double") || actual.token.Value.Equals("T_BooleanConstant") || actual.token.Value.Equals("T_StringConstant") ||
+                actual.token.Key.Equals("null") || actual.token.Key.Equals("this") || actual.token.Key.Equals("New") || actual.token.Value.Equals("-")
+                )
             {
                 GetNextToken();
                 MatchExpr();
-                if (actual.Value.Equals("."))
+                if (actual.token.Value.Equals("."))
                 {
                     GetNextToken();
                     Match("Token_Identifier");
                 }
-                else if (actual.Value.Equals("["))
+                else if (actual.token.Value.Equals("["))
                 {
                     GetNextToken();
                     MatchExpr();
@@ -315,7 +317,7 @@ namespace minij
 
         public void MatchExpr_()
         {
-            if (actual.Value.Equals("&&") || actual.Value.Equals("||"))
+            if (actual.token.Value.Equals("&&") || actual.token.Value.Equals("||"))
             {
                 GetNextToken();
                 MatchI();
@@ -331,7 +333,7 @@ namespace minij
 
         public void MatchI_()
         {
-            if (actual.Value.Equals("==") || actual.Value.Equals("!="))
+            if (actual.token.Value.Equals("==") || actual.token.Value.Equals("!="))
             {
                 GetNextToken();
                 MatchH();
@@ -347,7 +349,7 @@ namespace minij
 
         public void MatchH_()
         {
-            if (actual.Value.Equals("<") || actual.Value.Equals(">") || actual.Value.Equals("<=") || actual.Value.Equals(">="))
+            if (actual.token.Value.Equals("<") || actual.token.Value.Equals(">") || actual.token.Value.Equals("<=") || actual.token.Value.Equals(">="))
             {
                 GetNextToken();
                 MatchG();
@@ -363,7 +365,7 @@ namespace minij
 
         public void MatchG_()
         {
-            if (actual.Value.Equals("+") || actual.Value.Equals("-"))
+            if (actual.token.Value.Equals("+") || actual.token.Value.Equals("-"))
             {
                 GetNextToken();
                 MatchT();
@@ -379,7 +381,7 @@ namespace minij
 
         public void MatchT_()
         {
-            if (actual.Value.Equals("*") || actual.Value.Equals("/") || actual.Value.Equals("%"))
+            if (actual.token.Value.Equals("*") || actual.token.Value.Equals("/") || actual.token.Value.Equals("%"))
             {
                 GetNextToken();
                 MatchF();
@@ -390,25 +392,25 @@ namespace minij
         public void MatchF()
         {
             bool MatchedPrev = false;
-            if (actual.Value.Equals("(")) // (Expr)
+            if (actual.token.Value.Equals("(")) // (Expr)
             {
                 GetNextToken();
                 MatchExpr();
                 Match(")");
                 MatchedPrev = true;
             }
-            else if (actual.Value.Equals("T_ReferenceType"))
+            else if (actual.token.Value.Equals("T_ReferenceType"))
             {
                 GetNextToken();
                 MatchedPrev = true;
             }
-            else if (actual.Value.Equals("-")) // -Expr
+            else if (actual.token.Value.Equals("-")) // -Expr
             {
                 GetNextToken();
                 MatchExpr();
                 MatchedPrev = true;
             }
-            else if (actual.Key.Equals("null"))
+            else if (actual.token.Key.Equals("null"))
             {
                 GetNextToken();
                 Match("(");
@@ -430,7 +432,7 @@ namespace minij
                 actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-"))
                     {
                     MatchLValue();
-                    if (actual.Value.Equals("="))
+                    if (actual.token.Value.Equals("="))
                     {
                         GetNextToken();
                         MatchExpr();
