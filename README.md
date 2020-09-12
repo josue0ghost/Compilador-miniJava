@@ -2,7 +2,7 @@
 Este analizador cumple con la siguiente gramática:
 
 (Donde 'eps' representa una cadena vacía)
-'''
+```
 Program     ::=   Decl+
 Decl        ::=   Declaration |   Method
 Declaration ::=   Type ident Decl'
@@ -28,7 +28,7 @@ F'          ::=   Expr        |   eps
 LValue      ::=   ident       |   Expr LValue'
 LValue'     ::=   . ident     |   \[ Expr ]
 Constant    ::=   intConstant |   doubleConstant  | boolConstant  | stringConstant  |   null
-'''
+```
 
 Manejando los errores de forma que:
 * Si el token actual no está dentro del conjunto de tokens esperados en una producción, se muestra el token obtenido comparado con el token que se esperaba
