@@ -11,7 +11,7 @@ namespace minij
     class FileReader
     {
         public static string errors = "";
-        public static List<Lexeme> tokens = new List<Lexeme>();
+        public static List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();            
 
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
@@ -47,7 +47,7 @@ namespace minij
         };
 
 
-        public List<Lexeme> getTokens()
+        public List<KeyValuePair<string, string>> getTokens()
         {
             return tokens;
         }
@@ -262,7 +262,7 @@ namespace minij
             int end = start + input.Length - 1;
             var result = reserved.Where(pair => pair.Key == input).ToArray();
             Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
-            tokens.Add(new Lexeme(new KeyValuePair<string, string>(result[0].Key, result[0].Value), cont));
+            tokens.Add(new KeyValuePair<string, string>(result[0].Key, result[0].Value));
             return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
         }
 
@@ -272,7 +272,7 @@ namespace minij
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
-            tokens.Add(new Lexeme(new KeyValuePair<string, string>(result[0], result[0]), cont));
+            tokens.Add(new KeyValuePair<string, string>(result[0], result[0]));
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
         }
 
@@ -309,7 +309,7 @@ namespace minij
                     }
                     else
                     {
-                        tokens.Add(new Lexeme(new KeyValuePair<string, string>(result, "Token_Identifier"), cont));
+                        tokens.Add(new KeyValuePair<string, string>(result, "Token_Identifier"));
                         return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
                     }
                 }                
@@ -327,7 +327,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Double");
-            tokens.Add(new Lexeme(new KeyValuePair<string, string>(result, "Token_Double"), cont));
+            tokens.Add(new KeyValuePair<string, string>(result, "Token_Double"));
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Double\n";
         }
 
@@ -336,7 +336,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_IntConstant");
-            tokens.Add(new Lexeme(new KeyValuePair<string, string>(input, "T_IntConstant"), cont));
+            tokens.Add(new KeyValuePair<string, string>(input, "T_IntConstant"));
             return $"'{input}'\t line {cont} cols {start}-{end} is T_IntConstant\n";
         }
 
@@ -345,7 +345,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_BooleanConstant");
-            tokens.Add(new Lexeme(new KeyValuePair<string, string>(input, "T_BooleanConstant"), cont));
+            tokens.Add(new KeyValuePair<string, string>(input, "T_BooleanConstant"));
             return $"'{input}'\t line {cont} cols {start}-{end} is T_BooleanConstant\n";
         }
 

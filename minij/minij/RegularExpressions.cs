@@ -49,7 +49,7 @@ namespace minij
 				//validate the string
                 if (!check.IsMatch(test))
                 {
-					FileReader.tokens.Add(new Lexeme(new KeyValuePair<string, string>(input, "T_StringConstant"), cont));
+					FileReader.tokens.Add(new KeyValuePair<string, string>(input, "T_StringConstant"));
 					return $"{input}\t line {cont} cols {start}-{end} is T_StringConstant\n";
 				}
                 else
