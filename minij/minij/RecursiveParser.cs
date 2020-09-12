@@ -228,197 +228,186 @@ namespace minij
         }
  
 
-        public bool MatchConstant(string sConst)
+        public void Constant(out bool match, bool matching = true)
         {
-            if (Regex.Match(sConst, RegularExpressions.intPattern).Success)
+            if (Regex.Match(actual.Value, RegularExpressions.intPattern).Success)
             {
-                // es int
-                return true;
+                GetNextToken();
+                match = true;
             }
-            else if (Regex.Match(sConst, RegularExpressions.doublePattern).Success)
+            else if (Regex.Match(actual.Value, RegularExpressions.doublePattern).Success)
             {
-                // double
-                return true;
+                GetNextToken();
+                match = true;
             }
-            else if (Regex.Match(sConst, RegularExpressions.boolean).Success)
+            else if (Regex.Match(actual.Value, RegularExpressions.boolean).Success)
             {
-                // bool
-                return true;
+                GetNextToken();
+                match = true;
             }
-            else if (Regex.Match(sConst, RegularExpressions.strPattern).Success)
+            else if (Regex.Match(actual.Value, RegularExpressions.strPattern).Success)
             {
-                // string
-                return true;
+                GetNextToken();
+                match = true;
             }
-            else if (sConst == "null")
+            else if (actual.Value.Equals("null"))
             {
-                // null
-                return true;
+                GetNextToken();
+                match = true;
             }
-            return false;
+            else
+            {
+                if (matching) Error("T_Constant");
+                match = false;
+            }
         }
 
-        public bool MatchLValue(string token, string lookahead = "")
+        public void MatchLValue()
         {
-            if (MatchIdent(token))
+            if (actual.Value.Equals("Token_Identifier"))
             {
-                // id
-                return true;
+                GetNextToken();
+                return;
             }
-            else if (true) // MatchExpr()
+            else 
             {
-                if (lookahead == ".")
+                MatchExpr();
+                if (actual.Value.Equals("."))
                 {
-                    // MatchIdent
-                    return true;
+                    GetNextToken();
+                    Match("Token_Identifier");
                 }
-                else if (lookahead == "[")
+                else if (actual.Value.Equals("["))
                 {
-                    // MatchExpr()
-                    // if continues with "]" return correct
-                    return true;
+                    GetNextToken();
+                    MatchExpr();
+                    Match("]");
+                    GetNextToken();
                 }
             }
-            return false;
-        }
-
-        public bool MatchIdent(string sConst)
-        {
-            return Regex.Match(sConst, RegularExpressions.idPattern).Success;
         }
 
         public void MatchExpr()
         {
-            //MatchI();
-            // MatchExpr_
+            MatchI();
+            MatchExpr_();
         }
 
-        public void MatchExpr_(string token)
+        public void MatchExpr_()
         {
-            if (token == "&&" || token == "||")
+            if (actual.Value.Equals("&&") || actual.Value.Equals("||"))
             {
-                //MatchI
-                //MatchExpr_
-            }
-            else // epsilon
-            {
-
+                GetNextToken();
+                MatchI();
+                MatchExpr_();
             }
         }
 
         public void MatchI()
         {
-            //MatchH
-            //MatchI_
+            MatchH();
+            MatchI_();
         }
 
-        public void MatchI_(string token)
+        public void MatchI_()
         {
-            if (token == "==" || token == "!=")
+            if (actual.Value.Equals("==") || actual.Value.Equals("!="))
             {
-                //MatchH
-                //MatchI_
-            }
-            else // epsilon
-            {
-
+                GetNextToken();
+                MatchH();
+                MatchI_();
             }
         }
 
         public void MatchH()
         {
-            //MatchG
-            //MatchH_
+            MatchG();
+            MatchH_();
         }
 
-        public void MatchH_(string token)
+        public void MatchH_()
         {
-            if (token == "<" || token == ">" || token == "<=" || token == ">=")
+            if (actual.Value.Equals("<") || actual.Value.Equals(">") || actual.Value.Equals("<=") || actual.Value.Equals(">="))
             {
-                //MatchG
-                //MatchH_
-            }
-            else // epsilon
-            {
-
+                GetNextToken();
+                MatchG();
+                MatchH_();
             }
         }
 
         public void MatchG()
         {
-            //MatchT
-            //MatchG_
+            MatchT();
+            MatchG_();
         }
 
-        public void MatchG_(string token)
+        public void MatchG_()
         {
-            if (token == "+" || token == "-")
+            if (actual.Value.Equals("+") || actual.Value.Equals("-"))
             {
-                //MatchT
-                //MatchG_
-            }
-            else // epsilon
-            {
-
+                GetNextToken();
+                MatchT();
+                MatchG_();
             }
         }
 
         public void MatchT()
         {
-            //MatchF
-            //MatchT_
+            MatchF();
+            MatchT_();
         }
 
-        public void MatchT_(string token)
+        public void MatchT_()
         {
-            if (token == "*" || token == "/" || token == "%")
+            if (actual.Value.Equals("*") || actual.Value.Equals("/") || actual.Value.Equals("%"))
             {
-                //MatchF
-                //MatchT_
-            }
-            else // epsilon
-            {
-
+                GetNextToken();
+                MatchF();
+                MatchT_();
             }
         }
 
-        public void MatchF(string token, string lookahead)
+        public void MatchF()
         {
-            if (token == "(") // (Expr)
+            if (actual.Value.Equals("(")) // (Expr)
             {
                 MatchExpr();
-                if (lookahead == ")")
+                GetNextToken();
+                Match(")");
+            }
+            else if (actual.Value.Equals("T_ReferenceType"))
+            {
+                GetNextToken();
+            }
+            else if (actual.Value.Equals("-")) // -Expr
+            {
+                MatchExpr();
+                GetNextToken();
+            }
+            else if (actual.Value.Equals("T_KeyWord"))
+            {
+                GetNextToken();
+                Match("(");
+                Match("Token_Identifier");
+                Match(")");
+            }
+            else
+            {
+                Constant(out bool Match, false);
+                if (Match)
                 {
-                    // todo nice
+                    GetNextToken();
+                }
+                else
+                {
+                    MatchLValue();
+                    if (actual.Value.Equals("="))
+                    {
+                        GetNextToken();
+                        MatchExpr();
+                    } // | eps
                 }
             }
-            else if (token == "this")
-            {
-                // this
-            }
-            else if (token == "-") // -Expr
-            {
-                // MatchExpr()
-            }
-            else if (token == "New(")
-            {
-                MatchIdent(lookahead);
-                // if continues ")" then nice
-            }
-            else if (MatchConstant(token)) // MatchConstant()
-            {
-
-            }
-            else if (MatchLValue(token))
-            {
-                if (lookahead == "=") // LValue = Expr
-                {
-                    // MatchExpr(lookahead2)
-                }
-                // LValue
-            }
-
         }
-
     }
 }
