@@ -1,0 +1,3 @@
+int main(string prueba){
+   cont = cont + 10;
+}

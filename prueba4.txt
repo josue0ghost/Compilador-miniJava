@@ -1,0 +1,3 @@
+int main(string prueba,){ //Espera otra variable en los parámetros, no )
+   cont = cont + 10;
+}
