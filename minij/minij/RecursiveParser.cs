@@ -286,29 +286,24 @@ namespace minij
 
         public void Constant(out bool match, bool matching = true)
         {
-            if (Regex.Match(actual.Value, RegularExpressions.intPattern).Success)
+            if (actual.Value.Equals("T_IntConstant"))
             {
-                GetNextToken();
                 match = true;
             }
-            else if (Regex.Match(actual.Value, RegularExpressions.doublePattern).Success)
+            else if (actual.Value.Equals("Token_Double"))
             {
-                GetNextToken();
                 match = true;
             }
-            else if (Regex.Match(actual.Value, RegularExpressions.boolean).Success)
+            else if (actual.Value.Equals("T_BooleanConstant"))
             {
-                GetNextToken();
                 match = true;
             }
-            else if (Regex.Match(actual.Value, RegularExpressions.strPattern).Success)
+            else if (actual.Value.Equals("T_StringConstant"))
             {
-                GetNextToken();
                 match = true;
             }
             else if (actual.Value.Equals("null"))
             {
-                GetNextToken();
                 match = true;
             }
             else
