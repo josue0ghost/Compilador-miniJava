@@ -286,23 +286,9 @@ namespace minij
 
         public void Constant(out bool match, bool matching = true)
         {
-            if (actual.Value.Equals("T_IntConstant"))
-            {
-                match = true;
-            }
-            else if (actual.Value.Equals("Token_Double"))
-            {
-                match = true;
-            }
-            else if (actual.Value.Equals("T_BooleanConstant"))
-            {
-                match = true;
-            }
-            else if (actual.Value.Equals("T_StringConstant"))
-            {
-                match = true;
-            }
-            else if (actual.Value.Equals("null"))
+            if (actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") || 
+                actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") || 
+                actual.Value.Equals("null"))
             {
                 match = true;
             }
