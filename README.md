@@ -1,3 +1,40 @@
+# Analizador Sintáctico Descendente Recursivo
+Este analizador cumple con la siguiente gramática:
+
+(Donde 'eps' representa una cadena vacía)
+'''
+Program     ::=   Decl+
+Decl        ::=   Declaration |   Method
+Declaration ::=   Type ident Decl'
+Decl'       ::=   ( Formals ) Stmt* |   ;
+Method      ::=   void ident ( Formals ) Stmt*
+Formals     ::=   Variable+,  |   eps
+Variable    ::=   Type ident
+Stmt        ::=   WhileStmt   |   ReturnStmt  |   Expr ;
+WhileStmt   ::=   while ( Expr ) Stmt
+ReturnStmt  ::=   return Expr? ;
+Expr        ::=   I Expr'
+Expr'       ::=   && I Expr'  |   || I Expr'  |   eps
+I           ::=   H I'
+I'          ::=   == H I'     |   != H I'     |   eps
+H           ::=   G H'
+H'          ::=   < G H'      |   > G H'      |   >= G H'     |   <= G H'   |   eps
+G           ::=   T G'
+G'          ::=   + T G'      |   - T G'      |   eps
+T           ::=   F T'
+T'          ::=   * F T'      |   / F T'      |   % F T'      |   eps
+F           ::=   (Expr)      |   Constant    |   LValue F'   |   this      |   New(ident)  |   - Expr
+F'          ::=   Expr        |   eps
+LValue      ::=   ident       |   Expr LValue'
+LValue'     ::=   . ident     |   \[ Expr ]
+Constant    ::=   intConstant |   doubleConstant  | boolConstant  | stringConstant  |   null
+'''
+
+Manejando los errores de forma que:
+* Si el token actual no está dentro del conjunto de tokens esperados en una producción, se muestra el token obtenido comparado con el token que se esperaba
+* Si los tokens esperados en uno de los resultados de una producción no coinciden con el token actual, evaluar los tokens esperados del siguiente resultado de la expresión y repetir los mismos pasos
+* Si ningún resultado de una producción coincide con el token actual, este es un error y se muestra el token obtenido comparado con el token que se esperaba
+
 # Compilador-miniJava
 Como primer "filtro" en el analizador léxico se realiza una operación de sustitución a los comentarios, ya sean de una línea o multilínea con el método: ***replaceCommentsToNothing***, el cual tiene como parámetro una cadena. El argumento de este método es la lectura de todo el archivo, realizada en la clase Form1.cs en el método del botón de la interfaz de usuario ***analizeLex_btn_Click***.
 
