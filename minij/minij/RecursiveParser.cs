@@ -243,7 +243,7 @@ namespace minij
             {
                 Match("return");
                 
-                if (!actual.Value.Equals(";"))
+                if (!actual.Value.Equals(";") && !actual.Key.Equals("while") && !actual.Key.Equals("return"))
                 {
                     MatchExpr();
                 }
@@ -282,8 +282,14 @@ namespace minij
                 GetNextToken();
                 return;
             }
-            else 
+            else if // deriva Expr
+                (
+                actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") || actual.Value.Equals("T_IntConstant") ||
+                actual.Value.Equals("Token_Double") || actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
+                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")
+                )
             {
+                GetNextToken();
                 MatchExpr();
                 if (actual.Value.Equals("."))
                 {
@@ -297,6 +303,10 @@ namespace minij
                     Match("]");
                     GetNextToken();
                 }
+            }
+            else
+            {
+                Error("Expression");
             }
         }
 
@@ -382,34 +392,40 @@ namespace minij
 
         public void MatchF()
         {
+            bool MatchedPrev = false;
             if (actual.Value.Equals("(")) // (Expr)
             {
-                MatchExpr();
                 GetNextToken();
+                MatchExpr();
                 Match(")");
+                MatchedPrev = true;
             }
             else if (actual.Value.Equals("T_ReferenceType"))
             {
                 GetNextToken();
+                MatchedPrev = true;
             }
             else if (actual.Value.Equals("-")) // -Expr
             {
-                MatchExpr();
                 GetNextToken();
+                MatchExpr();
+                MatchedPrev = true;
             }
-            else if (actual.Value.Equals("T_KeyWord"))
+            else if (actual.Key.Equals("null"))
             {
                 GetNextToken();
                 Match("(");
                 Match("Token_Identifier");
                 Match(")");
+                MatchedPrev = true;
             }
-            else
-            {
+            
+            if (!MatchedPrev) {
                 Constant(out bool Match, false);
                 if (Match)
                 {
                     GetNextToken();
+                    MatchedPrev = true;
                 }
                 else
                 {
@@ -418,6 +434,7 @@ namespace minij
                     {
                         GetNextToken();
                         MatchExpr();
+                        MatchedPrev = true;
                     } // | eps
                 }
             }
