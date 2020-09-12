@@ -243,7 +243,7 @@ namespace minij
             {
                 Match("return");
                 
-                if (!actual.Value.Equals(";") && !actual.Key.Equals("while") && !actual.Key.Equals("return"))
+                if (!actual.Value.Equals(";")) //&& !actual.Key.Equals("while") && !actual.Key.Equals("return"))
                 {
                     MatchExpr();
                 }
@@ -260,7 +260,7 @@ namespace minij
         }
  
 
-        public void Constant(out bool match, bool matching = true)
+        public void Constant(out bool match)
         {
             if (actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") || 
                 actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") || 
@@ -270,7 +270,6 @@ namespace minij
             }
             else
             {
-                if (matching) Error("T_Constant");
                 match = false;
             }
         }
@@ -282,12 +281,10 @@ namespace minij
                 GetNextToken();
                 return;
             }
-            else if // deriva Expr
-                (
-                actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") || actual.Value.Equals("T_IntConstant") ||
-                actual.Value.Equals("Token_Double") || actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
-                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")
-                )
+            else if (actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") ||
+                actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") ||
+                actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
+                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")) 
             {
                 GetNextToken();
                 MatchExpr();
@@ -421,14 +418,17 @@ namespace minij
             }
             
             if (!MatchedPrev) {
-                Constant(out bool Match, false);
+                Constant(out bool Match);
                 if (Match)
                 {
                     GetNextToken();
                     MatchedPrev = true;
                 }
-                else
-                {
+                else if (actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") ||
+                actual.Value.Equals("T_IntConstant") || actual.Value.Equals("Token_Double") ||
+                actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
+                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-"))
+                    {
                     MatchLValue();
                     if (actual.Value.Equals("="))
                     {
@@ -436,6 +436,10 @@ namespace minij
                         MatchExpr();
                         MatchedPrev = true;
                     } // | eps
+                }
+                else
+                {
+                    Error("Constant or LValue");
                 }
             }
         }
