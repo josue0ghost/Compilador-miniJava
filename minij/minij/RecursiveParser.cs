@@ -81,7 +81,7 @@ namespace minij
 
         public void Error(string expected)
         {
-            error.Add($"SYNTAX ERROR: TOKEN: {actual.Key}. Expected {expected}, got {actual.Value}");
+            error.Add($"SYNTAX ERROR: Expected {expected} got {actual.Value}, got TOKEN: {actual.Key}");
         }
 
         public void Program()
