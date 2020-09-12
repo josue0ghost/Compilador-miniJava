@@ -197,54 +197,15 @@ namespace minij
                 ReturnStmt();
                 Stmt();
             }
-            else if (actual.Value.Equals("("))
+            else if // deriva Expr
+                (
+                actual.Value.Equals("(") || actual.Value.Equals("Token_Identifier") || actual.Value.Equals("T_IntConstant") ||
+                actual.Value.Equals("Token_Double") || actual.Value.Equals("T_BooleanConstant") || actual.Value.Equals("T_StringConstant") ||
+                actual.Key.Equals("null") || actual.Key.Equals("this") || actual.Key.Equals("New") || actual.Value.Equals("-")
+                )
             {
                 MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("Token_Identifier"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("T_IntConstant"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("Token_Double"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("T_BooleanConstant"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("T_StringConstant"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Key.Equals("null"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Key.Equals("this"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Key.Equals("New"))
-            {
-                MatchExpr();
-                Stmt();
-            }
-            else if (actual.Value.Equals("-"))
-            {
-                MatchExpr();
+                Match(";");
                 Stmt();
             }
             else // si ninguno de los anteriores está stmt no viene. 
