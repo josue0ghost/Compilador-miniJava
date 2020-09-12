@@ -190,10 +190,66 @@ namespace minij
             if (actual.Key.Equals("while"))
             {
                 WhileStmt();
+                Stmt();
             }
             else if (actual.Key.Equals("return"))
             {
                 ReturnStmt();
+                Stmt();
+            }
+            else if (actual.Value.Equals("("))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("Token_Identifier"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("T_IntConstant"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("Token_Double"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("T_BooleanConstant"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("T_StringConstant"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Key.Equals("null"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Key.Equals("this"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Key.Equals("New"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else if (actual.Value.Equals("-"))
+            {
+                MatchExpr();
+                Stmt();
+            }
+            else // si ninguno de los anteriores está stmt no viene. 
+            {
+                return;
             }
         }
 
