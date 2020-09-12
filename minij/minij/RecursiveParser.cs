@@ -87,6 +87,11 @@ namespace minij
         public void Program()
         {
             Decl();
+
+            if (actual.Value.Equals("T_ValueType") || actual.Value.Equals("T_void"))
+            {
+                Program();
+            }
         }
 
         public void Decl()
@@ -210,7 +215,9 @@ namespace minij
             }
             else // si ninguno de los anteriores está stmt no viene. 
             {
-                return;
+                //GetNextToken();
+                // Stmt();
+                return; 
             }
         }
 
@@ -240,7 +247,15 @@ namespace minij
                 {
                     MatchExpr();
                 }
-                Match(";");
+
+                if (actual.Value.Equals(";"))
+                {
+                    Match(";");
+                }
+                else
+                {
+                    Error(";");
+                }
             }
         }
  
