@@ -65,10 +65,16 @@ namespace CodeGen
                 if (actions[i] != "")
                 {
                     char[] act = actions[i].ToCharArray();
+                    string symbol = hAnalisis[i];
+                    if (symbol == "(coma)")
+                    {
+                        symbol = ",";
+                    }
+
 
                     if (int.TryParse(act[0].ToString(), out int s)) // IR_A
                     {
-                        func += "\tif(afterReduce && text.Peek() == \"" + hAnalisis[i] + "\"){\n";
+                        func += "\tif(afterReduce && text.Peek() == \"" + symbol + "\"){\n";
                         func += "\t\tstack.Push(" + numState + ");\n"; // insertar estado actual a pila de estados
                         func += "\t\tfooState" + s + "(false);\n";
                         func += "\t\tbreak;\n";
@@ -76,7 +82,7 @@ namespace CodeGen
                     }
                     else if (act[0] == 'd') // desplazamiento
                     {
-                        func += "\tif(input[0] == \"" + hAnalisis[i] + "\"){\n";
+                        func += "\tif(input[0] == \"" + symbol + "\"){\n";
                         func += "\t\tstack.Enqueue(" + act[1] + ");\n";
                         func += "\t\ttext.Enqueue();\n";
                         func += "\t\tinput.RemoveAt(0);\n";
@@ -88,7 +94,7 @@ namespace CodeGen
                     }
                     else if (act[0] == 'r')// reducción
                     {
-                        func += "\tif(text.Peek() == \"" + hAnalisis[i] + "\"){\n";
+                        func += "\tif(text.Peek() == \"" + symbol + "\"){\n";
 
                         func += "\t\tfor(int i = 0; i < " + prods[act[1]][2] + "; i++){\n"; // estado n [2] = # símbolos
                         func += "\t\t\tstack.Pop();\n";
@@ -103,7 +109,7 @@ namespace CodeGen
                     }
                     else if (actions[i] == "ACEPTAR") // aceptar
                     {
-                        func += "\tif(input[0] == \"" + hAnalisis[i] + "\"){\n";
+                        func += "\tif(input[0] == \"" + symbol + "\"){\n";
                         func += "\treturn true;\n";
                         func += "\t}\n";
                     }
