@@ -36,9 +36,7 @@ namespace CodeGen
              * #Prod,NT,#Simbolos
              * 1,E,3
              */
-            prods = fh.ReadFile(ref hProd, prodPath);
-            List<string> input = new List<string>();
-            
+            prods = fh.ReadFile(ref hProd, prodPath);           
             
             string ini = "public Stack<int> stack = new Stack<int>();\n";   // pila de estados
             ini += "public Stack<string> text = new Stack<string>();\n";    // texto analizado
@@ -94,14 +92,16 @@ namespace CodeGen
                     }
                     else if (act[0] == 'r')// reducción
                     {
+                        int index = int.Parse(act[1].ToString()) - 1;
+
                         func += "\tif(text.Peek() == \"" + symbol + "\"){\n";
 
-                        func += "\t\tfor(int i = 0; i < " + prods[act[1]][2] + "; i++){\n"; // estado n [2] = # símbolos
+                        func += "\t\tfor(int i = 0; i < " + prods[index][2] + "; i++){\n"; // estado n [2] = # símbolos
                         func += "\t\t\tstack.Pop();\n";
                         func += "\t\t\ttext.Pop();\n";
                         func += "\t\t}\n";
 
-                        func += "\t\ttext.Push(" + prods[act[1]][1] + ");\n"; // estado n [1] = izq de la producción
+                        func += "\t\ttext.Push(" + prods[index][1] + ");\n"; // estado n [1] = izq de la producción
 
                         func += "\t\tfooStateCAMBIAR();\n";
                         func += "\t\tbreak;\n";
@@ -116,7 +116,7 @@ namespace CodeGen
                 }
             }
 
-            func += "\treturn false";
+            func += "\treturn false\n";
 
             func += "}\n\n";
 

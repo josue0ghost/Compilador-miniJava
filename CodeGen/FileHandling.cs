@@ -40,7 +40,7 @@ namespace CodeGen
         {
             try
             {
-                using (var sw = new StreamWriter(path))
+                using (var sw = new StreamWriter(path, true))
                 {
                     sw.WriteLine(line);
                 }
