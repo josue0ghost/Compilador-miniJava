@@ -88,7 +88,29 @@ namespace minij
         private void button1_Click(object sender, EventArgs e)
         {
             LR parser = new LR();
-            parser.input = FileReader.tokens;
+
+            List<string> input = new List<string>();
+            string println = "";
+            for (int i = 0; i < FileReader.tokens.Count; i++)
+            {
+                if (FileReader.tokens[i] == "System")
+                {
+                    if ((i+4) <= FileReader.tokens.Count)
+                    {
+                        //-------- System------.----------out----------.------------println
+                        println = input[i] + input[i + 1] + input[i + 2] + input[i + 3] + input[i + 4];
+                        input.Add(println);
+
+                        i += 4;
+                    }
+                }
+                else
+                {
+                    input.Add(FileReader.tokens[i]);
+                }
+            }
+
+            parser.input = input;
             parser.stack.Push(0);
             parser.fooState0(false);
         }
