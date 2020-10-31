@@ -94,7 +94,7 @@ namespace CodeGen
                         int index = int.Parse(act.Substring(1)) - 1;
 
                         func += "\tif(text.Peek() == \"" + symbol + "\"){\n";
-                        func += "// reduccion por el estado " + index + "\n";
+                        func += "// reduccion por la produccion " + index + "\n";
                         func += "\t\tfor(int i = 0; i < " + prods[index][2] + "; i++){\n"; // estado n [2] = # símbolos
                         func += "\t\t\tstack.Pop();\n";
                         func += "\t\t\ttext.Pop();\n";
