@@ -48,6 +48,8 @@ namespace CodeGen
                 string func = writeFunctions(states[i], i);
                 fh.WriteFile(func, outputPath);
             }
+
+            fh.WriteFile(writeSwitch(), outputPath);
         }
 
         private string writeFunctions(string[] state, int numState)
@@ -84,8 +86,6 @@ namespace CodeGen
                         func += "\t\tstack.Push(" + num + ");\n";
                         func += "\t\ttext.Push(\"" + symbol + "\");\n";
                         func += "\t\tinput.RemoveAt(0);\n";
-
-                        func += "\t\tstack.Push(" + numState + ");\n";         // insertar estado actual a pila de estados
                         func += "\t\treturn fooState" + num + "(false);\n";
                         func += "\t}\n";
                     }
@@ -102,7 +102,7 @@ namespace CodeGen
 
                         func += "\t\ttext.Push(\"" + prods[index][1] + "\");\n"; // estado n [1] = izq de la producción
 
-                        func += "\t\treturn fooStateCAMBIAR();\n";
+                        func += "\t\treturn irA(stack.Peek());\n";
                         func += "\t}\n";
                     }
                     else if (actions[i] == "ACEPTAR") // aceptar
@@ -119,6 +119,21 @@ namespace CodeGen
             func += "}\n\n";
 
             return func;
+        }
+
+        private string writeSwitch()
+        {
+            string sw = "public bool irA(int stackTop){\n";
+            sw += "\tswitch(stackTop){\n";
+
+            for (int i = 0; i < states.Count; i++)
+            {
+                sw += "\t\tcase " + i + ": return fooState" + i + "(true);\n";
+            }
+
+            sw += "\t}\n";
+            sw += "}\n";
+            return sw;
         }
     }
 }

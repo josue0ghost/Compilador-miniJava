@@ -19,7 +19,6 @@ namespace minij
 				stack.Push(12);
 				text.Push("class");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState12(false);
 			}
 			if (input[0] == "interface")
@@ -27,7 +26,6 @@ namespace minij
 				stack.Push(13);
 				text.Push("interface");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState13(false);
 			}
 			if (input[0] == "ident")
@@ -35,7 +33,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState18(false);
 			}
 			if (input[0] == "static")
@@ -43,7 +40,6 @@ namespace minij
 				stack.Push(11);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState11(false);
 			}
 			if (input[0] == "int")
@@ -51,7 +47,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -59,7 +54,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -67,7 +61,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -75,7 +68,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState17(false);
 			}
 			if (input[0] == "void")
@@ -83,7 +75,6 @@ namespace minij
 				stack.Push(10);
 				text.Push("void");
 				input.RemoveAt(0);
-				stack.Push(0);
 				return fooState10(false);
 			}
 			if (afterReduce && text.Peek() == "Program")
@@ -155,7 +146,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Program");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -171,7 +162,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Decl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -187,7 +178,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Decl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -203,7 +194,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Decl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -219,7 +210,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Decl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -235,7 +226,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Decl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -248,7 +239,6 @@ namespace minij
 				stack.Push(19);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(8);
 				return fooState19(false);
 			}
 			return false;
@@ -262,7 +252,6 @@ namespace minij
 				stack.Push(20);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(9);
 				return fooState20(false);
 			}
 			if (input[0] == "[ ]")
@@ -270,7 +259,6 @@ namespace minij
 				stack.Push(21);
 				text.Push("[ ]");
 				input.RemoveAt(0);
-				stack.Push(9);
 				return fooState21(false);
 			}
 			return false;
@@ -284,7 +272,6 @@ namespace minij
 				stack.Push(22);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(10);
 				return fooState22(false);
 			}
 			return false;
@@ -298,7 +285,6 @@ namespace minij
 				stack.Push(24);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(11);
 				return fooState24(false);
 			}
 			if (input[0] == "double")
@@ -306,7 +292,6 @@ namespace minij
 				stack.Push(25);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(11);
 				return fooState25(false);
 			}
 			if (input[0] == "boolean")
@@ -314,7 +299,6 @@ namespace minij
 				stack.Push(26);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(11);
 				return fooState26(false);
 			}
 			if (input[0] == "string")
@@ -322,7 +306,6 @@ namespace minij
 				stack.Push(27);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(11);
 				return fooState27(false);
 			}
 			if (afterReduce && text.Peek() == "ConstType")
@@ -341,7 +324,6 @@ namespace minij
 				stack.Push(28);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(12);
 				return fooState28(false);
 			}
 			return false;
@@ -355,7 +337,6 @@ namespace minij
 				stack.Push(29);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(13);
 				return fooState29(false);
 			}
 			return false;
@@ -372,7 +353,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -382,7 +363,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -398,7 +379,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -408,7 +389,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -424,7 +405,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -434,7 +415,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -450,7 +431,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -460,7 +441,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -476,7 +457,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -486,7 +467,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -502,7 +483,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("VariableDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -518,14 +499,13 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Variable");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (input[0] == "(")
 			{
 				stack.Push(30);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(20);
 				return fooState30(false);
 			}
 			return false;
@@ -542,7 +522,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -552,7 +532,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -565,7 +545,6 @@ namespace minij
 				stack.Push(31);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(22);
 				return fooState31(false);
 			}
 			return false;
@@ -579,7 +558,6 @@ namespace minij
 				stack.Push(32);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(23);
 				return fooState32(false);
 			}
 			return false;
@@ -596,7 +574,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -612,7 +590,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -628,7 +606,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -644,7 +622,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -657,7 +635,6 @@ namespace minij
 				stack.Push(33);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(28);
 				return fooState33(false);
 			}
 			return false;
@@ -671,7 +648,6 @@ namespace minij
 				stack.Push(34);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(29);
 				return fooState34(false);
 			}
 			return false;
@@ -685,7 +661,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(30);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -693,7 +668,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(30);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -701,7 +675,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(30);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -709,7 +682,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(30);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -717,7 +689,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(30);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -746,7 +717,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(31);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -754,7 +724,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(31);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -762,7 +731,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(31);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -770,7 +738,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(31);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -778,7 +745,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(31);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -807,7 +773,6 @@ namespace minij
 				stack.Push(39);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(32);
 				return fooState39(false);
 			}
 			return false;
@@ -821,7 +786,6 @@ namespace minij
 				stack.Push(40);
 				text.Push("extends");
 				input.RemoveAt(0);
-				stack.Push(33);
 				return fooState40(false);
 			}
 			return false;
@@ -835,7 +799,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -843,7 +806,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -851,7 +813,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -859,7 +820,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -867,7 +827,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState17(false);
 			}
 			if (input[0] == "void")
@@ -875,7 +834,6 @@ namespace minij
 				stack.Push(43);
 				text.Push("void");
 				input.RemoveAt(0);
-				stack.Push(34);
 				return fooState43(false);
 			}
 			if (afterReduce && text.Peek() == "Type")
@@ -899,7 +857,6 @@ namespace minij
 				stack.Push(44);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(35);
 				return fooState44(false);
 			}
 			return false;
@@ -916,14 +873,13 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Formals");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (input[0] == ",")
 			{
 				stack.Push(45);
 				text.Push(",");
 				input.RemoveAt(0);
-				stack.Push(36);
 				return fooState45(false);
 			}
 			return false;
@@ -937,7 +893,6 @@ namespace minij
 				stack.Push(46);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(37);
 				return fooState46(false);
 			}
 			if (input[0] == "[ ]")
@@ -945,7 +900,6 @@ namespace minij
 				stack.Push(318);
 				text.Push("[ ]");
 				input.RemoveAt(0);
-				stack.Push(37);
 				return fooState318(false);
 			}
 			return false;
@@ -959,7 +913,6 @@ namespace minij
 				stack.Push(47);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(38);
 				return fooState47(false);
 			}
 			return false;
@@ -976,7 +929,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -989,7 +942,6 @@ namespace minij
 				stack.Push(48);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(40);
 				return fooState48(false);
 			}
 			return false;
@@ -1003,7 +955,6 @@ namespace minij
 				stack.Push(49);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(41);
 				return fooState49(false);
 			}
 			return false;
@@ -1017,7 +968,6 @@ namespace minij
 				stack.Push(50);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(42);
 				return fooState50(false);
 			}
 			return false;
@@ -1031,7 +981,6 @@ namespace minij
 				stack.Push(51);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(43);
 				return fooState51(false);
 			}
 			return false;
@@ -1045,7 +994,6 @@ namespace minij
 				stack.Push(53);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(44);
 				return fooState53(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -1064,7 +1012,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(45);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -1072,7 +1019,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(45);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -1080,7 +1026,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(45);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -1088,7 +1033,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(45);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -1096,7 +1040,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(45);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -1128,7 +1071,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Variable");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -1138,7 +1081,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Variable");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1151,7 +1094,6 @@ namespace minij
 				stack.Push(53);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(47);
 				return fooState53(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -1170,7 +1112,6 @@ namespace minij
 				stack.Push(56);
 				text.Push("implements");
 				input.RemoveAt(0);
-				stack.Push(48);
 				return fooState56(false);
 			}
 			return false;
@@ -1187,7 +1128,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("InterfaceDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1200,7 +1141,6 @@ namespace minij
 				stack.Push(57);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(50);
 				return fooState57(false);
 			}
 			return false;
@@ -1214,7 +1154,6 @@ namespace minij
 				stack.Push(58);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(51);
 				return fooState58(false);
 			}
 			return false;
@@ -1231,7 +1170,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("FunctionDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1244,7 +1183,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(53);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -1252,7 +1190,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(53);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -1260,7 +1197,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(53);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -1268,7 +1204,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(53);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -1276,7 +1211,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(53);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
@@ -1308,7 +1242,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Formals");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1324,7 +1258,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("FunctionDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1337,7 +1271,6 @@ namespace minij
 				stack.Push(61);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(56);
 				return fooState61(false);
 			}
 			return false;
@@ -1351,7 +1284,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(57);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -1359,7 +1291,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(57);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -1367,7 +1298,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(57);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -1375,7 +1305,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(57);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -1383,7 +1312,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(57);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -1412,7 +1340,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(58);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -1420,7 +1347,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(58);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -1428,7 +1354,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(58);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -1436,7 +1361,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(58);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -1444,7 +1368,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(58);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -1473,7 +1396,6 @@ namespace minij
 				stack.Push(65);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(59);
 				return fooState65(false);
 			}
 			if (afterReduce && text.Peek() == "ConstDecl")
@@ -1492,7 +1414,6 @@ namespace minij
 				stack.Push(66);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(60);
 				return fooState66(false);
 			}
 			return false;
@@ -1506,7 +1427,6 @@ namespace minij
 				stack.Push(67);
 				text.Push(",");
 				input.RemoveAt(0);
-				stack.Push(61);
 				return fooState67(false);
 			}
 			return false;
@@ -1520,7 +1440,6 @@ namespace minij
 				stack.Push(68);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(62);
 				return fooState68(false);
 			}
 			return false;
@@ -1534,7 +1453,6 @@ namespace minij
 				stack.Push(69);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(63);
 				return fooState69(false);
 			}
 			return false;
@@ -1548,7 +1466,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -1556,7 +1473,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -1564,7 +1480,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -1572,7 +1487,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -1580,7 +1494,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -1588,7 +1501,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -1596,7 +1508,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -1604,7 +1515,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -1612,7 +1522,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -1620,7 +1529,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -1628,7 +1536,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -1636,7 +1543,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -1644,7 +1550,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -1652,7 +1557,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -1660,7 +1564,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -1668,7 +1571,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -1676,7 +1578,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -1684,7 +1585,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(64);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -1753,7 +1653,6 @@ namespace minij
 				stack.Push(100);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(65);
 				return fooState100(false);
 			}
 			if (input[0] == "double")
@@ -1761,7 +1660,6 @@ namespace minij
 				stack.Push(101);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(65);
 				return fooState101(false);
 			}
 			if (input[0] == "boolean")
@@ -1769,7 +1667,6 @@ namespace minij
 				stack.Push(102);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(65);
 				return fooState102(false);
 			}
 			if (input[0] == "string")
@@ -1777,7 +1674,6 @@ namespace minij
 				stack.Push(103);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(65);
 				return fooState103(false);
 			}
 			if (afterReduce && text.Peek() == "ConstType")
@@ -1799,7 +1695,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("VariableDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1812,7 +1708,6 @@ namespace minij
 				stack.Push(104);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(67);
 				return fooState104(false);
 			}
 			return false;
@@ -1826,7 +1721,6 @@ namespace minij
 				stack.Push(105);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(68);
 				return fooState105(false);
 			}
 			return false;
@@ -1840,7 +1734,6 @@ namespace minij
 				stack.Push(106);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(69);
 				return fooState106(false);
 			}
 			return false;
@@ -1854,7 +1747,6 @@ namespace minij
 				stack.Push(107);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(70);
 				return fooState107(false);
 			}
 			return false;
@@ -1868,7 +1760,6 @@ namespace minij
 				stack.Push(108);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState108(false);
 			}
 			if (input[0] == "-")
@@ -1876,7 +1767,6 @@ namespace minij
 				stack.Push(109);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState109(false);
 			}
 			if (input[0] == "|")
@@ -1884,7 +1774,6 @@ namespace minij
 				stack.Push(110);
 				text.Push("|");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState110(false);
 			}
 			if (input[0] == "%")
@@ -1892,7 +1781,6 @@ namespace minij
 				stack.Push(111);
 				text.Push("%");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState111(false);
 			}
 			if (input[0] == ">")
@@ -1900,7 +1788,6 @@ namespace minij
 				stack.Push(112);
 				text.Push(">");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState112(false);
 			}
 			if (input[0] == ">=")
@@ -1908,7 +1795,6 @@ namespace minij
 				stack.Push(113);
 				text.Push(">=");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState113(false);
 			}
 			if (input[0] == "!=")
@@ -1916,7 +1802,6 @@ namespace minij
 				stack.Push(114);
 				text.Push("!=");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState114(false);
 			}
 			if (input[0] == "||")
@@ -1924,7 +1809,6 @@ namespace minij
 				stack.Push(115);
 				text.Push("||");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState115(false);
 			}
 			if (input[0] == ".")
@@ -1932,7 +1816,6 @@ namespace minij
 				stack.Push(116);
 				text.Push(".");
 				input.RemoveAt(0);
-				stack.Push(71);
 				return fooState116(false);
 			}
 			return false;
@@ -1949,7 +1832,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1965,7 +1848,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1981,7 +1864,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -1997,7 +1880,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2013,7 +1896,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2029,7 +1912,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2045,7 +1928,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2058,7 +1941,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(79);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -2066,7 +1948,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(79);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -2074,7 +1955,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(79);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -2082,7 +1962,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(79);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -2090,7 +1969,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(79);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
@@ -2119,7 +1997,6 @@ namespace minij
 				stack.Push(118);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(80);
 				return fooState118(false);
 			}
 			return false;
@@ -2133,7 +2010,6 @@ namespace minij
 				stack.Push(119);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(81);
 				return fooState119(false);
 			}
 			return false;
@@ -2147,7 +2023,6 @@ namespace minij
 				stack.Push(120);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(82);
 				return fooState120(false);
 			}
 			return false;
@@ -2161,7 +2036,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -2169,7 +2043,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -2177,7 +2050,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -2185,7 +2057,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -2193,7 +2064,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -2201,7 +2071,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -2209,7 +2078,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -2217,7 +2085,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -2225,7 +2092,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -2233,7 +2099,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -2241,7 +2106,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(83);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -2270,7 +2134,6 @@ namespace minij
 				stack.Push(122);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(84);
 				return fooState122(false);
 			}
 			return false;
@@ -2284,7 +2147,6 @@ namespace minij
 				stack.Push(123);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(85);
 				return fooState123(false);
 			}
 			return false;
@@ -2301,7 +2163,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -2311,7 +2173,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -2321,7 +2183,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -2331,7 +2193,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -2341,7 +2203,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -2351,7 +2213,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -2361,7 +2223,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -2371,7 +2233,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -2381,14 +2243,13 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (input[0] == "=")
 			{
 				stack.Push(124);
 				text.Push("=");
 				input.RemoveAt(0);
-				stack.Push(86);
 				return fooState124(false);
 			}
 			return false;
@@ -2405,7 +2266,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -2415,7 +2276,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -2425,7 +2286,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -2435,7 +2296,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -2445,7 +2306,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -2455,7 +2316,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -2465,7 +2326,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -2475,7 +2336,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -2485,7 +2346,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2501,7 +2362,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -2511,7 +2372,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -2521,7 +2382,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -2531,7 +2392,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -2541,7 +2402,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -2551,7 +2412,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -2561,7 +2422,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -2571,7 +2432,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -2581,7 +2442,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -2594,7 +2455,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -2602,7 +2462,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -2610,7 +2469,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -2618,7 +2476,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -2626,7 +2483,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -2634,7 +2490,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -2642,7 +2497,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -2650,7 +2504,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -2658,7 +2511,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -2666,7 +2518,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -2674,7 +2525,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(89);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -2703,7 +2553,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -2711,7 +2560,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -2719,7 +2567,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -2727,7 +2574,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -2735,7 +2581,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -2743,7 +2588,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -2751,7 +2595,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -2759,7 +2602,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -2767,7 +2609,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -2775,7 +2616,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -2783,7 +2623,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(90);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -2812,7 +2651,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -2820,7 +2658,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -2828,7 +2665,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -2836,7 +2672,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -2844,7 +2679,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -2852,7 +2686,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -2860,7 +2693,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -2868,7 +2700,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -2876,7 +2707,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -2884,7 +2714,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -2892,7 +2721,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(91);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -2921,7 +2749,6 @@ namespace minij
 				stack.Push(142);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(92);
 				return fooState142(false);
 			}
 			return false;
@@ -2938,7 +2765,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -2948,7 +2775,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -2958,7 +2785,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -2968,7 +2795,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -2978,7 +2805,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -2988,7 +2815,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -2998,7 +2825,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3008,7 +2835,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3018,7 +2845,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3034,7 +2861,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -3044,7 +2871,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -3054,7 +2881,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -3064,7 +2891,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -3074,7 +2901,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -3084,7 +2911,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -3094,7 +2921,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3104,7 +2931,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3114,7 +2941,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3130,7 +2957,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -3140,7 +2967,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -3150,7 +2977,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -3160,7 +2987,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -3170,7 +2997,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -3180,7 +3007,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -3190,7 +3017,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3200,7 +3027,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3210,7 +3037,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3226,7 +3053,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -3236,7 +3063,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -3246,7 +3073,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -3256,7 +3083,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -3266,7 +3093,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -3276,7 +3103,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -3286,7 +3113,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3296,7 +3123,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3306,7 +3133,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3322,7 +3149,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -3332,7 +3159,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -3342,7 +3169,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -3352,7 +3179,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -3362,7 +3189,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -3372,7 +3199,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -3382,7 +3209,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3392,7 +3219,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3402,7 +3229,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3418,7 +3245,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -3428,7 +3255,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -3438,7 +3265,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -3448,7 +3275,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -3458,7 +3285,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -3468,7 +3295,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -3478,7 +3305,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -3488,7 +3315,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -3498,7 +3325,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3511,7 +3338,6 @@ namespace minij
 				stack.Push(143);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(99);
 				return fooState143(false);
 			}
 			return false;
@@ -3528,7 +3354,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3544,7 +3370,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3560,7 +3386,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3576,7 +3402,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstType");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3589,7 +3415,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState18(false);
 			}
 			if (input[0] == "static")
@@ -3597,7 +3422,6 @@ namespace minij
 				stack.Push(151);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState151(false);
 			}
 			if (input[0] == "int")
@@ -3605,7 +3429,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -3613,7 +3436,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -3621,7 +3443,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -3629,7 +3450,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState17(false);
 			}
 			if (input[0] == "void")
@@ -3637,7 +3457,6 @@ namespace minij
 				stack.Push(150);
 				text.Push("void");
 				input.RemoveAt(0);
-				stack.Push(104);
 				return fooState150(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
@@ -3684,7 +3503,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Prototype");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3700,7 +3519,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Prototype");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3716,7 +3535,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("StmtBlock");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3732,7 +3551,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -3745,7 +3564,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -3753,7 +3571,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -3761,7 +3578,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -3769,7 +3585,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -3777,7 +3592,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -3785,7 +3599,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -3793,7 +3606,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -3801,7 +3613,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -3809,7 +3620,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -3817,7 +3627,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -3825,7 +3634,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(109);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -3854,7 +3662,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -3862,7 +3669,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -3870,7 +3676,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -3878,7 +3683,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -3886,7 +3690,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -3894,7 +3697,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -3902,7 +3704,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -3910,7 +3711,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -3918,7 +3718,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -3926,7 +3725,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -3934,7 +3732,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(110);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -3963,7 +3760,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -3971,7 +3767,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -3979,7 +3774,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -3987,7 +3781,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -3995,7 +3788,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4003,7 +3795,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4011,7 +3802,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4019,7 +3809,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4027,7 +3816,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4035,7 +3823,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4043,7 +3830,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(111);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4072,7 +3858,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -4080,7 +3865,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -4088,7 +3872,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4096,7 +3879,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4104,7 +3886,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4112,7 +3893,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4120,7 +3900,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4128,7 +3907,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4136,7 +3914,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4144,7 +3921,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4152,7 +3928,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(112);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4181,7 +3956,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -4189,7 +3963,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -4197,7 +3970,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4205,7 +3977,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4213,7 +3984,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4221,7 +3991,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4229,7 +3998,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4237,7 +4005,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4245,7 +4012,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4253,7 +4019,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4261,7 +4026,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(113);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4290,7 +4054,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -4298,7 +4061,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -4306,7 +4068,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4314,7 +4075,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4322,7 +4082,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4330,7 +4089,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4338,7 +4096,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4346,7 +4103,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4354,7 +4110,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4362,7 +4117,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4370,7 +4124,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(114);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4399,7 +4152,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -4407,7 +4159,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -4415,7 +4166,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4423,7 +4173,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4431,7 +4180,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4439,7 +4187,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4447,7 +4194,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4455,7 +4201,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4463,7 +4208,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4471,7 +4215,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4479,7 +4222,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(115);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4508,7 +4250,6 @@ namespace minij
 				stack.Push(159);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(116);
 				return fooState159(false);
 			}
 			return false;
@@ -4522,7 +4263,6 @@ namespace minij
 				stack.Push(65);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(117);
 				return fooState65(false);
 			}
 			if (afterReduce && text.Peek() == "ConstDecl")
@@ -4541,7 +4281,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -4549,7 +4288,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -4557,7 +4295,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4565,7 +4302,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4573,7 +4309,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4581,7 +4316,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -4589,7 +4323,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -4597,7 +4330,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -4605,7 +4337,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -4613,7 +4344,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -4621,7 +4351,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(118);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4650,7 +4379,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -4658,7 +4386,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -4666,7 +4393,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4674,7 +4400,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4682,7 +4407,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4690,7 +4414,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -4698,7 +4421,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -4706,7 +4428,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -4714,7 +4435,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -4722,7 +4442,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -4730,7 +4449,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(119);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4759,7 +4477,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -4767,7 +4484,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -4775,7 +4491,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4783,7 +4498,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4791,7 +4505,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4799,7 +4512,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -4807,7 +4519,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -4815,7 +4526,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -4823,7 +4533,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -4831,7 +4540,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -4839,7 +4547,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(120);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -4868,7 +4575,6 @@ namespace minij
 				stack.Push(164);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(121);
 				return fooState164(false);
 			}
 			return false;
@@ -4885,7 +4591,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("BreakStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -4898,7 +4604,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -4906,7 +4611,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -4914,7 +4618,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -4922,7 +4625,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -4930,7 +4632,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -4938,7 +4639,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -4946,7 +4646,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -4954,7 +4653,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -4962,7 +4660,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -4970,7 +4667,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -4978,7 +4674,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(123);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -5007,7 +4702,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -5015,7 +4709,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -5023,7 +4716,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -5031,7 +4723,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -5039,7 +4730,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -5047,7 +4737,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -5055,7 +4744,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -5063,7 +4751,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -5071,7 +4758,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -5079,7 +4765,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -5087,7 +4772,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(124);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -5116,7 +4800,6 @@ namespace minij
 				stack.Push(181);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(125);
 				return fooState181(false);
 			}
 			return false;
@@ -5130,7 +4813,6 @@ namespace minij
 				stack.Push(182);
 				text.Push("=");
 				input.RemoveAt(0);
-				stack.Push(126);
 				return fooState182(false);
 			}
 			return false;
@@ -5147,7 +4829,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -5157,7 +4839,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -5167,7 +4849,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -5177,7 +4859,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -5187,7 +4869,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -5197,7 +4879,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -5207,7 +4889,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -5217,7 +4899,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -5233,7 +4915,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -5243,7 +4925,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -5253,7 +4935,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -5263,7 +4945,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -5273,7 +4955,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -5283,7 +4965,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -5293,7 +4975,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -5303,7 +4985,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -5316,7 +4998,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -5324,7 +5005,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -5332,7 +5012,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -5340,7 +5019,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -5348,7 +5026,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -5356,7 +5033,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -5364,7 +5040,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -5372,7 +5047,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -5380,7 +5054,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -5388,7 +5061,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -5396,7 +5068,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(129);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -5425,7 +5096,6 @@ namespace minij
 				stack.Push(184);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState184(false);
 			}
 			if (input[0] == "|")
@@ -5433,7 +5103,6 @@ namespace minij
 				stack.Push(185);
 				text.Push("|");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState185(false);
 			}
 			if (input[0] == "%")
@@ -5441,7 +5110,6 @@ namespace minij
 				stack.Push(186);
 				text.Push("%");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState186(false);
 			}
 			if (input[0] == ">")
@@ -5449,7 +5117,6 @@ namespace minij
 				stack.Push(187);
 				text.Push(">");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState187(false);
 			}
 			if (input[0] == ">=")
@@ -5457,7 +5124,6 @@ namespace minij
 				stack.Push(188);
 				text.Push(">=");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState188(false);
 			}
 			if (input[0] == "!=")
@@ -5465,7 +5131,6 @@ namespace minij
 				stack.Push(189);
 				text.Push("!=");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState189(false);
 			}
 			if (input[0] == "||")
@@ -5473,7 +5138,6 @@ namespace minij
 				stack.Push(190);
 				text.Push("||");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState190(false);
 			}
 			if (input[0] == ".")
@@ -5481,7 +5145,6 @@ namespace minij
 				stack.Push(191);
 				text.Push(".");
 				input.RemoveAt(0);
-				stack.Push(130);
 				return fooState191(false);
 			}
 			return false;
@@ -5495,7 +5158,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -5503,7 +5165,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -5511,7 +5172,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -5519,7 +5179,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -5527,7 +5186,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -5535,7 +5193,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -5543,7 +5200,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -5551,7 +5207,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -5559,7 +5214,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -5567,7 +5221,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -5575,7 +5228,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(131);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -5604,7 +5256,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -5612,7 +5263,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -5620,7 +5270,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -5628,7 +5277,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -5636,7 +5284,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -5644,7 +5291,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -5652,7 +5298,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -5660,7 +5305,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -5668,7 +5312,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -5676,7 +5319,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -5684,7 +5326,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(132);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -5713,7 +5354,6 @@ namespace minij
 				stack.Push(194);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(133);
 				return fooState194(false);
 			}
 			return false;
@@ -5730,7 +5370,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -5740,7 +5380,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -5750,7 +5390,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -5760,7 +5400,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -5770,7 +5410,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -5780,7 +5420,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -5790,7 +5430,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -5800,7 +5440,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -5810,7 +5450,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -5826,7 +5466,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -5836,7 +5476,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -5846,7 +5486,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -5856,7 +5496,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -5866,7 +5506,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -5876,7 +5516,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -5886,7 +5526,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -5896,7 +5536,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -5906,7 +5546,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -5922,7 +5562,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -5932,7 +5572,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -5942,7 +5582,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -5952,7 +5592,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -5962,7 +5602,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -5972,7 +5612,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -5982,7 +5622,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -5992,7 +5632,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6002,7 +5642,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6018,7 +5658,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6028,7 +5668,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6038,7 +5678,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6048,7 +5688,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6058,7 +5698,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6068,7 +5708,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6078,7 +5718,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6088,7 +5728,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6098,7 +5738,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6114,7 +5754,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6124,7 +5764,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6134,7 +5774,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6144,7 +5784,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6154,7 +5794,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6164,7 +5804,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6174,7 +5814,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6184,7 +5824,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6194,7 +5834,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6210,7 +5850,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6220,7 +5860,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6230,7 +5870,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6240,7 +5880,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6250,7 +5890,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6260,7 +5900,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6270,7 +5910,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6280,7 +5920,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6290,7 +5930,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6306,7 +5946,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6316,7 +5956,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6326,7 +5966,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6336,7 +5976,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6346,7 +5986,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6356,7 +5996,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6366,7 +6006,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6376,7 +6016,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6386,7 +6026,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6402,7 +6042,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6412,7 +6052,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6422,7 +6062,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6432,7 +6072,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6442,7 +6082,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6452,7 +6092,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6462,7 +6102,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6472,7 +6112,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6482,7 +6122,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6495,7 +6135,6 @@ namespace minij
 				stack.Push(195);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(142);
 				return fooState195(false);
 			}
 			return false;
@@ -6509,7 +6148,6 @@ namespace minij
 				stack.Push(196);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(143);
 				return fooState196(false);
 			}
 			return false;
@@ -6523,7 +6161,6 @@ namespace minij
 				stack.Push(197);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(144);
 				return fooState197(false);
 			}
 			return false;
@@ -6540,7 +6177,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Field");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6556,7 +6193,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Field");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6572,7 +6209,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Field");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6585,7 +6222,6 @@ namespace minij
 				stack.Push(198);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(148);
 				return fooState198(false);
 			}
 			return false;
@@ -6599,7 +6235,6 @@ namespace minij
 				stack.Push(199);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(149);
 				return fooState199(false);
 			}
 			return false;
@@ -6613,7 +6248,6 @@ namespace minij
 				stack.Push(200);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(150);
 				return fooState200(false);
 			}
 			return false;
@@ -6627,7 +6261,6 @@ namespace minij
 				stack.Push(100);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(151);
 				return fooState100(false);
 			}
 			if (input[0] == "double")
@@ -6635,7 +6268,6 @@ namespace minij
 				stack.Push(101);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(151);
 				return fooState101(false);
 			}
 			if (input[0] == "boolean")
@@ -6643,7 +6275,6 @@ namespace minij
 				stack.Push(102);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(151);
 				return fooState102(false);
 			}
 			if (input[0] == "string")
@@ -6651,7 +6282,6 @@ namespace minij
 				stack.Push(103);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(151);
 				return fooState103(false);
 			}
 			if (afterReduce && text.Peek() == "ConstType")
@@ -6673,7 +6303,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6683,7 +6313,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6693,7 +6323,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6703,7 +6333,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6713,7 +6343,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6723,7 +6353,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6733,7 +6363,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6743,7 +6373,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6753,7 +6383,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6769,7 +6399,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6779,7 +6409,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6789,7 +6419,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6799,7 +6429,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6809,7 +6439,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6819,7 +6449,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6829,7 +6459,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6839,7 +6469,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6849,7 +6479,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6865,7 +6495,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6875,7 +6505,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6885,7 +6515,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6895,7 +6525,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -6905,7 +6535,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -6915,7 +6545,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -6925,7 +6555,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -6935,7 +6565,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -6945,7 +6575,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -6961,7 +6591,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -6971,7 +6601,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -6981,7 +6611,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -6991,7 +6621,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7001,7 +6631,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7011,7 +6641,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7021,7 +6651,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7031,7 +6661,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7041,7 +6671,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7057,7 +6687,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7067,7 +6697,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7077,7 +6707,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7087,7 +6717,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7097,7 +6727,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7107,7 +6737,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7117,7 +6747,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7127,7 +6757,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7137,7 +6767,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7153,7 +6783,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7163,7 +6793,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7173,7 +6803,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7183,7 +6813,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7193,7 +6823,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7203,7 +6833,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7213,7 +6843,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7223,7 +6853,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7233,7 +6863,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7249,7 +6879,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7259,7 +6889,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7269,7 +6899,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7279,7 +6909,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7289,7 +6919,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7299,7 +6929,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7309,7 +6939,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7319,7 +6949,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7329,7 +6959,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7342,7 +6972,6 @@ namespace minij
 				stack.Push(202);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(159);
 				return fooState202(false);
 			}
 			return false;
@@ -7356,7 +6985,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -7364,7 +6992,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -7372,7 +6999,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -7380,7 +7006,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -7388,7 +7013,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -7396,7 +7020,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -7404,7 +7027,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -7412,7 +7034,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -7420,7 +7041,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -7428,7 +7048,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -7436,7 +7055,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -7444,7 +7062,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -7452,7 +7069,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -7460,7 +7076,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -7468,7 +7083,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -7476,7 +7090,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -7484,7 +7097,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -7492,7 +7104,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(160);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -7561,7 +7172,6 @@ namespace minij
 				stack.Push(204);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(161);
 				return fooState204(false);
 			}
 			return false;
@@ -7575,7 +7185,6 @@ namespace minij
 				stack.Push(205);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(162);
 				return fooState205(false);
 			}
 			return false;
@@ -7589,7 +7198,6 @@ namespace minij
 				stack.Push(206);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(163);
 				return fooState206(false);
 			}
 			return false;
@@ -7606,7 +7214,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ReturnStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7619,7 +7227,6 @@ namespace minij
 				stack.Push(207);
 				text.Push(",");
 				input.RemoveAt(0);
-				stack.Push(165);
 				return fooState207(false);
 			}
 			return false;
@@ -7636,7 +7243,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -7646,7 +7253,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7656,7 +7263,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7666,7 +7273,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7676,7 +7283,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7686,7 +7293,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7696,7 +7303,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7706,7 +7313,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7716,7 +7323,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7726,14 +7333,13 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (input[0] == "=")
 			{
 				stack.Push(208);
 				text.Push("=");
 				input.RemoveAt(0);
-				stack.Push(166);
 				return fooState208(false);
 			}
 			return false;
@@ -7750,7 +7356,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -7760,7 +7366,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7770,7 +7376,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7780,7 +7386,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7790,7 +7396,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7800,7 +7406,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7810,7 +7416,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7820,7 +7426,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7830,7 +7436,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7840,7 +7446,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7856,7 +7462,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -7866,7 +7472,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -7876,7 +7482,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -7886,7 +7492,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -7896,7 +7502,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -7906,7 +7512,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -7916,7 +7522,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -7926,7 +7532,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -7936,7 +7542,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -7946,7 +7552,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -7959,7 +7565,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -7967,7 +7572,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -7975,7 +7579,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -7983,7 +7586,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -7991,7 +7593,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -7999,7 +7600,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -8007,7 +7607,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -8015,7 +7614,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -8023,7 +7621,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -8031,7 +7628,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -8039,7 +7635,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(169);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -8068,7 +7663,6 @@ namespace minij
 				stack.Push(210);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState210(false);
 			}
 			if (input[0] == "|")
@@ -8076,7 +7670,6 @@ namespace minij
 				stack.Push(211);
 				text.Push("|");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState211(false);
 			}
 			if (input[0] == "%")
@@ -8084,7 +7677,6 @@ namespace minij
 				stack.Push(212);
 				text.Push("%");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState212(false);
 			}
 			if (input[0] == ">")
@@ -8092,7 +7684,6 @@ namespace minij
 				stack.Push(213);
 				text.Push(">");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState213(false);
 			}
 			if (input[0] == ">=")
@@ -8100,7 +7691,6 @@ namespace minij
 				stack.Push(214);
 				text.Push(">=");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState214(false);
 			}
 			if (input[0] == "!=")
@@ -8108,7 +7698,6 @@ namespace minij
 				stack.Push(215);
 				text.Push("!=");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState215(false);
 			}
 			if (input[0] == "||")
@@ -8116,7 +7705,6 @@ namespace minij
 				stack.Push(216);
 				text.Push("||");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState216(false);
 			}
 			if (input[0] == ".")
@@ -8124,7 +7712,6 @@ namespace minij
 				stack.Push(217);
 				text.Push(".");
 				input.RemoveAt(0);
-				stack.Push(170);
 				return fooState217(false);
 			}
 			return false;
@@ -8138,7 +7725,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -8146,7 +7732,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -8154,7 +7739,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -8162,7 +7746,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -8170,7 +7753,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -8178,7 +7760,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -8186,7 +7767,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -8194,7 +7774,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -8202,7 +7781,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -8210,7 +7788,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -8218,7 +7795,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(171);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -8247,7 +7823,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -8255,7 +7830,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -8263,7 +7837,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -8271,7 +7844,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -8279,7 +7851,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -8287,7 +7858,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -8295,7 +7865,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -8303,7 +7872,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -8311,7 +7879,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -8319,7 +7886,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -8327,7 +7893,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(172);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -8356,7 +7921,6 @@ namespace minij
 				stack.Push(220);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(173);
 				return fooState220(false);
 			}
 			return false;
@@ -8373,7 +7937,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8383,7 +7947,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8393,7 +7957,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8403,7 +7967,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8413,7 +7977,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8423,7 +7987,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8433,7 +7997,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8443,7 +8007,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8453,7 +8017,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8463,7 +8027,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -8479,7 +8043,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8489,7 +8053,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8499,7 +8063,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8509,7 +8073,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8519,7 +8083,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8529,7 +8093,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8539,7 +8103,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8549,7 +8113,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8559,7 +8123,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8569,7 +8133,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -8585,7 +8149,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8595,7 +8159,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8605,7 +8169,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8615,7 +8179,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8625,7 +8189,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8635,7 +8199,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8645,7 +8209,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8655,7 +8219,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8665,7 +8229,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8675,7 +8239,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -8691,7 +8255,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8701,7 +8265,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8711,7 +8275,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8721,7 +8285,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8731,7 +8295,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8741,7 +8305,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8751,7 +8315,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8761,7 +8325,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8771,7 +8335,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8781,7 +8345,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -8797,7 +8361,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8807,7 +8371,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8817,7 +8381,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8827,7 +8391,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8837,7 +8401,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8847,7 +8411,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8857,7 +8421,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8867,7 +8431,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8877,7 +8441,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8887,7 +8451,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -8903,7 +8467,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ")")
 			{
@@ -8913,7 +8477,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -8923,7 +8487,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -8933,7 +8497,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -8943,7 +8507,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -8953,7 +8517,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -8963,7 +8527,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -8973,7 +8537,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -8983,7 +8547,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -8993,7 +8557,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Constant");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -9009,7 +8573,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -9019,7 +8583,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -9029,7 +8593,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -9039,7 +8603,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -9049,7 +8613,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -9059,7 +8623,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -9069,7 +8633,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -9079,7 +8643,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -9089,7 +8653,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -9105,7 +8669,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -9115,7 +8679,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -9125,7 +8689,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -9135,7 +8699,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -9145,7 +8709,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -9155,7 +8719,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -9165,7 +8729,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -9175,7 +8739,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -9185,7 +8749,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -9198,7 +8762,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9206,7 +8769,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9214,7 +8776,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9222,7 +8783,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9230,7 +8790,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9238,7 +8797,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9246,7 +8804,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9254,7 +8811,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9262,7 +8818,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9270,7 +8825,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9278,7 +8832,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(182);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9307,7 +8860,6 @@ namespace minij
 				stack.Push(317);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(183);
 				return fooState317(false);
 			}
 			return false;
@@ -9321,7 +8873,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9329,7 +8880,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9337,7 +8887,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9345,7 +8894,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9353,7 +8901,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9361,7 +8908,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9369,7 +8915,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9377,7 +8922,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9385,7 +8929,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9393,7 +8936,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9401,7 +8943,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(184);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9430,7 +8971,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9438,7 +8978,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9446,7 +8985,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9454,7 +8992,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9462,7 +8999,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9470,7 +9006,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9478,7 +9013,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9486,7 +9020,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9494,7 +9027,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9502,7 +9034,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9510,7 +9041,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(185);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9539,7 +9069,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9547,7 +9076,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9555,7 +9083,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9563,7 +9090,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9571,7 +9097,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9579,7 +9104,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9587,7 +9111,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9595,7 +9118,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9603,7 +9125,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9611,7 +9132,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9619,7 +9139,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(186);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9648,7 +9167,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9656,7 +9174,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9664,7 +9181,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9672,7 +9188,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9680,7 +9195,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9688,7 +9202,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9696,7 +9209,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9704,7 +9216,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9712,7 +9223,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9720,7 +9230,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9728,7 +9237,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(187);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9757,7 +9265,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9765,7 +9272,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9773,7 +9279,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9781,7 +9286,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9789,7 +9293,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9797,7 +9300,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9805,7 +9307,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9813,7 +9314,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9821,7 +9321,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9829,7 +9328,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9837,7 +9335,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(188);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9866,7 +9363,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9874,7 +9370,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9882,7 +9377,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9890,7 +9384,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -9898,7 +9391,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -9906,7 +9398,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -9914,7 +9405,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -9922,7 +9412,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -9930,7 +9419,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -9938,7 +9426,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -9946,7 +9433,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(189);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -9975,7 +9461,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -9983,7 +9468,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -9991,7 +9475,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -9999,7 +9482,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -10007,7 +9489,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -10015,7 +9496,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -10023,7 +9503,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -10031,7 +9510,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -10039,7 +9517,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -10047,7 +9524,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -10055,7 +9531,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(190);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -10084,7 +9559,6 @@ namespace minij
 				stack.Push(229);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(191);
 				return fooState229(false);
 			}
 			return false;
@@ -10101,7 +9575,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -10111,7 +9585,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -10121,7 +9595,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -10131,7 +9605,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -10141,7 +9615,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -10151,7 +9625,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -10161,7 +9635,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -10171,7 +9645,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -10181,7 +9655,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10197,7 +9671,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -10207,7 +9681,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -10217,7 +9691,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -10227,7 +9701,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -10237,7 +9711,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -10247,7 +9721,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -10257,7 +9731,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -10267,7 +9741,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -10277,7 +9751,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10290,7 +9764,6 @@ namespace minij
 				stack.Push(230);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(194);
 				return fooState230(false);
 			}
 			return false;
@@ -10304,7 +9777,6 @@ namespace minij
 				stack.Push(231);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(195);
 				return fooState231(false);
 			}
 			return false;
@@ -10321,7 +9793,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "(")
 			{
@@ -10331,7 +9803,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "{")
 			{
@@ -10341,7 +9813,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "if")
 			{
@@ -10351,7 +9823,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "while")
 			{
@@ -10361,7 +9833,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "for")
 			{
@@ -10371,7 +9843,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "return")
 			{
@@ -10381,7 +9853,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "break")
 			{
@@ -10391,7 +9863,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "System.out.println")
 			{
@@ -10401,7 +9873,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "intConstant")
 			{
@@ -10411,7 +9883,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "doubleConstant")
 			{
@@ -10421,7 +9893,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "booleanConstant")
 			{
@@ -10431,7 +9903,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "stringConstant")
 			{
@@ -10441,7 +9913,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "null")
 			{
@@ -10451,7 +9923,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "this")
 			{
@@ -10461,7 +9933,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -10471,7 +9943,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!")
 			{
@@ -10481,7 +9953,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "New")
 			{
@@ -10491,7 +9963,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10507,7 +9979,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ClassDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10523,7 +9995,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("VariableDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10536,7 +10008,6 @@ namespace minij
 				stack.Push(232);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(199);
 				return fooState232(false);
 			}
 			return false;
@@ -10550,7 +10021,6 @@ namespace minij
 				stack.Push(233);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(200);
 				return fooState233(false);
 			}
 			return false;
@@ -10564,7 +10034,6 @@ namespace minij
 				stack.Push(234);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(201);
 				return fooState234(false);
 			}
 			return false;
@@ -10581,7 +10050,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -10591,7 +10060,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -10601,7 +10070,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -10611,7 +10080,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -10621,7 +10090,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -10631,7 +10100,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -10641,7 +10110,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -10651,7 +10120,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -10661,7 +10130,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -10674,7 +10143,6 @@ namespace minij
 				stack.Push(235);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(203);
 				return fooState235(false);
 			}
 			return false;
@@ -10688,7 +10156,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -10696,7 +10163,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -10704,7 +10170,6 @@ namespace minij
 				stack.Push(245);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState245(false);
 			}
 			if (input[0] == "if")
@@ -10712,7 +10177,6 @@ namespace minij
 				stack.Push(246);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState246(false);
 			}
 			if (input[0] == "while")
@@ -10720,7 +10184,6 @@ namespace minij
 				stack.Push(247);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState247(false);
 			}
 			if (input[0] == "for")
@@ -10728,7 +10191,6 @@ namespace minij
 				stack.Push(248);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState248(false);
 			}
 			if (input[0] == "return")
@@ -10736,7 +10198,6 @@ namespace minij
 				stack.Push(249);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState249(false);
 			}
 			if (input[0] == "break")
@@ -10744,7 +10205,6 @@ namespace minij
 				stack.Push(250);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState250(false);
 			}
 			if (input[0] == "System.out.println")
@@ -10752,7 +10212,6 @@ namespace minij
 				stack.Push(251);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState251(false);
 			}
 			if (input[0] == "intConstant")
@@ -10760,7 +10219,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -10768,7 +10226,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -10776,7 +10233,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -10784,7 +10240,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -10792,7 +10247,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -10800,7 +10254,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -10808,7 +10261,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -10816,7 +10268,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -10824,7 +10275,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(204);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -10893,7 +10343,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -10901,7 +10350,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -10909,7 +10357,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -10917,7 +10364,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -10925,7 +10371,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -10933,7 +10378,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -10941,7 +10385,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -10949,7 +10392,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -10957,7 +10399,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -10965,7 +10406,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -10973,7 +10413,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -10981,7 +10420,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -10989,7 +10427,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -10997,7 +10434,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -11005,7 +10441,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -11013,7 +10448,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -11021,7 +10455,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -11029,7 +10462,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(205);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -11098,7 +10530,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -11106,7 +10537,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -11114,7 +10544,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11122,7 +10551,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11130,7 +10558,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11138,7 +10565,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -11146,7 +10572,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -11154,7 +10579,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -11162,7 +10586,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -11170,7 +10593,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -11178,7 +10600,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(206);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11207,7 +10628,6 @@ namespace minij
 				stack.Push(239);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(207);
 				return fooState239(false);
 			}
 			return false;
@@ -11221,7 +10641,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11229,7 +10648,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11237,7 +10655,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11245,7 +10662,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11253,7 +10669,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11261,7 +10676,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11269,7 +10683,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11277,7 +10690,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11285,7 +10697,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11293,7 +10704,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11301,7 +10711,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(208);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11330,7 +10739,6 @@ namespace minij
 				stack.Push(241);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(209);
 				return fooState241(false);
 			}
 			return false;
@@ -11344,7 +10752,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11352,7 +10759,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11360,7 +10766,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11368,7 +10773,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11376,7 +10780,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11384,7 +10787,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11392,7 +10794,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11400,7 +10801,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11408,7 +10808,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11416,7 +10815,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11424,7 +10822,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(210);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11453,7 +10850,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11461,7 +10857,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11469,7 +10864,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11477,7 +10871,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11485,7 +10878,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11493,7 +10885,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11501,7 +10892,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11509,7 +10899,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11517,7 +10906,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11525,7 +10913,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11533,7 +10920,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(211);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11562,7 +10948,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11570,7 +10955,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11578,7 +10962,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11586,7 +10969,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11594,7 +10976,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11602,7 +10983,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11610,7 +10990,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11618,7 +10997,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11626,7 +11004,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11634,7 +11011,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11642,7 +11018,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(212);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11671,7 +11046,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11679,7 +11053,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11687,7 +11060,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11695,7 +11067,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11703,7 +11074,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11711,7 +11081,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11719,7 +11088,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11727,7 +11095,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11735,7 +11102,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11743,7 +11109,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11751,7 +11116,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(213);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11780,7 +11144,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11788,7 +11151,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11796,7 +11158,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11804,7 +11165,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11812,7 +11172,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11820,7 +11179,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11828,7 +11186,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11836,7 +11193,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11844,7 +11200,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11852,7 +11207,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11860,7 +11214,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(214);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11889,7 +11242,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -11897,7 +11249,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -11905,7 +11256,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -11913,7 +11263,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -11921,7 +11270,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -11929,7 +11277,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -11937,7 +11284,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -11945,7 +11291,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -11953,7 +11298,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -11961,7 +11305,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -11969,7 +11312,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(215);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -11998,7 +11340,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -12006,7 +11347,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -12014,7 +11354,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -12022,7 +11361,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -12030,7 +11368,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -12038,7 +11375,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -12046,7 +11382,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -12054,7 +11389,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -12062,7 +11396,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -12070,7 +11403,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -12078,7 +11410,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(216);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -12107,7 +11438,6 @@ namespace minij
 				stack.Push(249);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(217);
 				return fooState249(false);
 			}
 			return false;
@@ -12124,7 +11454,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12134,7 +11464,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12144,7 +11474,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12154,7 +11484,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12164,7 +11494,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12174,7 +11504,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12184,7 +11514,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12194,7 +11524,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -12204,7 +11534,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12220,7 +11550,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12230,7 +11560,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12240,7 +11570,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12250,7 +11580,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12260,7 +11590,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12270,7 +11600,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12280,7 +11610,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12290,7 +11620,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -12300,7 +11630,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12313,7 +11643,6 @@ namespace minij
 				stack.Push(250);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(220);
 				return fooState250(false);
 			}
 			return false;
@@ -12330,7 +11659,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12340,7 +11669,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12350,7 +11679,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12360,7 +11689,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12370,7 +11699,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12380,7 +11709,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12390,7 +11719,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12400,7 +11729,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12410,7 +11739,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12426,7 +11755,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12436,7 +11765,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12446,7 +11775,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12456,7 +11785,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12466,7 +11795,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12476,7 +11805,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12486,7 +11815,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12496,7 +11825,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12506,7 +11835,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12522,7 +11851,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12532,7 +11861,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12542,7 +11871,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12552,7 +11881,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12562,7 +11891,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12572,7 +11901,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12582,7 +11911,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12592,7 +11921,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12602,7 +11931,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12618,7 +11947,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12628,7 +11957,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12638,7 +11967,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12648,7 +11977,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12658,7 +11987,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12668,7 +11997,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12678,7 +12007,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12688,7 +12017,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12698,7 +12027,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12714,7 +12043,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12724,7 +12053,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12734,7 +12063,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12744,7 +12073,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12754,7 +12083,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12764,7 +12093,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12774,7 +12103,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12784,7 +12113,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12794,7 +12123,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12810,7 +12139,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12820,7 +12149,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12830,7 +12159,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12840,7 +12169,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12850,7 +12179,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12860,7 +12189,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12870,7 +12199,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12880,7 +12209,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12890,7 +12219,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -12906,7 +12235,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -12916,7 +12245,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -12926,7 +12255,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -12936,7 +12265,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -12946,7 +12275,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -12956,7 +12285,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -12966,7 +12295,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -12976,7 +12305,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -12986,7 +12315,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13002,7 +12331,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -13012,7 +12341,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13022,7 +12351,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13032,7 +12361,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13042,7 +12371,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13052,7 +12381,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13062,7 +12391,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13072,7 +12401,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13082,7 +12411,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13098,7 +12427,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -13108,7 +12437,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13118,7 +12447,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13128,7 +12457,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13138,7 +12467,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13148,7 +12477,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13158,7 +12487,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13168,7 +12497,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13178,7 +12507,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13191,7 +12520,6 @@ namespace minij
 				stack.Push(251);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(230);
 				return fooState251(false);
 			}
 			return false;
@@ -13208,7 +12536,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -13218,7 +12546,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13228,7 +12556,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13238,7 +12566,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13248,7 +12576,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13258,7 +12586,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13268,7 +12596,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13278,7 +12606,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13288,7 +12616,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13301,7 +12629,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(232);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -13309,7 +12636,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(232);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -13317,7 +12643,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(232);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -13325,7 +12650,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(232);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -13333,7 +12657,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(232);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -13362,7 +12685,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(233);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -13370,7 +12692,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(233);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -13378,7 +12699,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(233);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -13386,7 +12706,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(233);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -13394,7 +12713,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(233);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
@@ -13423,7 +12741,6 @@ namespace minij
 				stack.Push(254);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(234);
 				return fooState254(false);
 			}
 			return false;
@@ -13440,7 +12757,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("StmtBlock");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13453,7 +12770,6 @@ namespace minij
 				stack.Push(255);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(236);
 				return fooState255(false);
 			}
 			return false;
@@ -13470,7 +12786,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("WhileStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13483,7 +12799,6 @@ namespace minij
 				stack.Push(256);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(238);
 				return fooState256(false);
 			}
 			return false;
@@ -13497,7 +12812,6 @@ namespace minij
 				stack.Push(257);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(239);
 				return fooState257(false);
 			}
 			return false;
@@ -13514,7 +12828,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13524,7 +12838,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13534,7 +12848,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13544,7 +12858,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13554,7 +12868,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13564,7 +12878,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13574,7 +12888,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13584,7 +12898,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -13594,7 +12908,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13610,7 +12924,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13620,7 +12934,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13630,7 +12944,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13640,7 +12954,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13650,7 +12964,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13660,7 +12974,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13670,7 +12984,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13680,7 +12994,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -13690,7 +13004,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13706,7 +13020,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13716,7 +13030,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13726,7 +13040,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13736,7 +13050,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13746,7 +13060,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13756,7 +13070,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13766,7 +13080,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13776,7 +13090,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -13786,7 +13100,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13802,7 +13116,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13812,7 +13126,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13822,7 +13136,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13832,7 +13146,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13842,7 +13156,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13852,7 +13166,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13862,7 +13176,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13872,7 +13186,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -13882,7 +13196,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13898,7 +13212,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -13908,7 +13222,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -13918,7 +13232,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -13928,7 +13242,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -13938,7 +13252,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -13948,7 +13262,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -13958,7 +13272,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -13968,7 +13282,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -13978,7 +13292,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -13994,7 +13308,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14004,7 +13318,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14014,7 +13328,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14024,7 +13338,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14034,7 +13348,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14044,7 +13358,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14054,7 +13368,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14064,7 +13378,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14074,7 +13388,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14090,7 +13404,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14100,7 +13414,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14110,7 +13424,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14120,7 +13434,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14130,7 +13444,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14140,7 +13454,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14150,7 +13464,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14160,7 +13474,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14170,7 +13484,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14186,7 +13500,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14196,7 +13510,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14206,7 +13520,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14216,7 +13530,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14226,7 +13540,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14236,7 +13550,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14246,7 +13560,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14256,7 +13570,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14266,7 +13580,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14282,7 +13596,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14292,7 +13606,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14302,7 +13616,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14312,7 +13626,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14322,7 +13636,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14332,7 +13646,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14342,7 +13656,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14352,7 +13666,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14362,7 +13676,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14378,7 +13692,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14388,7 +13702,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14398,7 +13712,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14408,7 +13722,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14418,7 +13732,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14428,7 +13742,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14438,7 +13752,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14448,7 +13762,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14458,7 +13772,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("LValue");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14471,7 +13785,6 @@ namespace minij
 				stack.Push(258);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(250);
 				return fooState258(false);
 			}
 			return false;
@@ -14488,7 +13801,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -14498,7 +13811,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14508,7 +13821,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14518,7 +13831,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14528,7 +13841,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14538,7 +13851,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14548,7 +13861,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14558,7 +13871,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14568,7 +13881,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14581,7 +13894,6 @@ namespace minij
 				stack.Push(259);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(252);
 				return fooState259(false);
 			}
 			return false;
@@ -14595,7 +13907,6 @@ namespace minij
 				stack.Push(260);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(253);
 				return fooState260(false);
 			}
 			return false;
@@ -14612,7 +13923,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ConstDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14625,7 +13936,6 @@ namespace minij
 				stack.Push(261);
 				text.Push("else");
 				input.RemoveAt(0);
-				stack.Push(255);
 				return fooState261(false);
 			}
 			return false;
@@ -14639,7 +13949,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -14647,7 +13956,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -14655,7 +13963,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -14663,7 +13970,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -14671,7 +13977,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -14679,7 +13984,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -14687,7 +13991,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -14695,7 +13998,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -14703,7 +14005,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -14711,7 +14012,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -14719,7 +14019,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(256);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -14751,7 +14050,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("PrintStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14767,7 +14066,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -14777,7 +14076,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -14787,7 +14086,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -14797,7 +14096,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -14807,7 +14106,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -14817,7 +14116,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -14827,7 +14126,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -14837,7 +14136,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ",")
 			{
@@ -14847,7 +14146,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -14860,7 +14159,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(259);
 				return fooState79(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -14879,7 +14177,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(260);
 				return fooState79(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -14898,7 +14195,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -14906,7 +14202,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -14914,7 +14209,6 @@ namespace minij
 				stack.Push(274);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState274(false);
 			}
 			if (input[0] == "if")
@@ -14922,7 +14216,6 @@ namespace minij
 				stack.Push(275);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState275(false);
 			}
 			if (input[0] == "while")
@@ -14930,7 +14223,6 @@ namespace minij
 				stack.Push(276);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState276(false);
 			}
 			if (input[0] == "for")
@@ -14938,7 +14230,6 @@ namespace minij
 				stack.Push(277);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState277(false);
 			}
 			if (input[0] == "return")
@@ -14946,7 +14237,6 @@ namespace minij
 				stack.Push(278);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState278(false);
 			}
 			if (input[0] == "break")
@@ -14954,7 +14244,6 @@ namespace minij
 				stack.Push(279);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState279(false);
 			}
 			if (input[0] == "System.out.println")
@@ -14962,7 +14251,6 @@ namespace minij
 				stack.Push(280);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState280(false);
 			}
 			if (input[0] == "intConstant")
@@ -14970,7 +14258,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -14978,7 +14265,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -14986,7 +14272,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -14994,7 +14279,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -15002,7 +14286,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -15010,7 +14293,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -15018,7 +14300,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -15026,7 +14307,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -15034,7 +14314,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(261);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -15103,7 +14382,6 @@ namespace minij
 				stack.Push(281);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(262);
 				return fooState281(false);
 			}
 			return false;
@@ -15120,7 +14398,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("FunctionDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15136,7 +14414,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("FunctionDecl");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15149,7 +14427,6 @@ namespace minij
 				stack.Push(282);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(265);
 				return fooState282(false);
 			}
 			return false;
@@ -15163,7 +14440,6 @@ namespace minij
 				stack.Push(283);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(266);
 				return fooState283(false);
 			}
 			return false;
@@ -15180,7 +14456,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15196,7 +14472,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15212,7 +14488,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15228,7 +14504,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15244,7 +14520,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15260,7 +14536,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15276,7 +14552,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15289,7 +14565,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(274);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -15297,7 +14572,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(274);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -15305,7 +14579,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(274);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -15313,7 +14586,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(274);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -15321,7 +14593,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(274);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
@@ -15350,7 +14621,6 @@ namespace minij
 				stack.Push(285);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(275);
 				return fooState285(false);
 			}
 			return false;
@@ -15364,7 +14634,6 @@ namespace minij
 				stack.Push(286);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(276);
 				return fooState286(false);
 			}
 			return false;
@@ -15378,7 +14647,6 @@ namespace minij
 				stack.Push(287);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(277);
 				return fooState287(false);
 			}
 			return false;
@@ -15392,7 +14660,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -15400,7 +14667,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -15408,7 +14674,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -15416,7 +14681,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -15424,7 +14688,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -15432,7 +14695,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -15440,7 +14702,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -15448,7 +14709,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -15456,7 +14716,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -15464,7 +14723,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -15472,7 +14730,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(278);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -15501,7 +14758,6 @@ namespace minij
 				stack.Push(289);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(279);
 				return fooState289(false);
 			}
 			return false;
@@ -15515,7 +14771,6 @@ namespace minij
 				stack.Push(290);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(280);
 				return fooState290(false);
 			}
 			return false;
@@ -15529,7 +14784,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -15537,7 +14791,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -15545,7 +14798,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -15553,7 +14805,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -15561,7 +14812,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -15569,7 +14819,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -15577,7 +14826,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -15585,7 +14833,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -15593,7 +14840,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -15601,7 +14847,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -15609,7 +14854,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -15617,7 +14861,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -15625,7 +14868,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -15633,7 +14875,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -15641,7 +14882,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -15649,7 +14889,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -15657,7 +14896,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -15665,7 +14903,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(281);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -15737,7 +14974,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("IfStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15753,7 +14990,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -15766,7 +15003,6 @@ namespace minij
 				stack.Push(65);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(284);
 				return fooState65(false);
 			}
 			if (afterReduce && text.Peek() == "ConstDecl")
@@ -15785,7 +15021,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -15793,7 +15028,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -15801,7 +15035,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -15809,7 +15042,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -15817,7 +15049,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -15825,7 +15056,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -15833,7 +15063,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -15841,7 +15070,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -15849,7 +15077,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -15857,7 +15084,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -15865,7 +15091,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(285);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -15894,7 +15119,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -15902,7 +15126,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -15910,7 +15133,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -15918,7 +15140,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -15926,7 +15147,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -15934,7 +15154,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -15942,7 +15161,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -15950,7 +15168,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -15958,7 +15175,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -15966,7 +15182,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -15974,7 +15189,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(286);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -16003,7 +15217,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -16011,7 +15224,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -16019,7 +15231,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16027,7 +15238,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -16035,7 +15245,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -16043,7 +15252,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -16051,7 +15259,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -16059,7 +15266,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -16067,7 +15273,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -16075,7 +15280,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -16083,7 +15287,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(287);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -16112,7 +15315,6 @@ namespace minij
 				stack.Push(296);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(288);
 				return fooState296(false);
 			}
 			return false;
@@ -16129,7 +15331,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("BreakStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -16142,7 +15344,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -16150,7 +15351,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -16158,7 +15358,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16166,7 +15365,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -16174,7 +15372,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -16182,7 +15379,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -16190,7 +15386,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -16198,7 +15393,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -16206,7 +15400,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -16214,7 +15407,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -16222,7 +15414,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(290);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -16254,7 +15445,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ForStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -16267,7 +15458,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -16275,7 +15465,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -16283,7 +15472,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -16291,7 +15479,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -16299,7 +15486,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -16307,7 +15493,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -16315,7 +15500,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -16323,7 +15507,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -16331,7 +15514,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -16339,7 +15521,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16347,7 +15528,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -16355,7 +15535,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -16363,7 +15542,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -16371,7 +15549,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -16379,7 +15556,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -16387,7 +15563,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -16395,7 +15570,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -16403,7 +15577,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(292);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -16472,7 +15645,6 @@ namespace minij
 				stack.Push(299);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(293);
 				return fooState299(false);
 			}
 			return false;
@@ -16486,7 +15658,6 @@ namespace minij
 				stack.Push(300);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(294);
 				return fooState300(false);
 			}
 			return false;
@@ -16500,7 +15671,6 @@ namespace minij
 				stack.Push(301);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(295);
 				return fooState301(false);
 			}
 			return false;
@@ -16517,7 +15687,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ReturnStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -16530,7 +15700,6 @@ namespace minij
 				stack.Push(302);
 				text.Push(",");
 				input.RemoveAt(0);
-				stack.Push(297);
 				return fooState302(false);
 			}
 			return false;
@@ -16544,7 +15713,6 @@ namespace minij
 				stack.Push(303);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(298);
 				return fooState303(false);
 			}
 			return false;
@@ -16558,7 +15726,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -16566,7 +15733,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -16574,7 +15740,6 @@ namespace minij
 				stack.Push(329);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState329(false);
 			}
 			if (input[0] == "if")
@@ -16582,7 +15747,6 @@ namespace minij
 				stack.Push(330);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState330(false);
 			}
 			if (input[0] == "while")
@@ -16590,7 +15754,6 @@ namespace minij
 				stack.Push(331);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState331(false);
 			}
 			if (input[0] == "for")
@@ -16598,7 +15761,6 @@ namespace minij
 				stack.Push(332);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState332(false);
 			}
 			if (input[0] == "return")
@@ -16606,7 +15768,6 @@ namespace minij
 				stack.Push(333);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState333(false);
 			}
 			if (input[0] == "break")
@@ -16614,7 +15775,6 @@ namespace minij
 				stack.Push(334);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState334(false);
 			}
 			if (input[0] == "System.out.println")
@@ -16622,7 +15782,6 @@ namespace minij
 				stack.Push(335);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState335(false);
 			}
 			if (input[0] == "intConstant")
@@ -16630,7 +15789,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16638,7 +15796,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -16646,7 +15803,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -16654,7 +15810,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -16662,7 +15817,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -16670,7 +15824,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -16678,7 +15831,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -16686,7 +15838,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -16694,7 +15845,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(299);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -16763,7 +15913,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -16771,7 +15920,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -16779,7 +15927,6 @@ namespace minij
 				stack.Push(274);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState274(false);
 			}
 			if (input[0] == "if")
@@ -16787,7 +15934,6 @@ namespace minij
 				stack.Push(275);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState275(false);
 			}
 			if (input[0] == "while")
@@ -16795,7 +15941,6 @@ namespace minij
 				stack.Push(276);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState276(false);
 			}
 			if (input[0] == "for")
@@ -16803,7 +15948,6 @@ namespace minij
 				stack.Push(277);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState277(false);
 			}
 			if (input[0] == "return")
@@ -16811,7 +15955,6 @@ namespace minij
 				stack.Push(278);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState278(false);
 			}
 			if (input[0] == "break")
@@ -16819,7 +15962,6 @@ namespace minij
 				stack.Push(279);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState279(false);
 			}
 			if (input[0] == "System.out.println")
@@ -16827,7 +15969,6 @@ namespace minij
 				stack.Push(280);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState280(false);
 			}
 			if (input[0] == "intConstant")
@@ -16835,7 +15976,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16843,7 +15983,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -16851,7 +15990,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -16859,7 +15997,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -16867,7 +16004,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -16875,7 +16011,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -16883,7 +16018,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -16891,7 +16025,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -16899,7 +16032,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(300);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -16968,7 +16100,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -16976,7 +16107,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -16984,7 +16114,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -16992,7 +16121,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -17000,7 +16128,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -17008,7 +16135,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -17016,7 +16142,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -17024,7 +16149,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -17032,7 +16156,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -17040,7 +16163,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -17048,7 +16170,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(301);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -17077,7 +16198,6 @@ namespace minij
 				stack.Push(307);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(302);
 				return fooState307(false);
 			}
 			return false;
@@ -17094,7 +16214,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("StmtBlock");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17107,7 +16227,6 @@ namespace minij
 				stack.Push(308);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(304);
 				return fooState308(false);
 			}
 			return false;
@@ -17124,7 +16243,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("WhileStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17137,7 +16256,6 @@ namespace minij
 				stack.Push(309);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(306);
 				return fooState309(false);
 			}
 			return false;
@@ -17151,7 +16269,6 @@ namespace minij
 				stack.Push(310);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(307);
 				return fooState310(false);
 			}
 			return false;
@@ -17165,7 +16282,6 @@ namespace minij
 				stack.Push(311);
 				text.Push("else");
 				input.RemoveAt(0);
-				stack.Push(308);
 				return fooState311(false);
 			}
 			return false;
@@ -17179,7 +16295,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -17187,7 +16302,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -17195,7 +16309,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -17203,7 +16316,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -17211,7 +16323,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -17219,7 +16330,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -17227,7 +16337,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -17235,7 +16344,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -17243,7 +16351,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -17251,7 +16358,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -17259,7 +16365,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(309);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -17291,7 +16396,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("PrintStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17304,7 +16409,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -17312,7 +16416,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -17320,7 +16423,6 @@ namespace minij
 				stack.Push(274);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState274(false);
 			}
 			if (input[0] == "if")
@@ -17328,7 +16430,6 @@ namespace minij
 				stack.Push(275);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState275(false);
 			}
 			if (input[0] == "while")
@@ -17336,7 +16437,6 @@ namespace minij
 				stack.Push(276);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState276(false);
 			}
 			if (input[0] == "for")
@@ -17344,7 +16444,6 @@ namespace minij
 				stack.Push(277);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState277(false);
 			}
 			if (input[0] == "return")
@@ -17352,7 +16451,6 @@ namespace minij
 				stack.Push(278);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState278(false);
 			}
 			if (input[0] == "break")
@@ -17360,7 +16458,6 @@ namespace minij
 				stack.Push(279);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState279(false);
 			}
 			if (input[0] == "System.out.println")
@@ -17368,7 +16465,6 @@ namespace minij
 				stack.Push(280);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState280(false);
 			}
 			if (input[0] == "intConstant")
@@ -17376,7 +16472,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -17384,7 +16479,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -17392,7 +16486,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -17400,7 +16493,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -17408,7 +16500,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -17416,7 +16507,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -17424,7 +16514,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -17432,7 +16521,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -17440,7 +16528,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(311);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -17509,7 +16596,6 @@ namespace minij
 				stack.Push(314);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(312);
 				return fooState314(false);
 			}
 			return false;
@@ -17523,7 +16609,6 @@ namespace minij
 				stack.Push(315);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(313);
 				return fooState315(false);
 			}
 			return false;
@@ -17537,7 +16622,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -17545,7 +16629,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -17553,7 +16636,6 @@ namespace minij
 				stack.Push(274);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState274(false);
 			}
 			if (input[0] == "if")
@@ -17561,7 +16643,6 @@ namespace minij
 				stack.Push(275);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState275(false);
 			}
 			if (input[0] == "while")
@@ -17569,7 +16650,6 @@ namespace minij
 				stack.Push(276);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState276(false);
 			}
 			if (input[0] == "for")
@@ -17577,7 +16657,6 @@ namespace minij
 				stack.Push(277);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState277(false);
 			}
 			if (input[0] == "return")
@@ -17585,7 +16664,6 @@ namespace minij
 				stack.Push(278);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState278(false);
 			}
 			if (input[0] == "break")
@@ -17593,7 +16671,6 @@ namespace minij
 				stack.Push(279);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState279(false);
 			}
 			if (input[0] == "System.out.println")
@@ -17601,7 +16678,6 @@ namespace minij
 				stack.Push(280);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState280(false);
 			}
 			if (input[0] == "intConstant")
@@ -17609,7 +16685,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -17617,7 +16692,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -17625,7 +16699,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -17633,7 +16706,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -17641,7 +16713,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -17649,7 +16720,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -17657,7 +16727,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -17665,7 +16734,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -17673,7 +16741,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(314);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -17745,7 +16812,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("IfStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17761,7 +16828,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ForStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17777,7 +16844,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -17787,7 +16854,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -17797,7 +16864,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -17807,7 +16874,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -17817,7 +16884,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -17827,7 +16894,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -17837,7 +16904,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -17847,7 +16914,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -17857,7 +16924,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17873,7 +16940,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "[ ]")
 			{
@@ -17883,7 +16950,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Type");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17899,7 +16966,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -17915,7 +16982,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "-")
 			{
@@ -17925,7 +16992,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "|")
 			{
@@ -17935,7 +17002,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "%")
 			{
@@ -17945,7 +17012,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">")
 			{
@@ -17955,7 +17022,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ">=")
 			{
@@ -17965,7 +17032,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "!=")
 			{
@@ -17975,7 +17042,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == "||")
 			{
@@ -17985,7 +17052,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			if (text.Peek() == ".")
 			{
@@ -17995,7 +17062,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Expr");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18008,7 +17075,6 @@ namespace minij
 				stack.Push(336);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(321);
 				return fooState336(false);
 			}
 			return false;
@@ -18025,7 +17091,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18041,7 +17107,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18057,7 +17123,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18073,7 +17139,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18089,7 +17155,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18105,7 +17171,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18121,7 +17187,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18134,7 +17200,6 @@ namespace minij
 				stack.Push(18);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(329);
 				return fooState18(false);
 			}
 			if (input[0] == "int")
@@ -18142,7 +17207,6 @@ namespace minij
 				stack.Push(14);
 				text.Push("int");
 				input.RemoveAt(0);
-				stack.Push(329);
 				return fooState14(false);
 			}
 			if (input[0] == "double")
@@ -18150,7 +17214,6 @@ namespace minij
 				stack.Push(15);
 				text.Push("double");
 				input.RemoveAt(0);
-				stack.Push(329);
 				return fooState15(false);
 			}
 			if (input[0] == "boolean")
@@ -18158,7 +17221,6 @@ namespace minij
 				stack.Push(16);
 				text.Push("boolean");
 				input.RemoveAt(0);
-				stack.Push(329);
 				return fooState16(false);
 			}
 			if (input[0] == "string")
@@ -18166,7 +17228,6 @@ namespace minij
 				stack.Push(17);
 				text.Push("string");
 				input.RemoveAt(0);
-				stack.Push(329);
 				return fooState17(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
@@ -18198,7 +17259,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("IfStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18211,7 +17272,6 @@ namespace minij
 				stack.Push(338);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(331);
 				return fooState338(false);
 			}
 			return false;
@@ -18225,7 +17285,6 @@ namespace minij
 				stack.Push(339);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(332);
 				return fooState339(false);
 			}
 			return false;
@@ -18239,7 +17298,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -18247,7 +17305,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -18255,7 +17312,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -18263,7 +17319,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -18271,7 +17326,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -18279,7 +17333,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -18287,7 +17340,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -18295,7 +17347,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -18303,7 +17354,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -18311,7 +17361,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -18319,7 +17368,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(333);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -18348,7 +17396,6 @@ namespace minij
 				stack.Push(341);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(334);
 				return fooState341(false);
 			}
 			return false;
@@ -18362,7 +17409,6 @@ namespace minij
 				stack.Push(342);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(335);
 				return fooState342(false);
 			}
 			return false;
@@ -18379,7 +17425,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("Stmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18392,7 +17438,6 @@ namespace minij
 				stack.Push(65);
 				text.Push("static");
 				input.RemoveAt(0);
-				stack.Push(337);
 				return fooState65(false);
 			}
 			if (afterReduce && text.Peek() == "ConstDecl")
@@ -18411,7 +17456,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -18419,7 +17463,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -18427,7 +17470,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -18435,7 +17477,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -18443,7 +17484,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -18451,7 +17491,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -18459,7 +17498,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -18467,7 +17505,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -18475,7 +17512,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -18483,7 +17519,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -18491,7 +17526,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(338);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -18520,7 +17554,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -18528,7 +17561,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -18536,7 +17568,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -18544,7 +17575,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -18552,7 +17582,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -18560,7 +17589,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -18568,7 +17596,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -18576,7 +17603,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -18584,7 +17610,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -18592,7 +17617,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -18600,7 +17624,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(339);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -18629,7 +17652,6 @@ namespace minij
 				stack.Push(346);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(340);
 				return fooState346(false);
 			}
 			return false;
@@ -18646,7 +17668,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("BreakStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -18659,7 +17681,6 @@ namespace minij
 				stack.Push(174);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState174(false);
 			}
 			if (input[0] == "(")
@@ -18667,7 +17688,6 @@ namespace minij
 				stack.Push(169);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState169(false);
 			}
 			if (input[0] == "intConstant")
@@ -18675,7 +17695,6 @@ namespace minij
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState175(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -18683,7 +17702,6 @@ namespace minij
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState176(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -18691,7 +17709,6 @@ namespace minij
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState177(false);
 			}
 			if (input[0] == "stringConstant")
@@ -18699,7 +17716,6 @@ namespace minij
 				stack.Push(178);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState178(false);
 			}
 			if (input[0] == "null")
@@ -18707,7 +17723,6 @@ namespace minij
 				stack.Push(179);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState179(false);
 			}
 			if (input[0] == "this")
@@ -18715,7 +17730,6 @@ namespace minij
 				stack.Push(168);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState168(false);
 			}
 			if (input[0] == "-")
@@ -18723,7 +17737,6 @@ namespace minij
 				stack.Push(171);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState171(false);
 			}
 			if (input[0] == "!")
@@ -18731,7 +17744,6 @@ namespace minij
 				stack.Push(172);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState172(false);
 			}
 			if (input[0] == "New")
@@ -18739,7 +17751,6 @@ namespace minij
 				stack.Push(173);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(342);
 				return fooState173(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -18768,7 +17779,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -18776,7 +17786,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -18784,7 +17793,6 @@ namespace minij
 				stack.Push(79);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState79(false);
 			}
 			if (input[0] == "if")
@@ -18792,7 +17800,6 @@ namespace minij
 				stack.Push(80);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState80(false);
 			}
 			if (input[0] == "while")
@@ -18800,7 +17807,6 @@ namespace minij
 				stack.Push(81);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState81(false);
 			}
 			if (input[0] == "for")
@@ -18808,7 +17814,6 @@ namespace minij
 				stack.Push(82);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState82(false);
 			}
 			if (input[0] == "return")
@@ -18816,7 +17821,6 @@ namespace minij
 				stack.Push(83);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState83(false);
 			}
 			if (input[0] == "break")
@@ -18824,7 +17828,6 @@ namespace minij
 				stack.Push(84);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState84(false);
 			}
 			if (input[0] == "System.out.println")
@@ -18832,7 +17835,6 @@ namespace minij
 				stack.Push(85);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState85(false);
 			}
 			if (input[0] == "intConstant")
@@ -18840,7 +17842,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -18848,7 +17849,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -18856,7 +17856,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -18864,7 +17863,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -18872,7 +17870,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -18880,7 +17877,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -18888,7 +17884,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -18896,7 +17891,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -18904,7 +17898,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(343);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -18973,7 +17966,6 @@ namespace minij
 				stack.Push(359);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(344);
 				return fooState359(false);
 			}
 			return false;
@@ -18987,7 +17979,6 @@ namespace minij
 				stack.Push(349);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(345);
 				return fooState349(false);
 			}
 			return false;
@@ -19004,7 +17995,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ReturnStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -19017,7 +18008,6 @@ namespace minij
 				stack.Push(350);
 				text.Push(",");
 				input.RemoveAt(0);
-				stack.Push(347);
 				return fooState350(false);
 			}
 			return false;
@@ -19031,7 +18021,6 @@ namespace minij
 				stack.Push(351);
 				text.Push("}");
 				input.RemoveAt(0);
-				stack.Push(348);
 				return fooState351(false);
 			}
 			return false;
@@ -19045,7 +18034,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -19053,7 +18041,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState89(false);
 			}
 			if (input[0] == "intConstant")
@@ -19061,7 +18048,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -19069,7 +18055,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -19077,7 +18062,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -19085,7 +18069,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -19093,7 +18076,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -19101,7 +18083,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -19109,7 +18090,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -19117,7 +18097,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -19125,7 +18104,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(349);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -19154,7 +18132,6 @@ namespace minij
 				stack.Push(353);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(350);
 				return fooState353(false);
 			}
 			return false;
@@ -19171,7 +18148,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("StmtBlock");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -19184,7 +18161,6 @@ namespace minij
 				stack.Push(354);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(352);
 				return fooState354(false);
 			}
 			return false;
@@ -19198,7 +18174,6 @@ namespace minij
 				stack.Push(355);
 				text.Push(";");
 				input.RemoveAt(0);
-				stack.Push(353);
 				return fooState355(false);
 			}
 			return false;
@@ -19212,7 +18187,6 @@ namespace minij
 				stack.Push(134);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState134(false);
 			}
 			if (input[0] == "(")
@@ -19220,7 +18194,6 @@ namespace minij
 				stack.Push(129);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState129(false);
 			}
 			if (input[0] == "intConstant")
@@ -19228,7 +18201,6 @@ namespace minij
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState135(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -19236,7 +18208,6 @@ namespace minij
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState136(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -19244,7 +18215,6 @@ namespace minij
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState137(false);
 			}
 			if (input[0] == "stringConstant")
@@ -19252,7 +18222,6 @@ namespace minij
 				stack.Push(138);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState138(false);
 			}
 			if (input[0] == "null")
@@ -19260,7 +18229,6 @@ namespace minij
 				stack.Push(139);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState139(false);
 			}
 			if (input[0] == "this")
@@ -19268,7 +18236,6 @@ namespace minij
 				stack.Push(128);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState128(false);
 			}
 			if (input[0] == "-")
@@ -19276,7 +18243,6 @@ namespace minij
 				stack.Push(131);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState131(false);
 			}
 			if (input[0] == "!")
@@ -19284,7 +18250,6 @@ namespace minij
 				stack.Push(132);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState132(false);
 			}
 			if (input[0] == "New")
@@ -19292,7 +18257,6 @@ namespace minij
 				stack.Push(133);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(354);
 				return fooState133(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
@@ -19324,7 +18288,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("PrintStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -19337,7 +18301,6 @@ namespace minij
 				stack.Push(357);
 				text.Push(")");
 				input.RemoveAt(0);
-				stack.Push(356);
 				return fooState357(false);
 			}
 			return false;
@@ -19351,7 +18314,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -19359,7 +18321,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -19367,7 +18328,6 @@ namespace minij
 				stack.Push(329);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState329(false);
 			}
 			if (input[0] == "if")
@@ -19375,7 +18335,6 @@ namespace minij
 				stack.Push(330);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState330(false);
 			}
 			if (input[0] == "while")
@@ -19383,7 +18342,6 @@ namespace minij
 				stack.Push(331);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState331(false);
 			}
 			if (input[0] == "for")
@@ -19391,7 +18349,6 @@ namespace minij
 				stack.Push(332);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState332(false);
 			}
 			if (input[0] == "return")
@@ -19399,7 +18356,6 @@ namespace minij
 				stack.Push(333);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState333(false);
 			}
 			if (input[0] == "break")
@@ -19407,7 +18363,6 @@ namespace minij
 				stack.Push(334);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState334(false);
 			}
 			if (input[0] == "System.out.println")
@@ -19415,7 +18370,6 @@ namespace minij
 				stack.Push(335);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState335(false);
 			}
 			if (input[0] == "intConstant")
@@ -19423,7 +18377,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -19431,7 +18384,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -19439,7 +18391,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -19447,7 +18398,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -19455,7 +18405,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -19463,7 +18412,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -19471,7 +18419,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -19479,7 +18426,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -19487,7 +18433,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(357);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -19559,7 +18504,7 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("ForStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
@@ -19572,7 +18517,6 @@ namespace minij
 				stack.Push(93);
 				text.Push("ident");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState93(false);
 			}
 			if (input[0] == "(")
@@ -19580,7 +18524,6 @@ namespace minij
 				stack.Push(89);
 				text.Push("(");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState89(false);
 			}
 			if (input[0] == "{")
@@ -19588,7 +18531,6 @@ namespace minij
 				stack.Push(329);
 				text.Push("{");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState329(false);
 			}
 			if (input[0] == "if")
@@ -19596,7 +18538,6 @@ namespace minij
 				stack.Push(330);
 				text.Push("if");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState330(false);
 			}
 			if (input[0] == "while")
@@ -19604,7 +18545,6 @@ namespace minij
 				stack.Push(331);
 				text.Push("while");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState331(false);
 			}
 			if (input[0] == "for")
@@ -19612,7 +18552,6 @@ namespace minij
 				stack.Push(332);
 				text.Push("for");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState332(false);
 			}
 			if (input[0] == "return")
@@ -19620,7 +18559,6 @@ namespace minij
 				stack.Push(333);
 				text.Push("return");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState333(false);
 			}
 			if (input[0] == "break")
@@ -19628,7 +18566,6 @@ namespace minij
 				stack.Push(334);
 				text.Push("break");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState334(false);
 			}
 			if (input[0] == "System.out.println")
@@ -19636,7 +18573,6 @@ namespace minij
 				stack.Push(335);
 				text.Push("System.out.println");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState335(false);
 			}
 			if (input[0] == "intConstant")
@@ -19644,7 +18580,6 @@ namespace minij
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState94(false);
 			}
 			if (input[0] == "doubleConstant")
@@ -19652,7 +18587,6 @@ namespace minij
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState95(false);
 			}
 			if (input[0] == "booleanConstant")
@@ -19660,7 +18594,6 @@ namespace minij
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState96(false);
 			}
 			if (input[0] == "stringConstant")
@@ -19668,7 +18601,6 @@ namespace minij
 				stack.Push(97);
 				text.Push("stringConstant");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState97(false);
 			}
 			if (input[0] == "null")
@@ -19676,7 +18608,6 @@ namespace minij
 				stack.Push(98);
 				text.Push("null");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState98(false);
 			}
 			if (input[0] == "this")
@@ -19684,7 +18615,6 @@ namespace minij
 				stack.Push(88);
 				text.Push("this");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState88(false);
 			}
 			if (input[0] == "-")
@@ -19692,7 +18622,6 @@ namespace minij
 				stack.Push(90);
 				text.Push("-");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState90(false);
 			}
 			if (input[0] == "!")
@@ -19700,7 +18629,6 @@ namespace minij
 				stack.Push(91);
 				text.Push("!");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState91(false);
 			}
 			if (input[0] == "New")
@@ -19708,7 +18636,6 @@ namespace minij
 				stack.Push(92);
 				text.Push("New");
 				input.RemoveAt(0);
-				stack.Push(359);
 				return fooState92(false);
 			}
 			if (afterReduce && text.Peek() == "StmtBlock")
@@ -19780,21 +18707,379 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("WhileStmt");
-				return fooStateCAMBIAR();
+				return irA(stack.Peek());
 			}
 			return false;
 		}
 
 
-		public bool fooState361(bool afterReduce)
+		public bool irA(int stackTop)
 		{
-			return false;
-		}
-
-
-		public bool fooState362(bool afterReduce)
-		{
-			return false;
+			switch (stackTop)
+			{
+				case 0: return fooState0(true);
+				case 1: return fooState1(true);
+				case 2: return fooState2(true);
+				case 3: return fooState3(true);
+				case 4: return fooState4(true);
+				case 5: return fooState5(true);
+				case 6: return fooState6(true);
+				case 7: return fooState7(true);
+				case 8: return fooState8(true);
+				case 9: return fooState9(true);
+				case 10: return fooState10(true);
+				case 11: return fooState11(true);
+				case 12: return fooState12(true);
+				case 13: return fooState13(true);
+				case 14: return fooState14(true);
+				case 15: return fooState15(true);
+				case 16: return fooState16(true);
+				case 17: return fooState17(true);
+				case 18: return fooState18(true);
+				case 19: return fooState19(true);
+				case 20: return fooState20(true);
+				case 21: return fooState21(true);
+				case 22: return fooState22(true);
+				case 23: return fooState23(true);
+				case 24: return fooState24(true);
+				case 25: return fooState25(true);
+				case 26: return fooState26(true);
+				case 27: return fooState27(true);
+				case 28: return fooState28(true);
+				case 29: return fooState29(true);
+				case 30: return fooState30(true);
+				case 31: return fooState31(true);
+				case 32: return fooState32(true);
+				case 33: return fooState33(true);
+				case 34: return fooState34(true);
+				case 35: return fooState35(true);
+				case 36: return fooState36(true);
+				case 37: return fooState37(true);
+				case 38: return fooState38(true);
+				case 39: return fooState39(true);
+				case 40: return fooState40(true);
+				case 41: return fooState41(true);
+				case 42: return fooState42(true);
+				case 43: return fooState43(true);
+				case 44: return fooState44(true);
+				case 45: return fooState45(true);
+				case 46: return fooState46(true);
+				case 47: return fooState47(true);
+				case 48: return fooState48(true);
+				case 49: return fooState49(true);
+				case 50: return fooState50(true);
+				case 51: return fooState51(true);
+				case 52: return fooState52(true);
+				case 53: return fooState53(true);
+				case 54: return fooState54(true);
+				case 55: return fooState55(true);
+				case 56: return fooState56(true);
+				case 57: return fooState57(true);
+				case 58: return fooState58(true);
+				case 59: return fooState59(true);
+				case 60: return fooState60(true);
+				case 61: return fooState61(true);
+				case 62: return fooState62(true);
+				case 63: return fooState63(true);
+				case 64: return fooState64(true);
+				case 65: return fooState65(true);
+				case 66: return fooState66(true);
+				case 67: return fooState67(true);
+				case 68: return fooState68(true);
+				case 69: return fooState69(true);
+				case 70: return fooState70(true);
+				case 71: return fooState71(true);
+				case 72: return fooState72(true);
+				case 73: return fooState73(true);
+				case 74: return fooState74(true);
+				case 75: return fooState75(true);
+				case 76: return fooState76(true);
+				case 77: return fooState77(true);
+				case 78: return fooState78(true);
+				case 79: return fooState79(true);
+				case 80: return fooState80(true);
+				case 81: return fooState81(true);
+				case 82: return fooState82(true);
+				case 83: return fooState83(true);
+				case 84: return fooState84(true);
+				case 85: return fooState85(true);
+				case 86: return fooState86(true);
+				case 87: return fooState87(true);
+				case 88: return fooState88(true);
+				case 89: return fooState89(true);
+				case 90: return fooState90(true);
+				case 91: return fooState91(true);
+				case 92: return fooState92(true);
+				case 93: return fooState93(true);
+				case 94: return fooState94(true);
+				case 95: return fooState95(true);
+				case 96: return fooState96(true);
+				case 97: return fooState97(true);
+				case 98: return fooState98(true);
+				case 99: return fooState99(true);
+				case 100: return fooState100(true);
+				case 101: return fooState101(true);
+				case 102: return fooState102(true);
+				case 103: return fooState103(true);
+				case 104: return fooState104(true);
+				case 105: return fooState105(true);
+				case 106: return fooState106(true);
+				case 107: return fooState107(true);
+				case 108: return fooState108(true);
+				case 109: return fooState109(true);
+				case 110: return fooState110(true);
+				case 111: return fooState111(true);
+				case 112: return fooState112(true);
+				case 113: return fooState113(true);
+				case 114: return fooState114(true);
+				case 115: return fooState115(true);
+				case 116: return fooState116(true);
+				case 117: return fooState117(true);
+				case 118: return fooState118(true);
+				case 119: return fooState119(true);
+				case 120: return fooState120(true);
+				case 121: return fooState121(true);
+				case 122: return fooState122(true);
+				case 123: return fooState123(true);
+				case 124: return fooState124(true);
+				case 125: return fooState125(true);
+				case 126: return fooState126(true);
+				case 127: return fooState127(true);
+				case 128: return fooState128(true);
+				case 129: return fooState129(true);
+				case 130: return fooState130(true);
+				case 131: return fooState131(true);
+				case 132: return fooState132(true);
+				case 133: return fooState133(true);
+				case 134: return fooState134(true);
+				case 135: return fooState135(true);
+				case 136: return fooState136(true);
+				case 137: return fooState137(true);
+				case 138: return fooState138(true);
+				case 139: return fooState139(true);
+				case 140: return fooState140(true);
+				case 141: return fooState141(true);
+				case 142: return fooState142(true);
+				case 143: return fooState143(true);
+				case 144: return fooState144(true);
+				case 145: return fooState145(true);
+				case 146: return fooState146(true);
+				case 147: return fooState147(true);
+				case 148: return fooState148(true);
+				case 149: return fooState149(true);
+				case 150: return fooState150(true);
+				case 151: return fooState151(true);
+				case 152: return fooState152(true);
+				case 153: return fooState153(true);
+				case 154: return fooState154(true);
+				case 155: return fooState155(true);
+				case 156: return fooState156(true);
+				case 157: return fooState157(true);
+				case 158: return fooState158(true);
+				case 159: return fooState159(true);
+				case 160: return fooState160(true);
+				case 161: return fooState161(true);
+				case 162: return fooState162(true);
+				case 163: return fooState163(true);
+				case 164: return fooState164(true);
+				case 165: return fooState165(true);
+				case 166: return fooState166(true);
+				case 167: return fooState167(true);
+				case 168: return fooState168(true);
+				case 169: return fooState169(true);
+				case 170: return fooState170(true);
+				case 171: return fooState171(true);
+				case 172: return fooState172(true);
+				case 173: return fooState173(true);
+				case 174: return fooState174(true);
+				case 175: return fooState175(true);
+				case 176: return fooState176(true);
+				case 177: return fooState177(true);
+				case 178: return fooState178(true);
+				case 179: return fooState179(true);
+				case 180: return fooState180(true);
+				case 181: return fooState181(true);
+				case 182: return fooState182(true);
+				case 183: return fooState183(true);
+				case 184: return fooState184(true);
+				case 185: return fooState185(true);
+				case 186: return fooState186(true);
+				case 187: return fooState187(true);
+				case 188: return fooState188(true);
+				case 189: return fooState189(true);
+				case 190: return fooState190(true);
+				case 191: return fooState191(true);
+				case 192: return fooState192(true);
+				case 193: return fooState193(true);
+				case 194: return fooState194(true);
+				case 195: return fooState195(true);
+				case 196: return fooState196(true);
+				case 197: return fooState197(true);
+				case 198: return fooState198(true);
+				case 199: return fooState199(true);
+				case 200: return fooState200(true);
+				case 201: return fooState201(true);
+				case 202: return fooState202(true);
+				case 203: return fooState203(true);
+				case 204: return fooState204(true);
+				case 205: return fooState205(true);
+				case 206: return fooState206(true);
+				case 207: return fooState207(true);
+				case 208: return fooState208(true);
+				case 209: return fooState209(true);
+				case 210: return fooState210(true);
+				case 211: return fooState211(true);
+				case 212: return fooState212(true);
+				case 213: return fooState213(true);
+				case 214: return fooState214(true);
+				case 215: return fooState215(true);
+				case 216: return fooState216(true);
+				case 217: return fooState217(true);
+				case 218: return fooState218(true);
+				case 219: return fooState219(true);
+				case 220: return fooState220(true);
+				case 221: return fooState221(true);
+				case 222: return fooState222(true);
+				case 223: return fooState223(true);
+				case 224: return fooState224(true);
+				case 225: return fooState225(true);
+				case 226: return fooState226(true);
+				case 227: return fooState227(true);
+				case 228: return fooState228(true);
+				case 229: return fooState229(true);
+				case 230: return fooState230(true);
+				case 231: return fooState231(true);
+				case 232: return fooState232(true);
+				case 233: return fooState233(true);
+				case 234: return fooState234(true);
+				case 235: return fooState235(true);
+				case 236: return fooState236(true);
+				case 237: return fooState237(true);
+				case 238: return fooState238(true);
+				case 239: return fooState239(true);
+				case 240: return fooState240(true);
+				case 241: return fooState241(true);
+				case 242: return fooState242(true);
+				case 243: return fooState243(true);
+				case 244: return fooState244(true);
+				case 245: return fooState245(true);
+				case 246: return fooState246(true);
+				case 247: return fooState247(true);
+				case 248: return fooState248(true);
+				case 249: return fooState249(true);
+				case 250: return fooState250(true);
+				case 251: return fooState251(true);
+				case 252: return fooState252(true);
+				case 253: return fooState253(true);
+				case 254: return fooState254(true);
+				case 255: return fooState255(true);
+				case 256: return fooState256(true);
+				case 257: return fooState257(true);
+				case 258: return fooState258(true);
+				case 259: return fooState259(true);
+				case 260: return fooState260(true);
+				case 261: return fooState261(true);
+				case 262: return fooState262(true);
+				case 263: return fooState263(true);
+				case 264: return fooState264(true);
+				case 265: return fooState265(true);
+				case 266: return fooState266(true);
+				case 267: return fooState267(true);
+				case 268: return fooState268(true);
+				case 269: return fooState269(true);
+				case 270: return fooState270(true);
+				case 271: return fooState271(true);
+				case 272: return fooState272(true);
+				case 273: return fooState273(true);
+				case 274: return fooState274(true);
+				case 275: return fooState275(true);
+				case 276: return fooState276(true);
+				case 277: return fooState277(true);
+				case 278: return fooState278(true);
+				case 279: return fooState279(true);
+				case 280: return fooState280(true);
+				case 281: return fooState281(true);
+				case 282: return fooState282(true);
+				case 283: return fooState283(true);
+				case 284: return fooState284(true);
+				case 285: return fooState285(true);
+				case 286: return fooState286(true);
+				case 287: return fooState287(true);
+				case 288: return fooState288(true);
+				case 289: return fooState289(true);
+				case 290: return fooState290(true);
+				case 291: return fooState291(true);
+				case 292: return fooState292(true);
+				case 293: return fooState293(true);
+				case 294: return fooState294(true);
+				case 295: return fooState295(true);
+				case 296: return fooState296(true);
+				case 297: return fooState297(true);
+				case 298: return fooState298(true);
+				case 299: return fooState299(true);
+				case 300: return fooState300(true);
+				case 301: return fooState301(true);
+				case 302: return fooState302(true);
+				case 303: return fooState303(true);
+				case 304: return fooState304(true);
+				case 305: return fooState305(true);
+				case 306: return fooState306(true);
+				case 307: return fooState307(true);
+				case 308: return fooState308(true);
+				case 309: return fooState309(true);
+				case 310: return fooState310(true);
+				case 311: return fooState311(true);
+				case 312: return fooState312(true);
+				case 313: return fooState313(true);
+				case 314: return fooState314(true);
+				case 315: return fooState315(true);
+				case 316: return fooState316(true);
+				case 317: return fooState317(true);
+				case 318: return fooState318(true);
+				case 319: return fooState319(true);
+				case 320: return fooState320(true);
+				case 321: return fooState321(true);
+				case 322: return fooState322(true);
+				case 323: return fooState323(true);
+				case 324: return fooState324(true);
+				case 325: return fooState325(true);
+				case 326: return fooState326(true);
+				case 327: return fooState327(true);
+				case 328: return fooState328(true);
+				case 329: return fooState329(true);
+				case 330: return fooState330(true);
+				case 331: return fooState331(true);
+				case 332: return fooState332(true);
+				case 333: return fooState333(true);
+				case 334: return fooState334(true);
+				case 335: return fooState335(true);
+				case 336: return fooState336(true);
+				case 337: return fooState337(true);
+				case 338: return fooState338(true);
+				case 339: return fooState339(true);
+				case 340: return fooState340(true);
+				case 341: return fooState341(true);
+				case 342: return fooState342(true);
+				case 343: return fooState343(true);
+				case 344: return fooState344(true);
+				case 345: return fooState345(true);
+				case 346: return fooState346(true);
+				case 347: return fooState347(true);
+				case 348: return fooState348(true);
+				case 349: return fooState349(true);
+				case 350: return fooState350(true);
+				case 351: return fooState351(true);
+				case 352: return fooState352(true);
+				case 353: return fooState353(true);
+				case 354: return fooState354(true);
+				case 355: return fooState355(true);
+				case 356: return fooState356(true);
+				case 357: return fooState357(true);
+				case 358: return fooState358(true);
+				case 359: return fooState359(true);
+				case 360: return fooState360(true);
+				default:  return false;
+			}
 		}
 	}
 }
