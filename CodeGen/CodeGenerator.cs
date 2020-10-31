@@ -62,7 +62,7 @@ namespace CodeGen
             {
                 if (actions[i] != "")
                 {
-                    char[] act = actions[i].ToCharArray();
+                    string act = actions[i];
                     string symbol = hAnalisis[i];
                     if (symbol == "(coma)")
                     {
@@ -80,19 +80,21 @@ namespace CodeGen
                     }
                     else if (act[0] == 'd') // desplazamiento
                     {
+                        int num = int.Parse(act.Substring(1));
+
                         func += "\tif(input[0] == \"" + symbol + "\"){\n";
-                        func += "\t\tstack.Enqueue(" + act[1] + ");\n";
+                        func += "\t\tstack.Enqueue(" + num + ");\n";
                         func += "\t\ttext.Enqueue();\n";
                         func += "\t\tinput.RemoveAt(0);\n";
 
                         func += "\t\tstack.Push(" + numState + ");\n";         // insertar estado actual a pila de estados
-                        func += "\t\tfooState" + act[1] + "(false);\n";
+                        func += "\t\tfooState" + num + "(false);\n";
                         func += "\t\tbreak;\n";
                         func += "\t}\n";
                     }
                     else if (act[0] == 'r')// reducción
                     {
-                        int index = int.Parse(act[1].ToString()) - 1;
+                        int index = int.Parse(act.Substring(1)) - 1;
 
                         func += "\tif(text.Peek() == \"" + symbol + "\"){\n";
 
