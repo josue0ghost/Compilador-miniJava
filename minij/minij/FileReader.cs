@@ -11,6 +11,7 @@ namespace minij
     class FileReader
     {
         public static string errors = "";
+        public static List<string> tokens = new List<string>();
 
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
@@ -43,6 +44,11 @@ namespace minij
           "!=", "&&", "||", "!", ";", ",", ".", "[]", "()", "{}",
           "[", "]", "(", ")", "{", "}"
         };
+
+        public List<string> getTokens()
+        {
+            return tokens;
+        }
 
 
         public string LexicalAnalysis(string input, List<string> origin)
@@ -255,8 +261,9 @@ namespace minij
         {
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
-            var result = reserved.Where(pair => pair.Key == input).ToArray();
+            var result = reserved.Where(pair => pair.Key == input).ToArray();            
             Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
+            tokens.Add(result[0].Value);
             return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
         }
 
@@ -266,6 +273,7 @@ namespace minij
             int end = start + input.Length - 1;
             var result = operators.Where(x => x.Equals(input)).ToArray();
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
+            tokens.Add(result[0]);
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
         }
 
@@ -311,6 +319,7 @@ namespace minij
                     }
                     else
                     {
+                        tokens.Add(result);
                         return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
                     }
                 }                
@@ -328,6 +337,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Double");
+            tokens.Add(result);
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Double\n";
         }
 
@@ -336,6 +346,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_IntConstant");
+            tokens.Add(input);
             return $"'{input}'\t line {cont} cols {start}-{end} is T_IntConstant\n";
         }
 
@@ -344,6 +355,7 @@ namespace minij
             int start = line.IndexOf(input) + 1;
             int end = start + input.Length - 1;
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_BooleanConstant");
+            tokens.Add(input);                
             return $"'{input}'\t line {cont} cols {start}-{end} is T_BooleanConstant\n";
         }
 

@@ -84,5 +84,13 @@ namespace minij
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LR parser = new LR();
+            parser.input = FileReader.tokens;
+            parser.stack.Push(0);
+            parser.fooState0(false);
+        }
     }
 }
