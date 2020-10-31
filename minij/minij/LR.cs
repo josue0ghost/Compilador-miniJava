@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace minij
 {
@@ -28,7 +29,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState13(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -262,7 +263,7 @@ namespace minij
 
 		public bool fooState9(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(20);
 				text.Push("ident");
@@ -282,7 +283,7 @@ namespace minij
 
 		public bool fooState10(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(22);
 				text.Push("ident");
@@ -334,7 +335,7 @@ namespace minij
 
 		public bool fooState12(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(28);
 				text.Push("ident");
@@ -347,7 +348,7 @@ namespace minij
 
 		public bool fooState13(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(29);
 				text.Push("ident");
@@ -582,7 +583,7 @@ namespace minij
 
 		public bool fooState23(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(32);
 				text.Push("ident");
@@ -689,7 +690,7 @@ namespace minij
 
 		public bool fooState30(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -745,7 +746,7 @@ namespace minij
 
 		public bool fooState31(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -827,7 +828,7 @@ namespace minij
 
 		public bool fooState34(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -922,7 +923,7 @@ namespace minij
 
 		public bool fooState37(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(46);
 				text.Push("ident");
@@ -972,7 +973,7 @@ namespace minij
 
 		public bool fooState40(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(48);
 				text.Push("ident");
@@ -998,7 +999,7 @@ namespace minij
 
 		public bool fooState42(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(50);
 				text.Push("ident");
@@ -1011,7 +1012,7 @@ namespace minij
 
 		public bool fooState43(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(51);
 				text.Push("ident");
@@ -1042,7 +1043,7 @@ namespace minij
 
 		public bool fooState45(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1226,7 +1227,7 @@ namespace minij
 
 		public bool fooState53(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1316,7 +1317,7 @@ namespace minij
 
 		public bool fooState56(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(61);
 				text.Push("ident");
@@ -1329,7 +1330,7 @@ namespace minij
 
 		public bool fooState57(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1385,7 +1386,7 @@ namespace minij
 
 		public bool fooState58(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1511,7 +1512,7 @@ namespace minij
 
 		public bool fooState64(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -1574,28 +1575,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -1994,7 +1995,7 @@ namespace minij
 
 		public bool fooState79(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -2089,7 +2090,7 @@ namespace minij
 
 		public bool fooState83(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -2103,28 +2104,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -2535,7 +2536,7 @@ namespace minij
 
 		public bool fooState89(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -2549,28 +2550,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -2633,7 +2634,7 @@ namespace minij
 
 		public bool fooState90(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -2647,28 +2648,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -2731,7 +2732,7 @@ namespace minij
 
 		public bool fooState91(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -2745,28 +2746,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -3472,7 +3473,7 @@ namespace minij
 
 		public bool fooState99(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(143);
 				text.Push("ident");
@@ -3553,7 +3554,7 @@ namespace minij
 
 		public bool fooState104(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -3726,7 +3727,7 @@ namespace minij
 
 		public bool fooState109(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -3740,28 +3741,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -3824,7 +3825,7 @@ namespace minij
 
 		public bool fooState110(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -3838,28 +3839,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -3922,7 +3923,7 @@ namespace minij
 
 		public bool fooState111(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -3936,28 +3937,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4020,7 +4021,7 @@ namespace minij
 
 		public bool fooState112(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4034,28 +4035,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4118,7 +4119,7 @@ namespace minij
 
 		public bool fooState113(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4132,28 +4133,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4216,7 +4217,7 @@ namespace minij
 
 		public bool fooState114(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4230,28 +4231,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4314,7 +4315,7 @@ namespace minij
 
 		public bool fooState115(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4328,28 +4329,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4412,7 +4413,7 @@ namespace minij
 
 		public bool fooState116(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(159);
 				text.Push("ident");
@@ -4443,7 +4444,7 @@ namespace minij
 
 		public bool fooState118(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -4457,28 +4458,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -4541,7 +4542,7 @@ namespace minij
 
 		public bool fooState119(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -4555,28 +4556,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -4639,7 +4640,7 @@ namespace minij
 
 		public bool fooState120(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4653,28 +4654,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -4767,7 +4768,7 @@ namespace minij
 
 		public bool fooState123(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -4781,28 +4782,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -4865,7 +4866,7 @@ namespace minij
 
 		public bool fooState124(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -4879,28 +4880,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -5177,7 +5178,7 @@ namespace minij
 
 		public bool fooState129(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -5191,28 +5192,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -5337,7 +5338,7 @@ namespace minij
 
 		public bool fooState131(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -5351,28 +5352,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -5435,7 +5436,7 @@ namespace minij
 
 		public bool fooState132(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -5449,28 +5450,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -6386,7 +6387,7 @@ namespace minij
 
 		public bool fooState142(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(195);
 				text.Push("ident");
@@ -6489,7 +6490,7 @@ namespace minij
 
 		public bool fooState149(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(199);
 				text.Push("ident");
@@ -6502,7 +6503,7 @@ namespace minij
 
 		public bool fooState150(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(200);
 				text.Push("ident");
@@ -7289,7 +7290,7 @@ namespace minij
 
 		public bool fooState159(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(202);
 				text.Push("ident");
@@ -7302,7 +7303,7 @@ namespace minij
 
 		public bool fooState160(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -7365,28 +7366,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -7913,7 +7914,7 @@ namespace minij
 
 		public bool fooState169(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -7927,28 +7928,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -8073,7 +8074,7 @@ namespace minij
 
 		public bool fooState171(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -8087,28 +8088,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -8171,7 +8172,7 @@ namespace minij
 
 		public bool fooState172(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -8185,28 +8186,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -9188,7 +9189,7 @@ namespace minij
 
 		public bool fooState182(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9202,28 +9203,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9299,7 +9300,7 @@ namespace minij
 
 		public bool fooState184(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9313,28 +9314,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9397,7 +9398,7 @@ namespace minij
 
 		public bool fooState185(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9411,28 +9412,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9495,7 +9496,7 @@ namespace minij
 
 		public bool fooState186(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9509,28 +9510,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9593,7 +9594,7 @@ namespace minij
 
 		public bool fooState187(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9607,28 +9608,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9691,7 +9692,7 @@ namespace minij
 
 		public bool fooState188(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9705,28 +9706,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9789,7 +9790,7 @@ namespace minij
 
 		public bool fooState189(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9803,28 +9804,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9887,7 +9888,7 @@ namespace minij
 
 		public bool fooState190(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9901,28 +9902,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -9985,7 +9986,7 @@ namespace minij
 
 		public bool fooState191(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(229);
 				text.Push("ident");
@@ -10208,7 +10209,7 @@ namespace minij
 
 		public bool fooState194(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(230);
 				text.Push("ident");
@@ -10507,7 +10508,7 @@ namespace minij
 
 		public bool fooState201(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(234);
 				text.Push("ident");
@@ -10638,7 +10639,7 @@ namespace minij
 
 		public bool fooState204(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -10701,28 +10702,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState251(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -10825,7 +10826,7 @@ namespace minij
 
 		public bool fooState205(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -10888,28 +10889,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -11012,7 +11013,7 @@ namespace minij
 
 		public bool fooState206(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -11026,28 +11027,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -11123,7 +11124,7 @@ namespace minij
 
 		public bool fooState208(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11137,28 +11138,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11234,7 +11235,7 @@ namespace minij
 
 		public bool fooState210(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11248,28 +11249,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11332,7 +11333,7 @@ namespace minij
 
 		public bool fooState211(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11346,28 +11347,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11430,7 +11431,7 @@ namespace minij
 
 		public bool fooState212(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11444,28 +11445,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11528,7 +11529,7 @@ namespace minij
 
 		public bool fooState213(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11542,28 +11543,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11626,7 +11627,7 @@ namespace minij
 
 		public bool fooState214(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11640,28 +11641,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11724,7 +11725,7 @@ namespace minij
 
 		public bool fooState215(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11738,28 +11739,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11822,7 +11823,7 @@ namespace minij
 
 		public bool fooState216(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11836,28 +11837,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -11920,7 +11921,7 @@ namespace minij
 
 		public bool fooState217(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(249);
 				text.Push("ident");
@@ -12143,7 +12144,7 @@ namespace minij
 
 		public bool fooState220(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(250);
 				text.Push("ident");
@@ -13219,7 +13220,7 @@ namespace minij
 
 		public bool fooState232(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -13275,7 +13276,7 @@ namespace minij
 
 		public bool fooState233(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -14650,7 +14651,7 @@ namespace minij
 
 		public bool fooState256(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -14664,28 +14665,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -14915,7 +14916,7 @@ namespace minij
 
 		public bool fooState261(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -14978,28 +14979,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState280(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -15294,7 +15295,7 @@ namespace minij
 
 		public bool fooState274(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -15389,7 +15390,7 @@ namespace minij
 
 		public bool fooState278(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -15403,28 +15404,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -15513,7 +15514,7 @@ namespace minij
 
 		public bool fooState281(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -15576,28 +15577,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -15772,7 +15773,7 @@ namespace minij
 
 		public bool fooState285(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -15786,28 +15787,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -15870,7 +15871,7 @@ namespace minij
 
 		public bool fooState286(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -15884,28 +15885,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -15968,7 +15969,7 @@ namespace minij
 
 		public bool fooState287(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -15982,28 +15983,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -16096,7 +16097,7 @@ namespace minij
 
 		public bool fooState290(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -16110,28 +16111,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -16211,7 +16212,7 @@ namespace minij
 
 		public bool fooState292(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -16274,28 +16275,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -16480,7 +16481,7 @@ namespace minij
 
 		public bool fooState299(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -16543,28 +16544,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState335(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -16667,7 +16668,7 @@ namespace minij
 
 		public bool fooState300(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -16730,28 +16731,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState280(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -16854,7 +16855,7 @@ namespace minij
 
 		public bool fooState301(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -16868,28 +16869,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -17060,7 +17061,7 @@ namespace minij
 
 		public bool fooState309(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -17074,28 +17075,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -17184,7 +17185,7 @@ namespace minij
 
 		public bool fooState311(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -17247,28 +17248,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState280(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -17397,7 +17398,7 @@ namespace minij
 
 		public bool fooState314(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -17460,28 +17461,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState280(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -18025,7 +18026,7 @@ namespace minij
 
 		public bool fooState329(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -18133,7 +18134,7 @@ namespace minij
 
 		public bool fooState333(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -18147,28 +18148,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -18303,7 +18304,7 @@ namespace minij
 
 		public bool fooState338(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -18317,28 +18318,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -18401,7 +18402,7 @@ namespace minij
 
 		public bool fooState339(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -18415,28 +18416,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -18529,7 +18530,7 @@ namespace minij
 
 		public bool fooState342(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -18543,28 +18544,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState169(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(175);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState175(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(176);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState176(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(177);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState177(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(178);
 				text.Push("stringConstant");
@@ -18627,7 +18628,7 @@ namespace minij
 
 		public bool fooState343(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -18690,28 +18691,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState85(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -18883,7 +18884,7 @@ namespace minij
 
 		public bool fooState349(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -18897,28 +18898,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState89(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -19046,7 +19047,7 @@ namespace minij
 
 		public bool fooState354(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -19060,28 +19061,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState129(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(135);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState135(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(136);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState136(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(137);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState137(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(138);
 				text.Push("stringConstant");
@@ -19183,7 +19184,7 @@ namespace minij
 
 		public bool fooState357(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -19246,28 +19247,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState335(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
@@ -19387,7 +19388,7 @@ namespace minij
 
 		public bool fooState359(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], RegularExpressions.idPattern).Success)
 			{
 				stack.Push(93);
 				text.Push("ident");
@@ -19450,28 +19451,28 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState335(false);
 			}
-			if (input[0] == "intConstant")
+			if (int.TryParse(input[0], out int x))
 			{
 				stack.Push(94);
 				text.Push("intConstant");
 				input.RemoveAt(0);
 				return fooState94(false);
 			}
-			if (input[0] == "doubleConstant")
+			if (double.TryParse(input[0], out double y))
 			{
 				stack.Push(95);
 				text.Push("doubleConstant");
 				input.RemoveAt(0);
 				return fooState95(false);
 			}
-			if (input[0] == "booleanConstant")
+			if (bool.TryParse(input[0], out bool z))
 			{
 				stack.Push(96);
 				text.Push("booleanConstant");
 				input.RemoveAt(0);
 				return fooState96(false);
 			}
-			if (input[0] == "stringConstant")
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
 			{
 				stack.Push(97);
 				text.Push("stringConstant");
