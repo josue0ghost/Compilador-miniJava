@@ -29,6 +29,12 @@ Adicional a estas expresiones regulares, se cuenta con el método ***Validate***
 
 El manejo de errores incluye para los identificadores, si las cadenas analizadas no pertenecen a los identificadores se reportan como entradas no reconocidas, si los identificadores tienen una longitud que sobrepasa los 31 caracteres se truncan los siguientes y se reporta el error. El análisis de todos los tokens se muestra en pantalla además de generar dos archivos, uno general para la salida de todos los tokens y otro donde se reportan solo los errores, ambos generados en el directorio del proyecto: /bin/Debug/Outputs.
 
+## Análisis sintáctico
+Tabla de análisis realizada y consumida por el proyecto: https://correo2urledu-my.sharepoint.com/:x:/g/personal/eapelaezc_correo_url_edu_gt/EbyUEJQogLNNglH6ThPWtYYBl3wp6KNUzSPBIpzeEKWNZg?e=5J2n5U
+
+Estados generados: https://correo2urledu-my.sharepoint.com/:x:/g/personal/eapelaezc_correo_url_edu_gt/ES9vlWRT9tVOsxHed3KZ29cBiq1HWiWLsqkKTBQwzj3e_g?e=FdUZJI
+
+
 ## Fuentes 
 *Regex Class* (s.f.) Microsoft Documentation. Recuperado de: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1.
 
