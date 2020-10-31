@@ -140,6 +140,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 0
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -156,6 +157,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 1
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -172,6 +174,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 2
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -188,6 +191,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 3
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -204,6 +208,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 4
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -220,6 +225,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 5
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -347,6 +353,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 13
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -357,6 +364,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 13
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -373,6 +381,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 14
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -383,6 +392,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 14
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -399,6 +409,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 15
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -409,6 +420,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 15
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -425,6 +437,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 16
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -435,6 +448,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 16
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -451,6 +465,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 17
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -461,6 +476,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 17
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -477,6 +493,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 6
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -493,6 +510,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 7
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -516,6 +534,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 18
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -526,6 +545,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 18
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -568,6 +588,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 9
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -584,6 +605,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 10
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -600,6 +622,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 11
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -616,6 +639,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 12
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -867,6 +891,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 22
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -923,6 +948,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -1065,6 +1091,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 7
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -1075,6 +1102,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 7
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -1122,6 +1150,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 27
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -1164,6 +1193,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 19
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -1236,6 +1266,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 21
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -1252,6 +1283,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 20
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -1689,6 +1721,7 @@ namespace minij
 		{
 			if (text.Peek() == "static")
 			{
+				// reduccion por el estado 6
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -1826,6 +1859,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 32
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1842,6 +1876,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 33
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1858,6 +1893,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 34
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1874,6 +1910,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 35
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1890,6 +1927,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 36
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1906,6 +1944,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 37
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -1922,6 +1961,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 38
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2157,6 +2197,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2167,6 +2208,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2177,6 +2219,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2187,6 +2230,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2197,6 +2241,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2207,6 +2252,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2217,6 +2263,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2227,6 +2274,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2237,6 +2285,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2260,6 +2309,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2270,6 +2320,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2280,6 +2331,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2290,6 +2342,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2300,6 +2353,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2310,6 +2364,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2320,6 +2375,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2330,6 +2386,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2340,6 +2397,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2356,6 +2414,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2366,6 +2425,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2376,6 +2436,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2386,6 +2447,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2396,6 +2458,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2406,6 +2469,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2416,6 +2480,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2426,6 +2491,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2436,6 +2502,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2759,6 +2826,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2769,6 +2837,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2779,6 +2848,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2789,6 +2859,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2799,6 +2870,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2809,6 +2881,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2819,6 +2892,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2829,6 +2903,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2839,6 +2914,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2855,6 +2931,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2865,6 +2942,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2875,6 +2953,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2885,6 +2964,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2895,6 +2975,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2905,6 +2986,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2915,6 +2997,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2925,6 +3008,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2935,6 +3019,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2951,6 +3036,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2961,6 +3047,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2971,6 +3058,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2981,6 +3069,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -2991,6 +3080,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3001,6 +3091,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3011,6 +3102,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3021,6 +3113,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3031,6 +3124,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3047,6 +3141,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3057,6 +3152,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3067,6 +3163,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3077,6 +3174,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3087,6 +3185,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3097,6 +3196,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3107,6 +3207,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3117,6 +3218,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3127,6 +3229,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3143,6 +3246,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3153,6 +3257,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3163,6 +3268,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3173,6 +3279,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3183,6 +3290,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3193,6 +3301,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3203,6 +3312,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3213,6 +3323,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3223,6 +3334,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3239,6 +3351,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3249,6 +3362,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3259,6 +3373,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3269,6 +3384,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3279,6 +3395,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3289,6 +3406,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3299,6 +3417,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3309,6 +3428,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3319,6 +3439,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3348,6 +3469,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 9
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3364,6 +3486,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 10
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3380,6 +3503,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 11
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3396,6 +3520,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 12
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -3497,6 +3622,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 28
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -3513,6 +3639,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 29
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -3529,6 +3656,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 30
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -3545,6 +3673,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -4585,6 +4714,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 43
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -4823,6 +4953,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4833,6 +4964,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4843,6 +4975,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4853,6 +4986,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4863,6 +4997,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4873,6 +5008,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4883,6 +5019,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4893,6 +5030,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4909,6 +5047,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4919,6 +5058,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4929,6 +5069,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4939,6 +5080,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4949,6 +5091,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4959,6 +5102,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4969,6 +5113,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -4979,6 +5124,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5364,6 +5510,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5374,6 +5521,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5384,6 +5532,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5394,6 +5543,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5404,6 +5554,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5414,6 +5565,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5424,6 +5576,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5434,6 +5587,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5444,6 +5598,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5460,6 +5615,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5470,6 +5626,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5480,6 +5637,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5490,6 +5648,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5500,6 +5659,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5510,6 +5670,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5520,6 +5681,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5530,6 +5692,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5540,6 +5703,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5556,6 +5720,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5566,6 +5731,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5576,6 +5742,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5586,6 +5753,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5596,6 +5764,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5606,6 +5775,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5616,6 +5786,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5626,6 +5797,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5636,6 +5808,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5652,6 +5825,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5662,6 +5836,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5672,6 +5847,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5682,6 +5858,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5692,6 +5869,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5702,6 +5880,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5712,6 +5891,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5722,6 +5902,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5732,6 +5913,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5748,6 +5930,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5758,6 +5941,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5768,6 +5952,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5778,6 +5963,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5788,6 +5974,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5798,6 +5985,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5808,6 +5996,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5818,6 +6007,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5828,6 +6018,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5844,6 +6035,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5854,6 +6046,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5864,6 +6057,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5874,6 +6068,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5884,6 +6079,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5894,6 +6090,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5904,6 +6101,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5914,6 +6112,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5924,6 +6123,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -5940,6 +6140,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -5950,6 +6151,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -5960,6 +6162,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -5970,6 +6173,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -5980,6 +6184,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -5990,6 +6195,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6000,6 +6206,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6010,6 +6217,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6020,6 +6228,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6036,6 +6245,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6046,6 +6256,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6056,6 +6267,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6066,6 +6278,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6076,6 +6289,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6086,6 +6300,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6096,6 +6311,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6106,6 +6322,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6116,6 +6333,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -6171,6 +6389,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 24
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -6187,6 +6406,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 25
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -6203,6 +6423,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 26
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -6297,6 +6518,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6307,6 +6529,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6317,6 +6540,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6327,6 +6551,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6337,6 +6562,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6347,6 +6573,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6357,6 +6584,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6367,6 +6595,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6377,6 +6606,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6393,6 +6623,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6403,6 +6634,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6413,6 +6645,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6423,6 +6656,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6433,6 +6667,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6443,6 +6678,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6453,6 +6689,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6463,6 +6700,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6473,6 +6711,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6489,6 +6728,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6499,6 +6739,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6509,6 +6750,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6519,6 +6761,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6529,6 +6772,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6539,6 +6783,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6549,6 +6794,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6559,6 +6805,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6569,6 +6816,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6585,6 +6833,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6595,6 +6844,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6605,6 +6855,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6615,6 +6866,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6625,6 +6877,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6635,6 +6888,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6645,6 +6899,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6655,6 +6910,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6665,6 +6921,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6681,6 +6938,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6691,6 +6949,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6701,6 +6960,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6711,6 +6971,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6721,6 +6982,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6731,6 +6993,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6741,6 +7004,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6751,6 +7015,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6761,6 +7026,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6777,6 +7043,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6787,6 +7054,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6797,6 +7065,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6807,6 +7076,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6817,6 +7087,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6827,6 +7098,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6837,6 +7109,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6847,6 +7120,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6857,6 +7131,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6873,6 +7148,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6883,6 +7159,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6893,6 +7170,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6903,6 +7181,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6913,6 +7192,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6923,6 +7203,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6933,6 +7214,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6943,6 +7225,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -6953,6 +7236,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -7208,6 +7492,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 42
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -7237,6 +7522,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7247,6 +7533,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7257,6 +7544,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7267,6 +7555,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7277,6 +7566,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7287,6 +7577,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7297,6 +7588,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7307,6 +7599,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7317,6 +7610,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7327,6 +7621,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 47
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7350,6 +7645,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7360,6 +7656,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7370,6 +7667,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7380,6 +7678,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7390,6 +7689,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7400,6 +7700,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7410,6 +7711,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7420,6 +7722,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7430,6 +7733,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7440,6 +7744,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 46
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7456,6 +7761,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7466,6 +7772,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7476,6 +7783,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7486,6 +7794,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7496,6 +7805,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7506,6 +7816,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7516,6 +7827,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7526,6 +7838,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7536,6 +7849,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7546,6 +7860,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 48
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7931,6 +8246,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7941,6 +8257,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7951,6 +8268,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7961,6 +8279,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7971,6 +8290,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7981,6 +8301,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -7991,6 +8312,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8001,6 +8323,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8011,6 +8334,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8021,6 +8345,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 60
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8037,6 +8362,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8047,6 +8373,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8057,6 +8384,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8067,6 +8395,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8077,6 +8406,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8087,6 +8417,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8097,6 +8428,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8107,6 +8439,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8117,6 +8450,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8127,6 +8461,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 62
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8143,6 +8478,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8153,6 +8489,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8163,6 +8500,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8173,6 +8511,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8183,6 +8522,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8193,6 +8533,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8203,6 +8544,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8213,6 +8555,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8223,6 +8566,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8233,6 +8577,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 63
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8249,6 +8594,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8259,6 +8605,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8269,6 +8616,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8279,6 +8627,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8289,6 +8638,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8299,6 +8649,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8309,6 +8660,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8319,6 +8671,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8329,6 +8682,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8339,6 +8693,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 64
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8355,6 +8710,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8365,6 +8721,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8375,6 +8732,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8385,6 +8743,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8395,6 +8754,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8405,6 +8765,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8415,6 +8776,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8425,6 +8787,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8435,6 +8798,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8445,6 +8809,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 65
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8461,6 +8826,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8471,6 +8837,7 @@ namespace minij
 			}
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8481,6 +8848,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8491,6 +8859,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8501,6 +8870,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8511,6 +8881,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8521,6 +8892,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8531,6 +8903,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8541,6 +8914,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8551,6 +8925,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 66
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -8567,6 +8942,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8577,6 +8953,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8587,6 +8964,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8597,6 +8975,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8607,6 +8986,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8617,6 +8997,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8627,6 +9008,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8637,6 +9019,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8647,6 +9030,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8663,6 +9047,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8673,6 +9058,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8683,6 +9069,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8693,6 +9080,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8703,6 +9091,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8713,6 +9102,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8723,6 +9113,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8733,6 +9124,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -8743,6 +9135,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -9569,6 +9962,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9579,6 +9973,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9589,6 +9984,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9599,6 +9995,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9609,6 +10006,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9619,6 +10017,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9629,6 +10028,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9639,6 +10039,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9649,6 +10050,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9665,6 +10067,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9675,6 +10078,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9685,6 +10089,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9695,6 +10100,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9705,6 +10111,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9715,6 +10122,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9725,6 +10133,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9735,6 +10144,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9745,6 +10155,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -9787,6 +10198,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9797,6 +10209,7 @@ namespace minij
 			}
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9807,6 +10220,7 @@ namespace minij
 			}
 			if (text.Peek() == "{")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9817,6 +10231,7 @@ namespace minij
 			}
 			if (text.Peek() == "if")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9827,6 +10242,7 @@ namespace minij
 			}
 			if (text.Peek() == "while")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9837,6 +10253,7 @@ namespace minij
 			}
 			if (text.Peek() == "for")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9847,6 +10264,7 @@ namespace minij
 			}
 			if (text.Peek() == "return")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9857,6 +10275,7 @@ namespace minij
 			}
 			if (text.Peek() == "break")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9867,6 +10286,7 @@ namespace minij
 			}
 			if (text.Peek() == "System.out.println")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9877,6 +10297,7 @@ namespace minij
 			}
 			if (text.Peek() == "intConstant")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9887,6 +10308,7 @@ namespace minij
 			}
 			if (text.Peek() == "doubleConstant")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9897,6 +10319,7 @@ namespace minij
 			}
 			if (text.Peek() == "booleanConstant")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9907,6 +10330,7 @@ namespace minij
 			}
 			if (text.Peek() == "stringConstant")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9917,6 +10341,7 @@ namespace minij
 			}
 			if (text.Peek() == "null")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9927,6 +10352,7 @@ namespace minij
 			}
 			if (text.Peek() == "this")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9937,6 +10363,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9947,6 +10374,7 @@ namespace minij
 			}
 			if (text.Peek() == "!")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9957,6 +10385,7 @@ namespace minij
 			}
 			if (text.Peek() == "New")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -9973,6 +10402,7 @@ namespace minij
 		{
 			if (text.Peek() == "$")
 			{
+				// reduccion por el estado 23
 				for (int i = 0; i < 10; i++)
 				{
 					stack.Pop();
@@ -9989,6 +10419,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 6
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -10044,6 +10475,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10054,6 +10486,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10064,6 +10497,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10074,6 +10508,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10084,6 +10519,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10094,6 +10530,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10104,6 +10541,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10114,6 +10552,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -10124,6 +10563,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11448,6 +11888,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11458,6 +11899,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11468,6 +11910,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11478,6 +11921,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11488,6 +11932,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11498,6 +11943,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11508,6 +11954,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11518,6 +11965,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11528,6 +11976,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 53
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11544,6 +11993,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11554,6 +12004,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11564,6 +12015,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11574,6 +12026,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11584,6 +12037,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11594,6 +12048,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11604,6 +12059,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11614,6 +12070,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11624,6 +12081,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 58
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -11653,6 +12111,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11663,6 +12122,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11673,6 +12133,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11683,6 +12144,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11693,6 +12155,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11703,6 +12166,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11713,6 +12177,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11723,6 +12188,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11733,6 +12199,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11749,6 +12216,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11759,6 +12227,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11769,6 +12238,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11779,6 +12249,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11789,6 +12260,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11799,6 +12271,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11809,6 +12282,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11819,6 +12293,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11829,6 +12304,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11845,6 +12321,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11855,6 +12332,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11865,6 +12343,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11875,6 +12354,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11885,6 +12365,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11895,6 +12376,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11905,6 +12387,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11915,6 +12398,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11925,6 +12409,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11941,6 +12426,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11951,6 +12437,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11961,6 +12448,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11971,6 +12459,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11981,6 +12470,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -11991,6 +12481,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12001,6 +12492,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12011,6 +12503,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12021,6 +12514,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12037,6 +12531,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12047,6 +12542,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12057,6 +12553,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12067,6 +12564,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12077,6 +12575,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12087,6 +12586,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12097,6 +12597,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12107,6 +12608,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12117,6 +12619,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12133,6 +12636,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12143,6 +12647,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12153,6 +12658,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12163,6 +12669,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12173,6 +12680,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12183,6 +12691,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12193,6 +12702,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12203,6 +12713,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12213,6 +12724,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12229,6 +12741,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12239,6 +12752,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12249,6 +12763,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12259,6 +12774,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12269,6 +12785,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12279,6 +12796,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12289,6 +12807,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12299,6 +12818,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12309,6 +12829,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12325,6 +12846,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12335,6 +12857,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12345,6 +12868,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12355,6 +12879,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12365,6 +12890,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12375,6 +12901,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12385,6 +12912,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12395,6 +12923,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12405,6 +12934,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12421,6 +12951,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12431,6 +12962,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12441,6 +12973,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12451,6 +12984,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12461,6 +12995,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12471,6 +13006,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12481,6 +13017,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12491,6 +13028,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12501,6 +13039,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12530,6 +13069,7 @@ namespace minij
 		{
 			if (text.Peek() == ";")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12540,6 +13080,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12550,6 +13091,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12560,6 +13102,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12570,6 +13113,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12580,6 +13124,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12590,6 +13135,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12600,6 +13146,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12610,6 +13157,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -12751,6 +13299,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 30
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -12780,6 +13329,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 40
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -12822,6 +13372,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12832,6 +13383,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12842,6 +13394,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12852,6 +13405,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12862,6 +13416,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12872,6 +13427,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12882,6 +13438,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12892,6 +13449,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12902,6 +13460,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 45
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12918,6 +13477,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12928,6 +13488,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12938,6 +13499,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12948,6 +13510,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12958,6 +13521,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12968,6 +13532,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12978,6 +13543,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12988,6 +13554,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -12998,6 +13565,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13014,6 +13582,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13024,6 +13593,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13034,6 +13604,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13044,6 +13615,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13054,6 +13626,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13064,6 +13637,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13074,6 +13648,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13084,6 +13659,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13094,6 +13670,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 50
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13110,6 +13687,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13120,6 +13698,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13130,6 +13709,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13140,6 +13720,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13150,6 +13731,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13160,6 +13742,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13170,6 +13753,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13180,6 +13764,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13190,6 +13775,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 51
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13206,6 +13792,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13216,6 +13803,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13226,6 +13814,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13236,6 +13825,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13246,6 +13836,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13256,6 +13847,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13266,6 +13858,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13276,6 +13869,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13286,6 +13880,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 52
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13302,6 +13897,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13312,6 +13908,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13322,6 +13919,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13332,6 +13930,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13342,6 +13941,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13352,6 +13952,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13362,6 +13963,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13372,6 +13974,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13382,6 +13985,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 54
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13398,6 +14002,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13408,6 +14013,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13418,6 +14024,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13428,6 +14035,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13438,6 +14046,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13448,6 +14057,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13458,6 +14068,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13468,6 +14079,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13478,6 +14090,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 55
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13494,6 +14107,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13504,6 +14118,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13514,6 +14129,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13524,6 +14140,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13534,6 +14151,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13544,6 +14162,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13554,6 +14173,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13564,6 +14184,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13574,6 +14195,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 56
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13590,6 +14212,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13600,6 +14223,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13610,6 +14234,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13620,6 +14245,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13630,6 +14256,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13640,6 +14267,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13650,6 +14278,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13660,6 +14289,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13670,6 +14300,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 57
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13686,6 +14317,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13696,6 +14328,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13706,6 +14339,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13716,6 +14350,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13726,6 +14361,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13736,6 +14372,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13746,6 +14383,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13756,6 +14394,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13766,6 +14405,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 61
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -13795,6 +14435,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13805,6 +14446,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13815,6 +14457,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13825,6 +14468,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13835,6 +14479,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13845,6 +14490,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13855,6 +14501,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13865,6 +14512,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13875,6 +14523,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -13917,6 +14566,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 8
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14044,6 +14694,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 44
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -14060,6 +14711,7 @@ namespace minij
 		{
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14070,6 +14722,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14080,6 +14733,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14090,6 +14744,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14100,6 +14755,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14110,6 +14766,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14120,6 +14777,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14130,6 +14788,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14140,6 +14799,7 @@ namespace minij
 			}
 			if (text.Peek() == ",")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -14392,6 +15052,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 19
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -14408,6 +15069,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 20
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -14450,6 +15112,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 32
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14466,6 +15129,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 33
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14482,6 +15146,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 34
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14498,6 +15163,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 35
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14514,6 +15180,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 36
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14530,6 +15197,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 37
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14546,6 +15214,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 38
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -14968,6 +15637,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 39
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -14984,6 +15654,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -15325,6 +15996,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 43
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -15439,6 +16111,7 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
+				// reduccion por el estado 41
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -15681,6 +16354,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 42
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16208,6 +16882,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 30
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -16237,6 +16912,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 40
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -16390,6 +17066,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 44
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -16806,6 +17483,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 39
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -16822,6 +17500,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 41
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -16838,6 +17517,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16848,6 +17528,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16858,6 +17539,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16868,6 +17550,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16878,6 +17561,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16888,6 +17572,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16898,6 +17583,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16908,6 +17594,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16918,6 +17605,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 49
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -16934,6 +17622,7 @@ namespace minij
 		{
 			if (text.Peek() == "ident")
 			{
+				// reduccion por el estado 18
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -16944,6 +17633,7 @@ namespace minij
 			}
 			if (text.Peek() == "[ ]")
 			{
+				// reduccion por el estado 18
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -16960,6 +17650,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -16976,6 +17667,7 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -16986,6 +17678,7 @@ namespace minij
 			}
 			if (text.Peek() == "-")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -16996,6 +17689,7 @@ namespace minij
 			}
 			if (text.Peek() == "|")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17006,6 +17700,7 @@ namespace minij
 			}
 			if (text.Peek() == "%")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17016,6 +17711,7 @@ namespace minij
 			}
 			if (text.Peek() == ">")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17026,6 +17722,7 @@ namespace minij
 			}
 			if (text.Peek() == ">=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17036,6 +17733,7 @@ namespace minij
 			}
 			if (text.Peek() == "!=")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17046,6 +17744,7 @@ namespace minij
 			}
 			if (text.Peek() == "||")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17056,6 +17755,7 @@ namespace minij
 			}
 			if (text.Peek() == ".")
 			{
+				// reduccion por el estado 59
 				for (int i = 0; i < 4; i++)
 				{
 					stack.Pop();
@@ -17085,6 +17785,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 32
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17101,6 +17802,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 33
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17117,6 +17819,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 34
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17133,6 +17836,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 35
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17149,6 +17853,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 36
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17165,6 +17870,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 37
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17181,6 +17887,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 38
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
@@ -17253,6 +17960,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 39
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -17419,6 +18127,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -17662,6 +18371,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 43
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
@@ -17989,6 +18699,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 42
 				for (int i = 0; i < 3; i++)
 				{
 					stack.Pop();
@@ -18142,6 +18853,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 30
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -18282,6 +18994,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 44
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
@@ -18498,6 +19211,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 41
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
@@ -18701,6 +19415,7 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
+				// reduccion por el estado 40
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
@@ -19078,8 +19793,10 @@ namespace minij
 				case 358: return fooState358(true);
 				case 359: return fooState359(true);
 				case 360: return fooState360(true);
-				default:  return false;
+				default: return false;
 			}
 		}
+
+
 	}
 }
