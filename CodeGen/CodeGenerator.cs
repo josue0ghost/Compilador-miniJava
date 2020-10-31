@@ -21,7 +21,6 @@ namespace CodeGen
         List<string[]> states = new List<string[]>();
 
         // producciones
-        string[] hProd;
         List<string[]> prods = new List<string[]>();
 
         FileHandling fh = new FileHandling();
@@ -36,7 +35,7 @@ namespace CodeGen
              * #Prod,NT,#Simbolos
              * 1,E,3
              */
-            prods = fh.ReadFileProd(ref hProd, prodPath);           
+            prods = fh.ReadFileProd(prodPath);           
             
             string ini = "public Stack<int> stack = new Stack<int>();\n";   // pila de estados
             ini += "public Stack<string> text = new Stack<string>();\n";    // texto analizado
@@ -74,8 +73,7 @@ namespace CodeGen
                     {
                         func += "\tif(afterReduce && text.Peek() == \"" + symbol + "\"){\n";
                         func += "\t\tstack.Push(" + numState + ");\n"; // insertar estado actual a pila de estados
-                        func += "\t\tfooState" + s + "(false);\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn fooState" + s + "(false);\n";
                         func += "\t}\n";
                     }
                     else if (act[0] == 'd') // desplazamiento
@@ -83,13 +81,12 @@ namespace CodeGen
                         int num = int.Parse(act.Substring(1));
 
                         func += "\tif(input[0] == \"" + symbol + "\"){\n";
-                        func += "\t\tstack.Enqueue(" + num + ");\n";
-                        func += "\t\ttext.Enqueue();\n";
+                        func += "\t\tstack.Push(" + num + ");\n";
+                        func += "\t\ttext.Push(\"" + symbol + "\");\n";
                         func += "\t\tinput.RemoveAt(0);\n";
 
                         func += "\t\tstack.Push(" + numState + ");\n";         // insertar estado actual a pila de estados
-                        func += "\t\tfooState" + num + "(false);\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn fooState" + num + "(false);\n";
                         func += "\t}\n";
                     }
                     else if (act[0] == 'r')// reducción
@@ -103,10 +100,9 @@ namespace CodeGen
                         func += "\t\t\ttext.Pop();\n";
                         func += "\t\t}\n";
 
-                        func += "\t\ttext.Push(" + prods[index][1] + ");\n"; // estado n [1] = izq de la producción
+                        func += "\t\ttext.Push(\"" + prods[index][1] + "\");\n"; // estado n [1] = izq de la producción
 
-                        func += "\t\tfooStateCAMBIAR();\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn fooStateCAMBIAR();\n";
                         func += "\t}\n";
                     }
                     else if (actions[i] == "ACEPTAR") // aceptar
@@ -118,7 +114,7 @@ namespace CodeGen
                 }
             }
 
-            func += "\treturn false\n";
+            func += "\treturn false;\n";
 
             func += "}\n\n";
 

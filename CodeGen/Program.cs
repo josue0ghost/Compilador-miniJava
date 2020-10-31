@@ -7,8 +7,8 @@ namespace CodeGen
         static void Main(string[] args)
         {
             // paths
-            string tablaAnalisis = "C:\\Users\\llaaj\\OneDrive\\Escritorio\\compis\\tabla de analisis.txt";
-            string producciones = "C:\\Users\\llaaj\\OneDrive\\Escritorio\\compis\\producciones.txt";
+            string tablaAnalisis = "C:\\Users\\llaaj\\OneDrive\\Escritorio\\compis\\TablaAnalisis-Proyecto.csv";
+            string producciones = "C:\\Users\\llaaj\\OneDrive\\Escritorio\\compis\\Reducciones.csv";
             string output = "C:\\Users\\llaaj\\OneDrive\\Escritorio\\compis\\salida.txt";
 
             CodeGenerator cg = new CodeGenerator();

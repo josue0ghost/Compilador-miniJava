@@ -36,7 +36,7 @@ namespace CodeGen
             return null;
         }
 
-        public List<string[]> ReadFileProd(ref string[] head, string path)
+        public List<string[]> ReadFileProd(string path)
         {
             try
             {
@@ -44,14 +44,10 @@ namespace CodeGen
 
                 using (var sr = new StreamReader(path))
                 {
-                    // encabezados
-                    head = sr.ReadLine().Split("#");
-
-
                     string line = "";
                     while ((line = sr.ReadLine()) != null)
                     {
-                        states.Add(line.Split("#"));
+                        states.Add(line.Split(","));
                     }
                 }
 
