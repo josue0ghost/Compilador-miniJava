@@ -36,7 +36,7 @@ namespace CodeGen
              * #Prod,NT,#Simbolos
              * 1,E,3
              */
-            prods = fh.ReadFile(ref hProd, prodPath);           
+            prods = fh.ReadFileProd(ref hProd, prodPath);           
             
             string ini = "public Stack<int> stack = new Stack<int>();\n";   // pila de estados
             ini += "public Stack<string> text = new Stack<string>();\n";    // texto analizado
