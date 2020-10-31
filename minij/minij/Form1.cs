@@ -68,6 +68,10 @@ namespace minij
 
             if (output != "")
             {
+                if (fileName == "")
+                {
+                    fileName = "output.txt";
+                }
                 using (StreamWriter file = new StreamWriter(basePath + fileName))
                 {
                     file.WriteLine(output);
@@ -91,14 +95,16 @@ namespace minij
 
             List<string> input = new List<string>();
             string println = "";
-            for (int i = 0; i < FileReader.tokens.Count; i++)
+            for (int i = 0; i < FileReader.lexems.Count; i++)
             {
-                if (FileReader.tokens[i] == "System")
+                if (FileReader.lexems[i] == "System")
                 {
-                    if ((i+4) <= FileReader.tokens.Count)
+                    if ((i+4) <= FileReader.lexems.Count)
                     {
-                        //-------- System------.----------out----------.------------println
-                        println = input[i] + input[i + 1] + input[i + 2] + input[i + 3] + input[i + 4];
+                        //-------- System.out.println
+                        println = FileReader.lexems[i] + FileReader.lexems[i + 1] 
+                            + FileReader.lexems[i + 2] + FileReader.lexems[i + 3] 
+                            + FileReader.lexems[i + 4];
                         input.Add(println);
 
                         i += 4;
@@ -106,13 +112,15 @@ namespace minij
                 }
                 else
                 {
-                    input.Add(FileReader.tokens[i]);
+                    input.Add(FileReader.lexems[i]);
                 }
             }
 
             parser.input = input;
             parser.stack.Push(0);
-            parser.fooState0(false);
+            bool correct = parser.fooState0(false);
+
+            MessageBox.Show(correct.ToString());
         }
     }
 }
