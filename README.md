@@ -30,6 +30,11 @@ Adicional a estas expresiones regulares, se cuenta con el método ***Validate***
 El manejo de errores incluye para los identificadores, si las cadenas analizadas no pertenecen a los identificadores se reportan como entradas no reconocidas, si los identificadores tienen una longitud que sobrepasa los 31 caracteres se truncan los siguientes y se reporta el error. El análisis de todos los tokens se muestra en pantalla además de generar dos archivos, uno general para la salida de todos los tokens y otro donde se reportan solo los errores, ambos generados en el directorio del proyecto: /bin/Debug/Outputs.
 
 ## Análisis sintáctico
+Para esta fase agregamos un segundo proyecto a la solución, el cual fue nuestro generador de código para análisis sintáctico. En él, se lee la tabla de símbolos que trabajamos en format CSV, para poder reconocer cada estado, por cada estado crea una función con un nombre genérico, en esa función por cada desplazamiento agrega a la pila de estados el número que le va a la par. Por cada reducción quita de la pila los elementos y de los terminales también y los reemplaza por la parte izquierda de la producción. Por cada Ir_A se llama a la función y apila el número en la pila de estados.
+
+Para utilizar las reducciones se utilizó en el proyecto CodeGen, un archivo CSV con el formato: NUMERO, PRODUCCIÓN, NUMERO DE SÍMBOLOS. En donde la primera columna correspondía al numero de producción, la segunda al lado izquierdo de la producción por el cual se tuvo que reducir y la tercera corresponde al numero de símbolos que se quitarán de la pila al reducir.
+
+
 Tabla de análisis realizada y consumida por el proyecto: https://correo2urledu-my.sharepoint.com/:x:/g/personal/eapelaezc_correo_url_edu_gt/EbyUEJQogLNNglH6ThPWtYYBl3wp6KNUzSPBIpzeEKWNZg?e=5J2n5U
 
 Estados generados: https://correo2urledu-my.sharepoint.com/:x:/g/personal/eapelaezc_correo_url_edu_gt/ES9vlWRT9tVOsxHed3KZ29cBiq1HWiWLsqkKTBQwzj3e_g?e=FdUZJI
