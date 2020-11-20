@@ -140,12 +140,6 @@ namespace minij
                 else if (data1[0] == "2" && typeOfValue == 1) // asignacion de entero (type 1) a un double (type 2)
                 {
                     return true;
-                    /*
-                    data1[1] = valueOf2 + ".0";
-                    string newVal = data1[0] + "," + data1[1] + "," + data1[2];
-                    // cambio de atributos
-                    table[key1] = newVal;
-                    */
                 }
                 else
                 {
@@ -156,6 +150,40 @@ namespace minij
             {
                 // error, no existe la variable 1
                 return false;
+            }
+        }
+
+        public void tradIntToDouble(int idAmbito, string varName, string intValue)
+        {
+            string key = idAmbito + "," + varName;
+
+            if (table.TryGetValue(key, out string values))
+            {
+                string[] data = values.Split(',');
+
+                if (data[0] == "2")
+                {
+                    if (int.TryParse(intValue, out _))
+                    {
+                        data[1] = intValue + ".0";
+                        string newVal = data[0] + "," + data[1] + "," + data[2];
+                        // cambio de atributos
+                        table[key] = newVal;
+                    }
+                    else
+                    {
+                        // error, lo que se está asignando no es un entero
+                    }
+                }
+                else
+                {
+                    // error, la variable no es tipo double
+                }
+                
+            }
+            else
+            {
+                // error, no existe en la tabla
             }
         }
     }
