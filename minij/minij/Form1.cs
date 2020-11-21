@@ -123,7 +123,6 @@ namespace minij
 
         private void semanticoBtn_Click(object sender, EventArgs e)
         {
-            Data.Instance.semantico.tokens = Data.Instance.parser.input;
             SemanticAnalysis semantic = new SemanticAnalysis(FileReader.semantic);
             semantic.Analysis();
         }

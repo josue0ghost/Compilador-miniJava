@@ -20,7 +20,6 @@ namespace minij
 
 		public FileReader fr = new FileReader();
 		public LR parser = new LR();
-		public AnalisisSemantico semantico = new AnalisisSemantico();
 		public Tabla_de_símbolos tds = new Tabla_de_símbolos();
 	}
 }

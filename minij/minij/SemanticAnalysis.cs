@@ -10,7 +10,7 @@ namespace minij
     {
         public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
         Tabla_de_símbolos tabla = new Tabla_de_símbolos();
-        int ambito = 0;
+        int idAmbito = 0;
 
         /* type
         * 0 = null
@@ -62,7 +62,45 @@ namespace minij
                 input[2].Value.Equals("=") &&
                 (input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
             {
-                //tabla.Insert();
+                int iType = 0;
+                int _base = 0;
+                switch (input[3].Value)
+                {
+                    case "int":
+                        iType = 1;
+                        break;
+                    case "double":
+                        iType = 2;
+                        break;
+                    case "boolean":
+                        iType = 3;
+                        break;
+                    case "string":
+                        iType = 4;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (iType == 1)
+                {
+                    
+                    string value = input[3].Key;
+                    if (value[value.Length] == 'h')
+                    {
+                        _base = 3;
+                    }
+                    else if (value[value.Length] == 'o')
+                    {
+                        _base = 2;
+                    }
+                    else
+                    {
+                        _base = 1;
+                    }
+                }
+                TDSobj aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                Data.Instance.tds.Insert(aux);
             }
 
             if (input[1].Value.Equals("ident") &&
