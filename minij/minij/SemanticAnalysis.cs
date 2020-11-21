@@ -173,9 +173,11 @@ namespace minij
                         aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
                     }                    
                 }
-               
-                
-                Data.Instance.tds.Insert(aux);
+
+                if (aux != null)
+                {
+                    Data.Instance.tds.Insert(aux);
+                }               
             }
 
             // solo asignación
@@ -221,6 +223,13 @@ namespace minij
             }            
 
             // asignación de variable a variable
+        }
+
+        /// <summary>
+        /// Metodo para insertar declaraciones de variables en la tabla de simbolos
+        /// </summary>
+        public void declare() { 
+            
         }
 
     }
