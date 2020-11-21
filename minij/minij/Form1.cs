@@ -132,6 +132,10 @@ namespace minij
             {
                 MessageBox.Show(semantic.err);
             }
+            else
+            {
+                MessageBox.Show("El archivo es correcto semánticamente");
+            }
         }
     }
 }
