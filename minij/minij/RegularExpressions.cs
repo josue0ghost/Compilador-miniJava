@@ -49,6 +49,7 @@ namespace minij
 				//validate the string
                 if (!check.IsMatch(test))
                 {
+					FileReader.semantic.Add(new KeyValuePair<string, string>(input, "string"));
 					return $"{input}\t line {cont} cols {start}-{end} is T_StringConstant\n";
 				}
                 else

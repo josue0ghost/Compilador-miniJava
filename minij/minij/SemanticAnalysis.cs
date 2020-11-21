@@ -55,5 +55,27 @@ namespace minij
             }
         }
 
+        public bool assign(List<KeyValuePair<string, string>> input) {
+
+            if (input[0].Value.Equals("T_ValueType") && 
+                input[1].Value.Equals("ident") &&
+                input[2].Value.Equals("=") &&
+                (input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
+            {
+                //tabla.Insert();
+            }
+
+            if (input[1].Value.Equals("ident") &&
+                input[2].Value.Equals("=") &&
+                (input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
+            {
+                //tabla.Insert();
+            }
+
+
+
+            return true;
+        }
+
     }
 }
