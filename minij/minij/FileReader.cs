@@ -42,7 +42,7 @@ namespace minij
             { "int", "T_ValueType"},
             { "double", "T_ValueType"},
             { "boolean", "T_ValueType"},
-            { "String", "T_ValueType"},
+            { "string", "T_ValueType"},
             { "class", "T_ReferenceType"},
             { "const", "T_ValueType"},
             { "interface", "T_ReferenceType"},
