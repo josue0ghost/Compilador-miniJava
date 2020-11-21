@@ -13,6 +13,9 @@ namespace minij
         public static string errors = "";
         public static List<string> tokens = new List<string>();
         public static List<string> lexems = new List<string>();
+        TDSobj tds = new TDSobj();
+        Tabla_de_símbolos tabla = new Tabla_de_símbolos();
+        int ambito = 0;
 
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {

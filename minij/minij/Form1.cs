@@ -122,5 +122,10 @@ namespace minij
 
             MessageBox.Show(correct.ToString());
         }
+
+        private void semanticoBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
