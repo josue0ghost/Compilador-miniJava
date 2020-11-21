@@ -139,7 +139,32 @@ namespace minij
                     }
                     else if (tokens[i].Key == "for")
                     {
+                        if (tokens[i+1].Key == "(" && tokens[i+2].Value == "T_ValueType")
+                        {
+                            int _base = 0;
+                            int iType = getIdType(tokens[i + 2].Key);
+                            string value = tokens[i + 4].Key;
+                            if (iType == 1)
+                            {
+                                if (value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
+                                {
+                                    _base = 2;
+                                }
+                                else
+                                {
+                                    _base = 1;
+                                }
+                            }
 
+                            TDSobj aux = new TDSobj("for" + forCount.ToString(), tokens[i + 3].Key, iType, value);
+                            Data.Instance.tds.Insert(aux);
+
+                            if (!Data.Instance.tds.compareTypes("for"+ forCount.ToString(), aux.name, 1))
+                            {
+                                Data.Instance.tds.Delete(aux);
+                                //error
+                            }
+                        }
                         forCount++;
                     }
                     else if (tokens[i].Key == "if")
