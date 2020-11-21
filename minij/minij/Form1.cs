@@ -91,8 +91,6 @@ namespace minij
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LR parser = new LR();
-
             List<string> input = new List<string>();
             string println = "";
             for (int i = 0; i < FileReader.lexems.Count; i++)
@@ -116,16 +114,16 @@ namespace minij
                 }
             }
 
-            parser.input = input;
-            parser.stack.Push(0);
-            bool correct = parser.fooState0(false);
+            Data.Instance.parser.input = input;
+            Data.Instance.parser.stack.Push(0);
+            bool correct = Data.Instance.parser.fooState0(false);
 
             MessageBox.Show(correct.ToString());
         }
 
         private void semanticoBtn_Click(object sender, EventArgs e)
         {
-
+            Data.Instance.semantico.tokens = Data.Instance.parser.input;
         }
     }
 }
