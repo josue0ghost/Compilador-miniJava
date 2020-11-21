@@ -11,6 +11,10 @@ namespace minij
         public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
         Tabla_de_símbolos tabla = new Tabla_de_símbolos();
         int idAmbito = 0;
+        int whileCount = 0;
+        int forCount = 0;
+        int ifCount = 0;
+        int elseCount = 0;
 
         /* type
         * 0 = null
@@ -72,7 +76,7 @@ namespace minij
                 {
                     line.Add(tokens[i]);
                 }
-                else if (tokens[i].Value == "T_ValueType" && tokens[i+1].Value == "ident" && tokens[i+2].Value == "(")
+                else if (tokens[i].Value == "T_ValueType" && tokens[i+1].Value == "ident" && tokens[i+2].Value == "(") // es función
                 {
                     // una nueva función, un nuevo ámbito
                     idAmbito++;
