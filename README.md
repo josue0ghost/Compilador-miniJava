@@ -39,6 +39,28 @@ Tabla de análisis realizada y consumida por el proyecto: https://correo2urledu-
 
 Estados generados: https://correo2urledu-my.sharepoint.com/:x:/g/personal/eapelaezc_correo_url_edu_gt/ES9vlWRT9tVOsxHed3KZ29cBiq1HWiWLsqkKTBQwzj3e_g?e=FdUZJI
 
+## Análisis semántico
+Para esta fase se implemetó la tabla de símbolos como un diccionario llave,valor. Este diccionario nos permitiría segmentar las variables bajo diferentes ámbitos (segmentos de código aislados dentro de uno segmento padre). La llave de esta estructura es una llave compuesta conformada por el ámbito y el nombre de la variable/función ***idÁmbito,Nombre***. El valor del diccionario comprendería una serie de valores tales como ***tipo|valor|base|argumentos***
+
+A continuación se explica cada campo:
+* idÁmbito - cadena la cual nos indica un correlativo numérico si es un bloque de función o un correlativo alfanumérico si está en un bloque de una estructura selectiva o ciclica, por ejemplo: ***while1, for3, if4, else1***.
+* Nombre - cadena la cual nos indica cuál es el identificador de una variable
+* tipo - con valores numéricos del 0 al 5 tal que:
+  * 0 = null
+  * 1 = int
+  * 2 = double
+  * 3 = boolean
+  * 4 = string
+  * 5 = void
+* valor - cadena equivalente al valor de la variable, por ejemplo: "false" para el valor booleano false
+* base - valor numérico de 0 a 2 tal que:
+  * 0 = NaN (not a number)
+  * 1 = decimal
+  * 2 = hexadecimal
+* argumentos - arreglo de enteros el cual nos indica de qué tipo son los argumentos de una función. Por ejemplo:
+  * para int foo(int param1, double param2, boolean param3), argumentos sería una cadena "123"
+  
+Para esta tabla se implementaron métodos CRUD para facilitar el manejo de la misma, adicionando la implementación de una clase objeto que contiene los mismos atributos parseados a sus respectivos tipos.
 
 ## Fuentes 
 *Regex Class* (s.f.) Microsoft Documentation. Recuperado de: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1.
