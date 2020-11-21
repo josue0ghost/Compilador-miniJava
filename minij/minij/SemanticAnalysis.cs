@@ -380,5 +380,9 @@ namespace minij
             Data.Instance.tds.writeTable();
         }
 
+        public void errors() {
+            Data.Instance.tds.getErrors();
+        }
+
     }
 }
