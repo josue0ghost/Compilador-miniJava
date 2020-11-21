@@ -7,7 +7,7 @@ namespace CodeGen
         static void Main(string[] args)
         {
             // paths
-            string tablaAnalisis = "C:\\Users\\edanP\\OneDrive\\Escritorio\\TablaAnalisis-Proyecto.csv";
+            string tablaAnalisis = "C:\\Users\\edanP\\OneDrive\\Escritorio\\TablaAnalisis-Proyecto-SC.csv";
             string producciones = "C:\\Users\\edanP\\OneDrive\\Escritorio\\Reducciones.csv";
             string output = "C:\\Users\\edanP\\OneDrive\\Escritorio\\salida.txt";
 

@@ -29,13 +29,6 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState13(false);
 			}
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "static")
 			{
 				stack.Push(11);
@@ -77,6 +70,13 @@ namespace minij
 				text.Push("void");
 				input.RemoveAt(0);
 				return fooState10(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Program")
 			{
@@ -142,20 +142,11 @@ namespace minij
 			if (text.Peek() == "$")
 			{
 				// reduccion por la produccion 0
-				while (text.Peek() != null && text.Peek() == "Decl")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 1; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("Program");
 				return irA(stack.Peek());
 			}
@@ -263,13 +254,6 @@ namespace minij
 
 		public bool fooState9(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(20);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState20(false);
-			}
 			if (input[0] == "[ ]")
 			{
 				stack.Push(21);
@@ -277,13 +261,20 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState21(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(20);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState20(false);
+			}
 			return false;
 		}
 
 
 		public bool fooState10(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(22);
 				text.Push("ident");
@@ -335,12 +326,12 @@ namespace minij
 
 		public bool fooState12(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
-				stack.Push(29);
+				stack.Push(28);
 				text.Push("ident");
 				input.RemoveAt(0);
-				return fooState29(false);
+				return fooState28(false);
 			}
 			return false;
 		}
@@ -348,7 +339,7 @@ namespace minij
 
 		public bool fooState13(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(29);
 				text.Push("ident");
@@ -361,7 +352,7 @@ namespace minij
 
 		public bool fooState14(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 13
 				for (int i = 0; i < 1; i++)
@@ -372,7 +363,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 13
 				for (int i = 0; i < 1; i++)
@@ -389,7 +380,7 @@ namespace minij
 
 		public bool fooState15(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 14
 				for (int i = 0; i < 1; i++)
@@ -400,7 +391,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 14
 				for (int i = 0; i < 1; i++)
@@ -417,7 +408,7 @@ namespace minij
 
 		public bool fooState16(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 15
 				for (int i = 0; i < 1; i++)
@@ -428,7 +419,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 15
 				for (int i = 0; i < 1; i++)
@@ -445,7 +436,7 @@ namespace minij
 
 		public bool fooState17(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 16
 				for (int i = 0; i < 1; i++)
@@ -456,7 +447,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 16
 				for (int i = 0; i < 1; i++)
@@ -473,7 +464,7 @@ namespace minij
 
 		public bool fooState18(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 17
 				for (int i = 0; i < 1; i++)
@@ -484,7 +475,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 17
 				for (int i = 0; i < 1; i++)
@@ -542,7 +533,7 @@ namespace minij
 
 		public bool fooState21(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 18
 				for (int i = 0; i < 2; i++)
@@ -553,7 +544,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 18
 				for (int i = 0; i < 2; i++)
@@ -583,7 +574,7 @@ namespace minij
 
 		public bool fooState23(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(32);
 				text.Push("ident");
@@ -690,13 +681,6 @@ namespace minij
 
 		public bool fooState30(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -724,6 +708,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -746,13 +737,6 @@ namespace minij
 
 		public bool fooState31(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -780,6 +764,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -828,7 +819,6 @@ namespace minij
 
 		public bool fooState34(bool afterReduce)
 		{
-			
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -864,6 +854,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState43(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
+			}
 			if (afterReduce && text.Peek() == "Type")
 			{
 				stack.Push(34);
@@ -873,13 +870,6 @@ namespace minij
 			{
 				stack.Push(34);
 				return fooState4(false);
-			}
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
 			}
 			return false;
 		}
@@ -924,19 +914,19 @@ namespace minij
 
 		public bool fooState37(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(46);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState46(false);
-			}
 			if (input[0] == "[ ]")
 			{
 				stack.Push(318);
 				text.Push("[ ]");
 				input.RemoveAt(0);
 				return fooState318(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(46);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState46(false);
 			}
 			return false;
 		}
@@ -974,7 +964,7 @@ namespace minij
 
 		public bool fooState40(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(48);
 				text.Push("ident");
@@ -1000,7 +990,7 @@ namespace minij
 
 		public bool fooState42(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(50);
 				text.Push("ident");
@@ -1013,7 +1003,7 @@ namespace minij
 
 		public bool fooState43(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(51);
 				text.Push("ident");
@@ -1044,13 +1034,6 @@ namespace minij
 
 		public bool fooState45(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -1078,6 +1061,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -1162,20 +1152,11 @@ namespace minij
 			if (text.Peek() == "$")
 			{
 				// reduccion por la produccion 27
-				while (text.Peek() != null && text.Peek() != "interface")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("InterfaceDecl");
 				return irA(stack.Peek());
 			}
@@ -1228,13 +1209,6 @@ namespace minij
 
 		public bool fooState53(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -1262,6 +1236,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
 			{
@@ -1318,7 +1299,7 @@ namespace minij
 
 		public bool fooState56(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(61);
 				text.Push("ident");
@@ -1331,13 +1312,6 @@ namespace minij
 
 		public bool fooState57(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -1365,6 +1339,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -1387,13 +1368,6 @@ namespace minij
 
 		public bool fooState58(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -1421,6 +1395,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -1513,13 +1494,6 @@ namespace minij
 
 		public bool fooState64(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -1639,6 +1613,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(64);
@@ -1693,6 +1674,11 @@ namespace minij
 			{
 				stack.Push(64);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(64);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -1996,13 +1982,6 @@ namespace minij
 
 		public bool fooState79(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -2030,6 +2009,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
 			{
@@ -2091,13 +2077,6 @@ namespace minij
 
 		public bool fooState83(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -2167,6 +2146,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -2537,13 +2523,6 @@ namespace minij
 
 		public bool fooState89(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -2614,6 +2593,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(89);
@@ -2635,13 +2621,6 @@ namespace minij
 
 		public bool fooState90(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -2711,6 +2690,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -2733,13 +2719,6 @@ namespace minij
 
 		public bool fooState91(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -2809,6 +2788,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -3474,7 +3460,7 @@ namespace minij
 
 		public bool fooState99(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(143);
 				text.Push("ident");
@@ -3555,13 +3541,6 @@ namespace minij
 
 		public bool fooState104(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "static")
 			{
 				stack.Push(151);
@@ -3603,6 +3582,13 @@ namespace minij
 				text.Push("void");
 				input.RemoveAt(0);
 				return fooState150(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
 			{
@@ -3677,20 +3663,11 @@ namespace minij
 			if (text.Peek() == "$")
 			{
 				// reduccion por la produccion 30
-				while (text.Peek() != null && text.Peek() != "{")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("StmtBlock");
 				return irA(stack.Peek());
 			}
@@ -3702,23 +3679,12 @@ namespace minij
 		{
 			if (text.Peek() == "}")
 			{
-				// reduccion por la produccion 31 (Expr? ;)
-				// ;
-				stack.Pop();
-				text.Pop();
-				// Expr?
-				if (text.Peek() == "Expr")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				/*
+				// reduccion por la produccion 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("Stmt");
 				return irA(stack.Peek());
 			}
@@ -3728,13 +3694,6 @@ namespace minij
 
 		public bool fooState109(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -3804,6 +3763,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -3826,13 +3792,6 @@ namespace minij
 
 		public bool fooState110(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -3902,6 +3861,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -3924,13 +3890,6 @@ namespace minij
 
 		public bool fooState111(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4000,6 +3959,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4022,13 +3988,6 @@ namespace minij
 
 		public bool fooState112(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4098,6 +4057,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4120,13 +4086,6 @@ namespace minij
 
 		public bool fooState113(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4196,6 +4155,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4218,13 +4184,6 @@ namespace minij
 
 		public bool fooState114(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4294,6 +4253,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4316,13 +4282,6 @@ namespace minij
 
 		public bool fooState115(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4393,6 +4352,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(115);
@@ -4414,7 +4380,7 @@ namespace minij
 
 		public bool fooState116(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(159);
 				text.Push("ident");
@@ -4445,13 +4411,6 @@ namespace minij
 
 		public bool fooState118(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -4521,6 +4480,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4543,13 +4509,6 @@ namespace minij
 
 		public bool fooState119(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -4620,6 +4579,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(119);
@@ -4641,13 +4607,6 @@ namespace minij
 
 		public bool fooState120(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4717,6 +4676,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -4769,13 +4735,6 @@ namespace minij
 
 		public bool fooState123(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -4846,6 +4805,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(123);
@@ -4867,13 +4833,6 @@ namespace minij
 
 		public bool fooState124(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -4943,6 +4902,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState92(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -5179,13 +5145,6 @@ namespace minij
 
 		public bool fooState129(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -5255,6 +5214,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -5339,13 +5305,6 @@ namespace minij
 
 		public bool fooState131(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -5415,6 +5374,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -5437,13 +5403,6 @@ namespace minij
 
 		public bool fooState132(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -5513,6 +5472,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -6388,7 +6354,7 @@ namespace minij
 
 		public bool fooState142(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(195);
 				text.Push("ident");
@@ -6491,7 +6457,7 @@ namespace minij
 
 		public bool fooState149(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(199);
 				text.Push("ident");
@@ -6504,7 +6470,7 @@ namespace minij
 
 		public bool fooState150(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(200);
 				text.Push("ident");
@@ -7291,7 +7257,7 @@ namespace minij
 
 		public bool fooState159(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(202);
 				text.Push("ident");
@@ -7304,13 +7270,6 @@ namespace minij
 
 		public bool fooState160(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -7430,6 +7389,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(160);
@@ -7484,6 +7450,11 @@ namespace minij
 			{
 				stack.Push(160);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(160);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -7915,13 +7886,6 @@ namespace minij
 
 		public bool fooState169(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -7991,6 +7955,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -8075,13 +8046,6 @@ namespace minij
 
 		public bool fooState171(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -8151,6 +8115,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -8173,13 +8144,6 @@ namespace minij
 
 		public bool fooState172(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -8249,6 +8213,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9190,13 +9161,6 @@ namespace minij
 
 		public bool fooState182(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9266,6 +9230,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9301,13 +9272,6 @@ namespace minij
 
 		public bool fooState184(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9377,6 +9341,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9399,13 +9370,6 @@ namespace minij
 
 		public bool fooState185(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9475,6 +9439,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9497,13 +9468,6 @@ namespace minij
 
 		public bool fooState186(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9573,6 +9537,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9595,13 +9566,6 @@ namespace minij
 
 		public bool fooState187(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9671,6 +9635,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9693,13 +9664,6 @@ namespace minij
 
 		public bool fooState188(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9769,6 +9733,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9791,13 +9762,6 @@ namespace minij
 
 		public bool fooState189(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9867,6 +9831,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -9889,13 +9860,6 @@ namespace minij
 
 		public bool fooState190(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -9966,6 +9930,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(190);
@@ -9987,7 +9958,7 @@ namespace minij
 
 		public bool fooState191(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(229);
 				text.Push("ident");
@@ -10210,7 +10181,7 @@ namespace minij
 
 		public bool fooState194(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(230);
 				text.Push("ident");
@@ -10236,17 +10207,6 @@ namespace minij
 
 		public bool fooState196(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
-			{
-				// reduccion por la produccion 8
-				for (int i = 0; i < 4; i++)
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				text.Push("ConstDecl");
-				return irA(stack.Peek());
-			}
 			if (text.Peek() == "(")
 			{
 				// reduccion por la produccion 8
@@ -10434,6 +10394,17 @@ namespace minij
 				text.Push("ConstDecl");
 				return irA(stack.Peek());
 			}
+			if (text.Peek() == "ident")
+			{
+				// reduccion por la produccion 8
+				for (int i = 0; i < 4; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("ConstDecl");
+				return irA(stack.Peek());
+			}
 			return false;
 		}
 
@@ -10443,20 +10414,11 @@ namespace minij
 			if (text.Peek() == "$")
 			{
 				// reduccion por la produccion 23
-				while (text.Peek() != null && text.Peek() != "class")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 10; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("ClassDecl");
 				return irA(stack.Peek());
 			}
@@ -10509,7 +10471,7 @@ namespace minij
 
 		public bool fooState201(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(234);
 				text.Push("ident");
@@ -10640,13 +10602,6 @@ namespace minij
 
 		public bool fooState204(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -10766,6 +10721,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(204);
@@ -10821,19 +10783,17 @@ namespace minij
 				stack.Push(204);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(204);
+				return fooState3(false);
+			}
 			return false;
 		}
 
 
 		public bool fooState205(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -10953,6 +10913,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(205);
@@ -11008,19 +10975,17 @@ namespace minij
 				stack.Push(205);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(205);
+				return fooState3(false);
+			}
 			return false;
 		}
 
 
 		public bool fooState206(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -11091,6 +11056,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(206);
@@ -11125,13 +11097,6 @@ namespace minij
 
 		public bool fooState208(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11201,6 +11166,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11236,13 +11208,6 @@ namespace minij
 
 		public bool fooState210(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11312,6 +11277,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11334,13 +11306,6 @@ namespace minij
 
 		public bool fooState211(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11410,6 +11375,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11432,13 +11404,6 @@ namespace minij
 
 		public bool fooState212(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11508,6 +11473,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11530,13 +11502,6 @@ namespace minij
 
 		public bool fooState213(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11606,6 +11571,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11628,13 +11600,6 @@ namespace minij
 
 		public bool fooState214(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11704,6 +11669,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11726,13 +11698,6 @@ namespace minij
 
 		public bool fooState215(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11802,6 +11767,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState173(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -11824,13 +11796,6 @@ namespace minij
 
 		public bool fooState216(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -11901,6 +11866,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(216);
@@ -11922,7 +11894,7 @@ namespace minij
 
 		public bool fooState217(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(249);
 				text.Push("ident");
@@ -12145,7 +12117,7 @@ namespace minij
 
 		public bool fooState220(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
+			if (input[0] == "ident")
 			{
 				stack.Push(250);
 				text.Push("ident");
@@ -13221,13 +13193,6 @@ namespace minij
 
 		public bool fooState232(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -13255,6 +13220,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -13277,13 +13249,6 @@ namespace minij
 
 		public bool fooState233(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -13311,6 +13276,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "Variable")
 			{
@@ -13349,20 +13321,11 @@ namespace minij
 			if (text.Peek() == "}")
 			{
 				// reduccion por la produccion 30
-				while (text.Peek() != null && text.Peek() != "{")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("StmtBlock");
 				return irA(stack.Peek());
 			}
@@ -14652,13 +14615,6 @@ namespace minij
 
 		public bool fooState256(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -14729,6 +14685,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(256);
@@ -14753,20 +14716,11 @@ namespace minij
 			if (text.Peek() == "}")
 			{
 				// reduccion por la produccion 44
-				while (text.Peek() != null && text.Peek() != "System.out.println")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("PrintStmt");
 				return irA(stack.Peek());
 			}
@@ -14917,13 +14871,6 @@ namespace minij
 
 		public bool fooState261(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -15043,6 +14990,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(261);
@@ -15097,6 +15051,11 @@ namespace minij
 			{
 				stack.Push(261);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(261);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -15296,13 +15255,6 @@ namespace minij
 
 		public bool fooState274(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -15330,6 +15282,13 @@ namespace minij
 				text.Push("string");
 				input.RemoveAt(0);
 				return fooState17(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
 			}
 			if (afterReduce && text.Peek() == "VariableDecl")
 			{
@@ -15391,13 +15350,6 @@ namespace minij
 
 		public bool fooState278(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -15468,6 +15420,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(278);
@@ -15515,13 +15474,6 @@ namespace minij
 
 		public bool fooState281(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -15641,6 +15593,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(281);
@@ -15696,6 +15655,11 @@ namespace minij
 				stack.Push(281);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(281);
+				return fooState3(false);
+			}
 			return false;
 		}
 
@@ -15705,20 +15669,11 @@ namespace minij
 			if (text.Peek() == "}")
 			{
 				// reduccion por la produccion 39
-				while (text.Peek() != null && text.Peek() != "if")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("IfStmt");
 				return irA(stack.Peek());
 			}
@@ -15730,23 +15685,12 @@ namespace minij
 		{
 			if (text.Peek() == ")")
 			{
-				// reduccion por la produccion 31 (Expr? ;)
-				// ;
-				stack.Pop();
-				text.Pop();
-				// Expr?
-				if (text.Peek() == "Expr")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				/*
+				// reduccion por la produccion 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("Stmt");
 				return irA(stack.Peek());
 			}
@@ -15774,13 +15718,6 @@ namespace minij
 
 		public bool fooState285(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -15850,6 +15787,13 @@ namespace minij
 				text.Push("New");
 				input.RemoveAt(0);
 				return fooState133(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
 			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
@@ -15872,13 +15816,6 @@ namespace minij
 
 		public bool fooState286(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -15949,6 +15886,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(286);
@@ -15970,13 +15914,6 @@ namespace minij
 
 		public bool fooState287(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -16047,6 +15984,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(287);
@@ -16098,13 +16042,6 @@ namespace minij
 
 		public bool fooState290(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -16175,6 +16112,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(290);
@@ -16213,13 +16157,6 @@ namespace minij
 
 		public bool fooState292(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -16339,6 +16276,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(292);
@@ -16393,6 +16337,11 @@ namespace minij
 			{
 				stack.Push(292);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(292);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -16482,13 +16431,6 @@ namespace minij
 
 		public bool fooState299(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -16608,6 +16550,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(299);
@@ -16663,19 +16612,17 @@ namespace minij
 				stack.Push(299);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(299);
+				return fooState3(false);
+			}
 			return false;
 		}
 
 
 		public bool fooState300(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -16795,6 +16742,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(300);
@@ -16850,19 +16804,17 @@ namespace minij
 				stack.Push(300);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(300);
+				return fooState3(false);
+			}
 			return false;
 		}
 
 
 		public bool fooState301(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -16933,6 +16885,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(301);
@@ -16970,20 +16929,11 @@ namespace minij
 			if (text.Peek() == ")")
 			{
 				// reduccion por la produccion 30
-				while (text.Peek() != null && text.Peek() != "{")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("StmtBlock");
 				return irA(stack.Peek());
 			}
@@ -17062,13 +17012,6 @@ namespace minij
 
 		public bool fooState309(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -17139,6 +17082,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(309);
@@ -17163,20 +17113,11 @@ namespace minij
 			if (text.Peek() == ")")
 			{
 				// reduccion por la produccion 44
-				while (text.Peek() != null && text.Peek() != "System.out.println")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("PrintStmt");
 				return irA(stack.Peek());
 			}
@@ -17186,13 +17127,6 @@ namespace minij
 
 		public bool fooState311(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -17312,6 +17246,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(311);
@@ -17366,6 +17307,11 @@ namespace minij
 			{
 				stack.Push(311);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(311);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -17399,13 +17345,6 @@ namespace minij
 
 		public bool fooState314(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -17525,6 +17464,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(314);
@@ -17580,6 +17526,11 @@ namespace minij
 				stack.Push(314);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(314);
+				return fooState3(false);
+			}
 			return false;
 		}
 
@@ -17589,20 +17540,11 @@ namespace minij
 			if (text.Peek() == ")")
 			{
 				// reduccion por la produccion 39
-				while (text.Peek() != null && text.Peek() != "if")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("IfStmt");
 				return irA(stack.Peek());
 			}
@@ -17734,7 +17676,7 @@ namespace minij
 
 		public bool fooState318(bool afterReduce)
 		{
-			if (text.Peek() == "ident")
+			if (text.Peek() == "[ ]")
 			{
 				// reduccion por la produccion 18
 				for (int i = 0; i < 2; i++)
@@ -17745,7 +17687,7 @@ namespace minij
 				text.Push("Type");
 				return irA(stack.Peek());
 			}
-			if (text.Peek() == "[ ]")
+			if (text.Peek() == "ident")
 			{
 				// reduccion por la produccion 18
 				for (int i = 0; i < 2; i++)
@@ -17764,23 +17706,12 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
-				// reduccion por la produccion 31 (Expr? ;)
-				// ;
-				stack.Pop();
-				text.Pop();
-				// Expr?
-				if (text.Peek() == "Expr")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				/*
+				// reduccion por la produccion 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("Stmt");
 				return irA(stack.Peek());
 			}
@@ -18027,13 +17958,6 @@ namespace minij
 
 		public bool fooState329(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(18);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState18(false);
-			}
 			if (input[0] == "int")
 			{
 				stack.Push(14);
@@ -18062,6 +17986,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(18);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState18(false);
+			}
 			if (afterReduce && text.Peek() == "VariableDecl")
 			{
 				stack.Push(329);
@@ -18086,20 +18017,11 @@ namespace minij
 			if (text.Peek() == "(")
 			{
 				// reduccion por la produccion 39
-				while (text.Peek() != null && text.Peek() != "if")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 9; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("IfStmt");
 				return irA(stack.Peek());
 			}
@@ -18135,13 +18057,6 @@ namespace minij
 
 		public bool fooState333(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -18212,6 +18127,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(333);
@@ -18261,23 +18183,12 @@ namespace minij
 		{
 			if (text.Peek() == "(")
 			{
-				// reduccion por la produccion 31 (Expr? ;)
-				// ;
-				stack.Pop();
-				text.Pop();
-				// Expr?
-				if (text.Peek() == "Expr")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				/*
+				// reduccion por la produccion 31
 				for (int i = 0; i < 2; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("Stmt");
 				return irA(stack.Peek());
 			}
@@ -18305,13 +18216,6 @@ namespace minij
 
 		public bool fooState338(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -18382,6 +18286,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(338);
@@ -18403,13 +18314,6 @@ namespace minij
 
 		public bool fooState339(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -18480,6 +18384,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(339);
@@ -18531,13 +18442,6 @@ namespace minij
 
 		public bool fooState342(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(174);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState174(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(169);
@@ -18608,6 +18512,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(174);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState174(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(342);
@@ -18629,13 +18540,6 @@ namespace minij
 
 		public bool fooState343(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -18755,6 +18659,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(343);
@@ -18809,6 +18720,11 @@ namespace minij
 			{
 				stack.Push(343);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(343);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -18885,13 +18801,6 @@ namespace minij
 
 		public bool fooState349(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -18962,6 +18871,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(349);
@@ -18999,20 +18915,11 @@ namespace minij
 			if (text.Peek() == "(")
 			{
 				// reduccion por la produccion 30
-				while (text.Peek() != null && text.Peek() != "{")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 5; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("StmtBlock");
 				return irA(stack.Peek());
 			}
@@ -19048,13 +18955,6 @@ namespace minij
 
 		public bool fooState354(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(134);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState134(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(129);
@@ -19125,6 +19025,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(134);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState134(false);
+			}
 			if (afterReduce && text.Peek() == "Expr")
 			{
 				stack.Push(354);
@@ -19149,20 +19056,11 @@ namespace minij
 			if (text.Peek() == "(")
 			{
 				// reduccion por la produccion 44
-				while (text.Peek() != null && text.Peek() != "System.out.println")
-				{
-					stack.Pop();
-					text.Pop();
-				}
-				stack.Pop();
-				text.Pop();
-				/*
 				for (int i = 0; i < 6; i++)
 				{
 					stack.Pop();
 					text.Pop();
 				}
-				*/
 				text.Push("PrintStmt");
 				return irA(stack.Peek());
 			}
@@ -19185,13 +19083,6 @@ namespace minij
 
 		public bool fooState357(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -19311,6 +19202,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(357);
@@ -19365,6 +19263,11 @@ namespace minij
 			{
 				stack.Push(357);
 				return fooState8(false);
+			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(357);
+				return fooState3(false);
 			}
 			return false;
 		}
@@ -19389,13 +19292,6 @@ namespace minij
 
 		public bool fooState359(bool afterReduce)
 		{
-			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
-			{
-				stack.Push(93);
-				text.Push("ident");
-				input.RemoveAt(0);
-				return fooState93(false);
-			}
 			if (input[0] == "(")
 			{
 				stack.Push(89);
@@ -19515,6 +19411,13 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
+			if (input[0] == "ident")
+			{
+				stack.Push(364);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState364(false);
+			}
 			if (afterReduce && text.Peek() == "StmtBlock")
 			{
 				stack.Push(359);
@@ -19570,6 +19473,11 @@ namespace minij
 				stack.Push(359);
 				return fooState8(false);
 			}
+			if (afterReduce && text.Peek() == "CallStmt")
+			{
+				stack.Push(359);
+				return fooState3(false);
+			}
 			return false;
 		}
 
@@ -19585,6 +19493,2268 @@ namespace minij
 					text.Pop();
 				}
 				text.Push("WhileStmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState361(bool afterReduce)
+		{
+			if (text.Peek() == "}")
+			{
+				// reduccion por la produccion 67
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Stmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState362(bool afterReduce)
+		{
+			if (text.Peek() == "(")
+			{
+				// reduccion por la produccion 67
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Stmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState363(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 67
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Stmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState364(bool afterReduce)
+		{
+			if (text.Peek() == ";")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (input[0] == "(")
+			{
+				stack.Push(365);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState365(false);
+			}
+			if (text.Peek() == "-")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == "|")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == "%")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ">")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ">=")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == "!=")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == "||")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (input[0] == ".")
+			{
+				stack.Push(366);
+				text.Push(".");
+				input.RemoveAt(0);
+				return fooState366(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState365(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(365);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(365);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(365);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Actuals")
+			{
+				stack.Push(365);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState366(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(383);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState383(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState367(bool afterReduce)
+		{
+			if (input[0] == ")")
+			{
+				stack.Push(384);
+				text.Push(")");
+				input.RemoveAt(0);
+				return fooState384(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState368(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 71
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Actuals");
+				return irA(stack.Peek());
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(387);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState387(false);
+			}
+			if (input[0] == "|")
+			{
+				stack.Push(388);
+				text.Push("|");
+				input.RemoveAt(0);
+				return fooState388(false);
+			}
+			if (input[0] == "%")
+			{
+				stack.Push(389);
+				text.Push("%");
+				input.RemoveAt(0);
+				return fooState389(false);
+			}
+			if (input[0] == ">")
+			{
+				stack.Push(390);
+				text.Push(">");
+				input.RemoveAt(0);
+				return fooState390(false);
+			}
+			if (input[0] == ">=")
+			{
+				stack.Push(391);
+				text.Push(">=");
+				input.RemoveAt(0);
+				return fooState391(false);
+			}
+			if (input[0] == "!=")
+			{
+				stack.Push(392);
+				text.Push("!=");
+				input.RemoveAt(0);
+				return fooState392(false);
+			}
+			if (input[0] == "||")
+			{
+				stack.Push(393);
+				text.Push("||");
+				input.RemoveAt(0);
+				return fooState393(false);
+			}
+			if (input[0] == ".")
+			{
+				stack.Push(394);
+				text.Push(".");
+				input.RemoveAt(0);
+				return fooState394(false);
+			}
+			if (input[0] == ",")
+			{
+				stack.Push(385);
+				text.Push(",");
+				input.RemoveAt(0);
+				return fooState385(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState369(bool afterReduce)
+		{
+			if (input[0] == "=")
+			{
+				stack.Push(395);
+				text.Push("=");
+				input.RemoveAt(0);
+				return fooState395(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState370(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 46
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState371(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 47
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState372(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 48
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState373(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(373);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(373);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(373);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState374(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(374);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(374);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(374);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState375(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(375);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(375);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(375);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState376(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(398);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState398(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState377(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 60
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState378(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 62
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Constant");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState379(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 63
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Constant");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState380(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 64
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Constant");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState381(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 65
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Constant");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState382(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 66
+				for (int i = 0; i < 1; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Constant");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState383(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(383);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(383);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(383);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Actuals")
+			{
+				stack.Push(383);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState384(bool afterReduce)
+		{
+			if (text.Peek() == "}")
+			{
+				// reduccion por la produccion 68
+				for (int i = 0; i < 4; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("CallStmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState385(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(385);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(385);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(385);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Actuals")
+			{
+				stack.Push(385);
+				return fooState4(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState386(bool afterReduce)
+		{
+			return false;
+		}
+
+
+		public bool fooState387(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(387);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(387);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(387);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState388(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(388);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(388);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(388);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState389(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(389);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(389);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(389);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState390(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(390);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(390);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(390);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState391(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(391);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(391);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(391);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState392(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(392);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(392);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(392);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState393(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(393);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(393);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(393);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState394(bool afterReduce)
+		{
+			if (input[0] == "ident")
+			{
+				stack.Push(408);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState408(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState395(bool afterReduce)
+		{
+			if (input[0] == "(")
+			{
+				stack.Push(373);
+				text.Push("(");
+				input.RemoveAt(0);
+				return fooState373(false);
+			}
+			if (int.TryParse(input[0], out int x))
+			{
+				stack.Push(378);
+				text.Push("intConstant");
+				input.RemoveAt(0);
+				return fooState378(false);
+			}
+			if (double.TryParse(input[0], out double y))
+			{
+				stack.Push(379);
+				text.Push("doubleConstant");
+				input.RemoveAt(0);
+				return fooState379(false);
+			}
+			if (bool.TryParse(input[0], out bool z))
+			{
+				stack.Push(380);
+				text.Push("booleanConstant");
+				input.RemoveAt(0);
+				return fooState380(false);
+			}
+			if (Regex.Match(input[0], @"""((\\[^\n]|[^""\n])*)""").Success)
+			{
+				stack.Push(381);
+				text.Push("stringConstant");
+				input.RemoveAt(0);
+				return fooState381(false);
+			}
+			if (input[0] == "null")
+			{
+				stack.Push(382);
+				text.Push("null");
+				input.RemoveAt(0);
+				return fooState382(false);
+			}
+			if (input[0] == "this")
+			{
+				stack.Push(372);
+				text.Push("this");
+				input.RemoveAt(0);
+				return fooState372(false);
+			}
+			if (input[0] == "-")
+			{
+				stack.Push(374);
+				text.Push("-");
+				input.RemoveAt(0);
+				return fooState374(false);
+			}
+			if (input[0] == "!")
+			{
+				stack.Push(375);
+				text.Push("!");
+				input.RemoveAt(0);
+				return fooState375(false);
+			}
+			if (input[0] == "New")
+			{
+				stack.Push(376);
+				text.Push("New");
+				input.RemoveAt(0);
+				return fooState376(false);
+			}
+			if (input[0] == "ident")
+			{
+				stack.Push(377);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState377(false);
+			}
+			if (afterReduce && text.Peek() == "Expr")
+			{
+				stack.Push(395);
+				return fooState4(false);
+			}
+			if (afterReduce && text.Peek() == "Lvalue")
+			{
+				stack.Push(395);
+				return fooState3(false);
+			}
+			if (afterReduce && text.Peek() == "Constant")
+			{
+				stack.Push(395);
+				return fooState3(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState396(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 53
+				for (int i = 0; i < 2; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState397(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 58
+				for (int i = 0; i < 2; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState398(bool afterReduce)
+		{
+			if (input[0] == "ident")
+			{
+				stack.Push(411);
+				text.Push("ident");
+				input.RemoveAt(0);
+				return fooState411(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState399(bool afterReduce)
+		{
+			if (input[0] == ")")
+			{
+				stack.Push(412);
+				text.Push(")");
+				input.RemoveAt(0);
+				return fooState412(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState400(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 70
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Actuals");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState401(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 50
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 50
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState402(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 51
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 51
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState403(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 52
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 52
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState404(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 54
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 54
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState405(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 55
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 55
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState406(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 56
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 56
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState407(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 57
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 57
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState408(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 61
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			if (text.Peek() == ",")
+			{
+				// reduccion por la produccion 61
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("LValue");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState409(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 45
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState410(bool afterReduce)
+		{
+			if (input[0] == ")")
+			{
+				stack.Push(413);
+				text.Push(")");
+				input.RemoveAt(0);
+				return fooState413(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState411(bool afterReduce)
+		{
+			if (input[0] == ")")
+			{
+				stack.Push(414);
+				text.Push(")");
+				input.RemoveAt(0);
+				return fooState414(false);
+			}
+			return false;
+		}
+
+
+		public bool fooState412(bool afterReduce)
+		{
+			if (text.Peek() == "}")
+			{
+				// reduccion por la produccion 69
+				for (int i = 0; i < 6; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("CallStmt");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState413(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 49
+				for (int i = 0; i < 3; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
+				return irA(stack.Peek());
+			}
+			return false;
+		}
+
+
+		public bool fooState414(bool afterReduce)
+		{
+			if (text.Peek() == ")")
+			{
+				// reduccion por la produccion 59
+				for (int i = 0; i < 4; i++)
+				{
+					stack.Pop();
+					text.Pop();
+				}
+				text.Push("Expr");
 				return irA(stack.Peek());
 			}
 			return false;
@@ -19956,9 +22126,67 @@ namespace minij
 				case 358: return fooState358(true);
 				case 359: return fooState359(true);
 				case 360: return fooState360(true);
+				case 361: return fooState361(true);
+				case 362: return fooState362(true);
+				case 363: return fooState363(true);
+				case 364: return fooState364(true);
+				case 365: return fooState365(true);
+				case 366: return fooState366(true);
+				case 367: return fooState367(true);
+				case 368: return fooState368(true);
+				case 369: return fooState369(true);
+				case 370: return fooState370(true);
+				case 371: return fooState371(true);
+				case 372: return fooState372(true);
+				case 373: return fooState373(true);
+				case 374: return fooState374(true);
+				case 375: return fooState375(true);
+				case 376: return fooState376(true);
+				case 377: return fooState377(true);
+				case 378: return fooState378(true);
+				case 379: return fooState379(true);
+				case 380: return fooState380(true);
+				case 381: return fooState381(true);
+				case 382: return fooState382(true);
+				case 383: return fooState383(true);
+				case 384: return fooState384(true);
+				case 385: return fooState385(true);
+				case 386: return fooState386(true);
+				case 387: return fooState387(true);
+				case 388: return fooState388(true);
+				case 389: return fooState389(true);
+				case 390: return fooState390(true);
+				case 391: return fooState391(true);
+				case 392: return fooState392(true);
+				case 393: return fooState393(true);
+				case 394: return fooState394(true);
+				case 395: return fooState395(true);
+				case 396: return fooState396(true);
+				case 397: return fooState397(true);
+				case 398: return fooState398(true);
+				case 399: return fooState399(true);
+				case 400: return fooState400(true);
+				case 401: return fooState401(true);
+				case 402: return fooState402(true);
+				case 403: return fooState403(true);
+				case 404: return fooState404(true);
+				case 405: return fooState405(true);
+				case 406: return fooState406(true);
+				case 407: return fooState407(true);
+				case 408: return fooState408(true);
+				case 409: return fooState409(true);
+				case 410: return fooState410(true);
+				case 411: return fooState411(true);
+				case 412: return fooState412(true);
+				case 413: return fooState413(true);
+				case 414: return fooState414(true);
 				default: return false;
 			}
 		}
+
+
+
+
 
 
 	}
