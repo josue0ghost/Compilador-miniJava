@@ -131,6 +131,7 @@ namespace minij
             {
                 MessageBox.Show(semantic.err);
             }
+            semantic.errors();
         }
     }
 }

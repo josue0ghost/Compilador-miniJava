@@ -47,7 +47,7 @@ namespace minij
             }
             else
             {
-                this.err = "Ya se había de clarado una variable o constante con el mismo nombre";
+                this.err += "\nYa se había de clarado una variable o constante con el mismo nombre";
             }
         }
 
@@ -65,7 +65,7 @@ namespace minij
             }
             else
             {
-                this.err = "El objeto que se intentó eliminar no existe en la tabla";
+                this.err += "\nEl objeto que se intentó eliminar no existe en la tabla";
             }
         }
 
@@ -84,7 +84,7 @@ namespace minij
             }
             else
             {
-                this.err = "El objeto que se intentó eliminar no existe en la tabla";
+                this.err += "\nEl objeto que se intentó eliminar no existe en la tabla";
             }
         }
 
@@ -124,7 +124,7 @@ namespace minij
             }
             else
             {
-                this.err = "No se pudo encontrar la variable " + name + "en el ámbito actual";
+                this.err += "\nNo se pudo encontrar la variable " + name + "en el ámbito actual";
             }
         }
 
@@ -213,13 +213,13 @@ namespace minij
                 }
                 else
                 {
-                    this.err = "La variable o constante con el nombre " + varName2 + " no existe en el contexto actual";
+                    this.err += "\nLa variable o constante con el nombre " + varName2 + " no existe en el contexto actual";
                     return false;
                 }
             }
             else
             {
-                this.err = "La variable o constante con el nombre " + varName1 + " no existe en el contexto actual";
+                this.err += "\nLa variable o constante con el nombre " + varName1 + " no existe en el contexto actual";
                 return false;
             }
         }
@@ -252,7 +252,7 @@ namespace minij
             }
             else
             {
-                this.err = "La variable o constante con el nombre " + varName1 + " no existe en el contexto actual";
+                this.err += "\nLa variable o constante con el nombre " + varName1 + " no existe en el contexto actual";
                 return false;
             }
         }
@@ -291,17 +291,17 @@ namespace minij
                     }
                     else
                     {
-                        this.err = varName2 + " no existe en el contexto actual";
+                        this.err += "\n " + varName2 + " no existe en el contexto actual";
                     }
                 }
                 else
                 {
-                    this.err = varName + " no es de tipo 'double' o 'int'";
+                    this.err += "\n " + varName + " no es de tipo 'double' o 'int'";
                 }
             }
             else
             {
-                this.err = varName + " no existe en el contexto actual";
+                this.err += "\n " + varName + " no existe en el contexto actual";
             }
         }
 
@@ -331,17 +331,17 @@ namespace minij
                     }
                     else
                     {
-                        this.err = intValue + " no es de tipo 'double' o 'int'";
+                        this.err += "\n " + intValue + " no es de tipo 'double' o 'int'";
                     }
                 }
                 else
                 {
-                    this.err = varName + " no es de tipo 'double' o 'int'";
+                    this.err += "\n " + varName + " no es de tipo 'double' o 'int'";
                 }
             }
             else
             {
-                this.err = varName + " no existe en el contexto actual";
+                this.err += "\n " + varName + " no existe en el contexto actual";
             }
         }
 
@@ -364,7 +364,7 @@ namespace minij
                     {
                         if (sendedArgs[i] != var1.args[i])
                         {
-                            this.err = "Un argumento de la función " + funcName + " es inválido";
+                            this.err += "\nUn argumento de la función " + funcName + " es inválido";
                             return false;
                         }
                     }
@@ -372,12 +372,12 @@ namespace minij
                 }
                 else
                 {
-                    this.err = "La función " + funcName + " no acepta la cantidad de argumentos enviados";
+                    this.err += "\nLa función " + funcName + " no acepta la cantidad de argumentos enviados";
                     return false;
                 }
             }
 
-            this.err = funcName + " no existe en el contexto actual";
+            this.err += "\n " + funcName + " no existe en el contexto actual";
             return false;
         }
 
@@ -492,7 +492,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -503,7 +503,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -518,7 +518,7 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
@@ -529,7 +529,7 @@ namespace minij
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -540,7 +540,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -551,7 +551,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -561,7 +561,7 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
@@ -572,7 +572,7 @@ namespace minij
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -583,7 +583,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -594,7 +594,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -604,7 +604,7 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
@@ -615,7 +615,7 @@ namespace minij
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -626,7 +626,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -637,7 +637,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -647,7 +647,7 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
@@ -658,7 +658,7 @@ namespace minij
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -668,7 +668,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -679,7 +679,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -689,7 +689,7 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
@@ -700,7 +700,7 @@ namespace minij
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -711,7 +711,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 3: // boolean
@@ -723,13 +723,13 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos no booleanos";
+                                this.err += "\nOperación inválida sobre tipos no booleanos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes no booleanos";
+                        this.err += "\nOperación inválida sobre tipos diferentes no booleanos";
                     }
                     break;
 
@@ -740,7 +740,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 3: // boolean
@@ -752,13 +752,13 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos no booleanos";
+                                this.err += "\nOperación inválida sobre tipos no booleanos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes no booleanos";
+                        this.err += "\nOperación inválida sobre tipos diferentes no booleanos";
                     }
                     break;
 
@@ -768,7 +768,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -779,7 +779,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -796,13 +796,13 @@ namespace minij
                                 result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
                                 break;
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -812,7 +812,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -823,7 +823,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -840,13 +840,13 @@ namespace minij
                                 result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
                                 break;
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -856,7 +856,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -867,7 +867,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -877,13 +877,13 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break; 
 
@@ -893,7 +893,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -904,7 +904,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -914,13 +914,13 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -930,7 +930,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -941,7 +941,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -951,13 +951,13 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
 
@@ -967,7 +967,7 @@ namespace minij
                         switch (var1.type)
                         {
                             case 0:
-                                this.err = "Error de referencia a valor nulo";
+                                this.err += "\nError de referencia a valor nulo";
                                 break;
 
                             case 1: // int
@@ -978,7 +978,7 @@ namespace minij
                                 }
                                 else
                                 {
-                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                    this.err += "\nIntento de operación sobre enteros de diferente base";
                                 }
                                 break;
 
@@ -988,18 +988,18 @@ namespace minij
                                 break;
 
                             default:
-                                this.err = "Operación inválida sobre tipos";
+                                this.err += "\nOperación inválida sobre tipos";
                                 break;
                         }
                     }
                     else
                     {
-                        this.err = "Operación inválida sobre tipos diferentes";
+                        this.err += "\nOperación inválida sobre tipos diferentes";
                     }
                     break;
                 
                 default:
-                    this.err = "Operador inválido";
+                    this.err += "\nOperador inválido";
                     break;
             }
 
@@ -1021,6 +1021,22 @@ namespace minij
                 {
                     file.WriteLine(table.Keys.ElementAt(i) + " => " + table.Values.ElementAt(i));
                 }
+                file.Close();
+            }
+        }
+
+
+        public void getErrors() {
+            string basePath = string.Format(@"{0}Outputs\", AppContext.BaseDirectory);
+            DirectoryInfo directory = Directory.CreateDirectory(basePath);
+
+            // table format
+            //string key = symbol.idAmbito.ToString() + "," + symbol.name;
+            //string value = symbol.type.ToString() + "|" + symbol.value + "|" + symbol._base + "|";
+
+            using (StreamWriter file = new StreamWriter(basePath + "ErroresSemanticos.txt"))
+            {
+                file.WriteLine(this.err);
                 file.Close();
             }
         }
