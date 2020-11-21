@@ -86,11 +86,7 @@ namespace minij
                 {
                     
                     string value = input[3].Key;
-                    if (value[value.Length] == 'h')
-                    {
-                        _base = 3;
-                    }
-                    else if (value[value.Length] == 'o')
+                    if (value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
                     {
                         _base = 2;
                     }

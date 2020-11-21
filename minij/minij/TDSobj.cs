@@ -30,8 +30,7 @@ namespace minij
         /*_base
          * 0 = NaN
          * 1 = decimal
-         * 2 = octal
-         * 3 = hex
+         * 2 = hex
          */
         public int _base { get; set; }
 
