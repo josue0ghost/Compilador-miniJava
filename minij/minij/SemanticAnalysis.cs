@@ -8,8 +8,7 @@ namespace minij
 {
     class SemanticAnalysis
     {
-        public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();
-        Tabla_de_símbolos tabla = new Tabla_de_símbolos();
+        public List<KeyValuePair<string, string>> tokens = new List<KeyValuePair<string, string>>();        
         int idAmbito = 0;
 
         /* type
@@ -116,8 +115,13 @@ namespace minij
             }
         }
 
-        public void assign(List<KeyValuePair<string, string>> input) {
+        public void assign(List<KeyValuePair<string, string>> input)
+        {
 
+            if (input.Count >= 3)
+            {
+
+            
             // declaración y asignación
             if (input[0].Value.Equals("T_ValueType") &&
                 input[1].Value.Equals("ident") &&
@@ -162,31 +166,31 @@ namespace minij
                 // comparar tipos 
                 if (input[3].Value.Equals("ident"))
                 {
-                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, input[3].Key))
+                    if (Data.Instance.tds.compareTypes(idAmbito.ToString(), input[1].Key, iType))
                     {
                         aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
+                            if (aux != null)
+                            {
+                                Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
+                            }
                     }
-
                 }
                 else
                 {
-                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, iType))
-                    {
-                        aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
-                    }                    
-                }
+                    // la variable no existe y se está declarando e insertando
+                    aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
+                        if (aux != null)
+                        {
+                            Data.Instance.tds.Insert(aux);
+                        }
 
-                if (aux != null)
-                {
-                    // public void Update(int idAmbito, string name, string newValue)
-                    Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
-                }               
+                }
             }
 
             // solo asignación
-            if (input[1].Value.Equals("ident") &&
-                input[2].Value.Equals("=") &&
-                (input[3].Value.Equals("ident") || input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
+            if (input[0].Value.Equals("ident") &&
+                input[1].Value.Equals("=") &&
+                (input[2].Value.Equals("ident") || input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
             {
                 int iType = 0;
                 int _base = 0;
@@ -227,7 +231,7 @@ namespace minij
                 // comparar tipos 
                 if (input[3].Value.Equals("ident"))
                 {
-                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, input[3].Key))
+                    if (Data.Instance.tds.compareTypes(idAmbito.ToString(), input[1].Key, input[3].Key))
                     {
                         aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
@@ -235,7 +239,7 @@ namespace minij
                 }
                 else
                 {
-                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, iType))
+                    if (Data.Instance.tds.compareTypes(idAmbito.ToString(), input[1].Key, iType))
                     {
                         aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
@@ -245,9 +249,10 @@ namespace minij
                 {
                     Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
                 }
-            }            
+            }
 
-            // ASIGNACION DE OBJETOS
+        }
+            // ASIGNACION ident.ident
         }
 
         /// <summary>
@@ -255,6 +260,10 @@ namespace minij
         /// </summary>
         public void declare(List<KeyValuePair<string, string>> input) { 
             
+        }
+
+        public void write() {
+            Data.Instance.tds.writeTable();
         }
 
     }
