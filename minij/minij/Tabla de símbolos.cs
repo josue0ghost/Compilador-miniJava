@@ -89,6 +89,46 @@ namespace minij
         }
 
         /// <summary>
+        /// Modifica un símbolo existente en la tabla
+        /// </summary>
+        /// <param name="idAmbito">Número identificador del ámbito actual</param>
+        /// <param name="name">Nombre de la variable que se modifica</param>
+        /// <param name="newValue">Nuevo valor para la variable</param>
+        public void Update(int idAmbito, string name, string newValue)
+        {
+            TDSobj aux = Search(idAmbito, name);
+
+            if (aux != null)
+            {
+                string key = idAmbito.ToString() + "," + name;
+                aux.value = newValue;
+
+                string value = aux.type.ToString() + "|" + aux.value + "|" + aux._base + "|";
+
+                if (aux.args != null)
+                {
+                    foreach (var item in aux.args)
+                    {
+                        /* Debido a que los id de tipos se identifican con números del 0 al 5
+                         * es posible únicamente concatenarlos y separarlos por caracter para análisis
+                         */
+                        value += item.ToString();
+                    }
+                }
+                else
+                {
+                    value += "NULL";
+                }
+
+                table[key] = value;
+            }
+            else
+            {
+                this.err = "No se pudo encontrar la variable " + name + "en el ámbito actual";
+            }
+        }
+
+        /// <summary>
         /// Búsqueda de un registro en el diccionario de la tabla de símbolos
         /// </summary>
         /// <param name="symbol">objeto TDSobj</param>
