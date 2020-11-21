@@ -58,10 +58,10 @@ namespace minij
         public void assign(List<KeyValuePair<string, string>> input) {
 
             // declaración y asignación
-            if (input[0].Value.Equals("T_ValueType") && 
+            if (input[0].Value.Equals("T_ValueType") &&
                 input[1].Value.Equals("ident") &&
                 input[2].Value.Equals("=") &&
-                (input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
+                (input[3].Value.Equals("ident") || input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
             {
                 int iType = 0;
                 int _base = 0;
@@ -85,7 +85,7 @@ namespace minij
 
                 if (iType == 1)
                 {
-                    
+
                     string value = input[3].Key;
                     if (value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
                     {
@@ -97,16 +97,32 @@ namespace minij
                     }
                 }
 
+                TDSobj aux = null;
                 // comparar tipos 
+                if (input[3].Value.Equals("ident"))
+                {
+                    if (tabla.compareTypes(idAmbito, input[1].Key, input[3].Key))
+                    {
+                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                    }
 
-                TDSobj aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                }
+                else
+                {
+                    if (tabla.compareTypes(idAmbito, input[1].Key, iType))
+                    {
+                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                    }                    
+                }
+               
+                
                 Data.Instance.tds.Insert(aux);
             }
 
             // solo asignación
             if (input[1].Value.Equals("ident") &&
                 input[2].Value.Equals("=") &&
-                (input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
+                (input[3].Value.Equals("ident") || input[3].Value.Equals("int") || input[3].Value.Equals("double") || input[3].Value.Equals("string") || input[3].Value.Equals("boolean"))) // declaracion y asignacion
             {
                 int iType = 0;
                 int _base = 0;
