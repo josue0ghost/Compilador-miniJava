@@ -21,7 +21,6 @@ namespace CodeGen
         List<string[]> states = new List<string[]>();
 
         // producciones
-        string[] hProd;
         List<string[]> prods = new List<string[]>();
 
         FileHandling fh = new FileHandling();
@@ -36,7 +35,7 @@ namespace CodeGen
              * #Prod,NT,#Simbolos
              * 1,E,3
              */
-            prods = fh.ReadFile(ref hProd, prodPath);           
+            prods = fh.ReadFileProd(prodPath);           
             
             string ini = "public Stack<int> stack = new Stack<int>();\n";   // pila de estados
             ini += "public Stack<string> text = new Stack<string>();\n";    // texto analizado
@@ -49,6 +48,8 @@ namespace CodeGen
                 string func = writeFunctions(states[i], i);
                 fh.WriteFile(func, outputPath);
             }
+
+            fh.WriteFile(writeSwitch(), outputPath);
         }
 
         private string writeFunctions(string[] state, int numState)
@@ -74,8 +75,7 @@ namespace CodeGen
                     {
                         func += "\tif(afterReduce && text.Peek() == \"" + symbol + "\"){\n";
                         func += "\t\tstack.Push(" + numState + ");\n"; // insertar estado actual a pila de estados
-                        func += "\t\tfooState" + s + "(false);\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn fooState" + s + "(false);\n";
                         func += "\t}\n";
                     }
                     else if (act[0] == 'd') // desplazamiento
@@ -83,13 +83,10 @@ namespace CodeGen
                         int num = int.Parse(act.Substring(1));
 
                         func += "\tif(input[0] == \"" + symbol + "\"){\n";
-                        func += "\t\tstack.Enqueue(" + num + ");\n";
-                        func += "\t\ttext.Enqueue();\n";
+                        func += "\t\tstack.Push(" + num + ");\n";
+                        func += "\t\ttext.Push(\"" + symbol + "\");\n";
                         func += "\t\tinput.RemoveAt(0);\n";
-
-                        func += "\t\tstack.Push(" + numState + ");\n";         // insertar estado actual a pila de estados
-                        func += "\t\tfooState" + num + "(false);\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn fooState" + num + "(false);\n";
                         func += "\t}\n";
                     }
                     else if (act[0] == 'r')// reducción
@@ -97,16 +94,15 @@ namespace CodeGen
                         int index = int.Parse(act.Substring(1)) - 1;
 
                         func += "\tif(text.Peek() == \"" + symbol + "\"){\n";
-
+                        func += "// reduccion por la produccion " + index + "\n";
                         func += "\t\tfor(int i = 0; i < " + prods[index][2] + "; i++){\n"; // estado n [2] = # símbolos
                         func += "\t\t\tstack.Pop();\n";
                         func += "\t\t\ttext.Pop();\n";
                         func += "\t\t}\n";
 
-                        func += "\t\ttext.Push(" + prods[index][1] + ");\n"; // estado n [1] = izq de la producción
+                        func += "\t\ttext.Push(\"" + prods[index][1] + "\");\n"; // estado n [1] = izq de la producción
 
-                        func += "\t\tfooStateCAMBIAR();\n";
-                        func += "\t\tbreak;\n";
+                        func += "\t\treturn irA(stack.Peek());\n";
                         func += "\t}\n";
                     }
                     else if (actions[i] == "ACEPTAR") // aceptar
@@ -118,11 +114,26 @@ namespace CodeGen
                 }
             }
 
-            func += "\treturn false\n";
+            func += "\treturn false;\n";
 
             func += "}\n\n";
 
             return func;
+        }
+
+        private string writeSwitch()
+        {
+            string sw = "public bool irA(int stackTop){\n";
+            sw += "\tswitch(stackTop){\n";
+
+            for (int i = 0; i < states.Count; i++)
+            {
+                sw += "\t\tcase " + i + ": return fooState" + i + "(true);\n";
+            }
+            sw += "\t\tdefault: return false;\n";
+            sw += "\t}\n";
+            sw += "}\n";
+            return sw;
         }
     }
 }
