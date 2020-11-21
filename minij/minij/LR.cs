@@ -71,7 +71,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState10(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -261,7 +261,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState21(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(20);
 				text.Push("ident");
@@ -274,7 +274,7 @@ namespace minij
 
 		public bool fooState10(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(22);
 				text.Push("ident");
@@ -326,7 +326,7 @@ namespace minij
 
 		public bool fooState12(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(28);
 				text.Push("ident");
@@ -339,7 +339,7 @@ namespace minij
 
 		public bool fooState13(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(29);
 				text.Push("ident");
@@ -574,7 +574,7 @@ namespace minij
 
 		public bool fooState23(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(32);
 				text.Push("ident");
@@ -709,7 +709,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -765,7 +765,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -854,7 +854,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState43(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -921,7 +921,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState318(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(46);
 				text.Push("ident");
@@ -964,7 +964,7 @@ namespace minij
 
 		public bool fooState40(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(48);
 				text.Push("ident");
@@ -990,7 +990,7 @@ namespace minij
 
 		public bool fooState42(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(50);
 				text.Push("ident");
@@ -1003,7 +1003,7 @@ namespace minij
 
 		public bool fooState43(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(51);
 				text.Push("ident");
@@ -1062,7 +1062,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1237,7 +1237,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1299,7 +1299,7 @@ namespace minij
 
 		public bool fooState56(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(61);
 				text.Push("ident");
@@ -1340,7 +1340,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1396,7 +1396,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -1613,7 +1613,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -2010,7 +2010,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -2147,7 +2147,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -2593,7 +2593,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -2691,7 +2691,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -2789,7 +2789,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -3460,7 +3460,7 @@ namespace minij
 
 		public bool fooState99(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(143);
 				text.Push("ident");
@@ -3583,7 +3583,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState150(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -3764,7 +3764,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -3862,7 +3862,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -3960,7 +3960,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4058,7 +4058,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4156,7 +4156,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4254,7 +4254,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4352,7 +4352,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4380,7 +4380,7 @@ namespace minij
 
 		public bool fooState116(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(159);
 				text.Push("ident");
@@ -4481,7 +4481,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -4579,7 +4579,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -4677,7 +4677,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -4805,7 +4805,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -4903,7 +4903,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -5215,7 +5215,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -5375,7 +5375,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -5473,7 +5473,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -6354,7 +6354,7 @@ namespace minij
 
 		public bool fooState142(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(195);
 				text.Push("ident");
@@ -6457,7 +6457,7 @@ namespace minij
 
 		public bool fooState149(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(199);
 				text.Push("ident");
@@ -6470,7 +6470,7 @@ namespace minij
 
 		public bool fooState150(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(200);
 				text.Push("ident");
@@ -7257,7 +7257,7 @@ namespace minij
 
 		public bool fooState159(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(202);
 				text.Push("ident");
@@ -7389,7 +7389,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -7956,7 +7956,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -8116,7 +8116,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -8214,7 +8214,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -9231,7 +9231,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9342,7 +9342,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9440,7 +9440,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9538,7 +9538,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9636,7 +9636,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9734,7 +9734,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9832,7 +9832,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9930,7 +9930,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -9958,7 +9958,7 @@ namespace minij
 
 		public bool fooState191(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(229);
 				text.Push("ident");
@@ -10181,7 +10181,7 @@ namespace minij
 
 		public bool fooState194(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(230);
 				text.Push("ident");
@@ -10471,7 +10471,7 @@ namespace minij
 
 		public bool fooState201(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(234);
 				text.Push("ident");
@@ -10721,7 +10721,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -10913,7 +10913,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -11056,7 +11056,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -11167,7 +11167,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11278,7 +11278,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11376,7 +11376,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11474,7 +11474,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11572,7 +11572,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11670,7 +11670,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11768,7 +11768,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11866,7 +11866,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -11894,7 +11894,7 @@ namespace minij
 
 		public bool fooState217(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(249);
 				text.Push("ident");
@@ -12117,7 +12117,7 @@ namespace minij
 
 		public bool fooState220(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(250);
 				text.Push("ident");
@@ -13221,7 +13221,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -13277,7 +13277,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -14685,7 +14685,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -14990,7 +14990,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -15283,7 +15283,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -15420,7 +15420,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -15593,7 +15593,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -15788,7 +15788,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -15886,7 +15886,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -15984,7 +15984,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -16112,7 +16112,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -16276,7 +16276,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -16550,7 +16550,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -16742,7 +16742,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -16885,7 +16885,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -17082,7 +17082,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -17246,7 +17246,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -17464,7 +17464,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -17986,7 +17986,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState17(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(18);
 				text.Push("ident");
@@ -18127,7 +18127,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -18286,7 +18286,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -18384,7 +18384,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -18512,7 +18512,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState173(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(174);
 				text.Push("ident");
@@ -18659,7 +18659,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -18871,7 +18871,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -19025,7 +19025,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState133(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(134);
 				text.Push("ident");
@@ -19202,7 +19202,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -19411,7 +19411,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState92(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(364);
 				text.Push("ident");
@@ -19730,7 +19730,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20003,7 +20003,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20101,7 +20101,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20199,7 +20199,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20412,7 +20412,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20532,7 +20532,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20641,7 +20641,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20739,7 +20739,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20837,7 +20837,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -20935,7 +20935,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -21033,7 +21033,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -21131,7 +21131,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -21229,7 +21229,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -21257,7 +21257,7 @@ namespace minij
 
 		public bool fooState394(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(408);
 				text.Push("ident");
@@ -21340,7 +21340,7 @@ namespace minij
 				input.RemoveAt(0);
 				return fooState376(false);
 			}
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(377);
 				text.Push("ident");
@@ -21402,7 +21402,7 @@ namespace minij
 
 		public bool fooState398(bool afterReduce)
 		{
-			if (input[0] == "ident")
+			if (Regex.Match(input[0], @"^[\\$]*[A-Za-z]([A-Za-z0-9^\\$])*").Success)
 			{
 				stack.Push(411);
 				text.Push("ident");
