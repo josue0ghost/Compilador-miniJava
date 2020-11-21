@@ -110,8 +110,8 @@ namespace minij
                 }
                 else {  // termina la linea
                     Console.WriteLine("tokens por linea");
-                    assign(line);
                     declare(line);
+                    assign(line);                   
                     line = new List<KeyValuePair<string, string>>();
 
                 } 
@@ -119,7 +119,7 @@ namespace minij
             }
         }
 
-        public void assign(List<KeyValuePair<string, string>> input)
+        public void assign(List<KeyValuePair<string, string>> input, string ambito)
         {
 
             if (input.Count >= 3)
