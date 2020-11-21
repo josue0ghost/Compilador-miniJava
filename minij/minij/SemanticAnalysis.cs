@@ -107,6 +107,8 @@ namespace minij
                 }
                 else {  // termina la linea
                     Console.WriteLine("tokens por linea");
+                    assign(line);
+                    declare(line);
                     line = new List<KeyValuePair<string, string>>();
 
                 } 
