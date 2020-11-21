@@ -198,7 +198,7 @@ namespace minij
             {
                 int iType = 0;
                 int _base = 0;
-                switch (input[3].Value)
+                switch (input[2].Value)
                 {
                     case "int":
                         iType = 1;
@@ -262,8 +262,73 @@ namespace minij
         /// <summary>
         /// Metodo para insertar declaraciones de variables en la tabla de simbolos
         /// </summary>
-        public void declare(List<KeyValuePair<string, string>> input) { 
-            
+        public void declare(List<KeyValuePair<string, string>> input) {
+            if (input.Count >= 2)
+            {
+                if (input[0].Value.Equals("T_ValueType") &&
+                    input[1].Value.Equals("ident"))
+                {
+
+                    int iType = 0;
+                    int _base = 0;
+                    switch (input[0].Key)
+                    {
+                        case "int":
+                            iType = 1;
+                            break;
+                        case "double":
+                            iType = 2;
+                            break;
+                        case "boolean":
+                            iType = 3;
+                            break;
+                        case "string":
+                            iType = 4;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    TDSobj aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, "", _base);
+                    if (aux != null)
+                    {
+                        Data.Instance.tds.Insert(aux);
+                    }                    
+                }
+
+
+                if (input[0].Value.Equals("T_KeyWord") &&
+                    input[1].Value.Equals("T_ValueType") &&
+                    input[2].Value.Equals("ident"))
+                {
+                    int iType = 0;
+                    int _base = 0;
+                    switch (input[1].Key)
+                    {
+                        case "int":
+                            iType = 1;
+                            break;
+                        case "double":
+                            iType = 2;
+                            break;
+                        case "boolean":
+                            iType = 3;
+                            break;
+                        case "string":
+                            iType = 4;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    TDSobj aux = new TDSobj(idAmbito.ToString(), input[2].Key, iType, "", _base);
+                    if (aux != null)
+                    {
+                        Data.Instance.tds.Insert(aux);
+                    }
+
+                }
+            }
         }
 
         public void write() {
