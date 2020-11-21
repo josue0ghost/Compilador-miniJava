@@ -15,6 +15,8 @@ namespace minij
         int ifCount = 0;
         int elseCount = 0;
 
+        public string err = "";
+
         /* type
         * 0 = null
         * 1 = int
@@ -128,7 +130,11 @@ namespace minij
                             }
                             else if (tokens[i].Value == "ident")
                             {
-                                
+                                TDSobj obj = Data.Instance.tds.Search(idAmbito.ToString(), tokens[i].Key);
+                                if (obj == null)
+                                {
+                                    this.err += "La variable " + tokens[i].Key + " no existe en el contexto actual.\n";
+                                }
                             }
                             else if (type.ContainsKey(tokens[i].Value)) // si es un valor de cierto tipo
                             {
@@ -162,7 +168,7 @@ namespace minij
                             if (!Data.Instance.tds.compareTypes("for"+ forCount.ToString(), aux.name, 1))
                             {
                                 Data.Instance.tds.Delete(aux);
-                                //error
+                                this.err += "No se le pudo asignar " + value + " a " + tokens[i + 3].Key + "\n";
                             }
                         }
                         forCount++;
@@ -248,6 +254,10 @@ namespace minij
                                 Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
                             }
                     }
+                    else
+                    {
+                        this.err += Data.Instance.tds.err + "\n";
+                    }
                 }
                 else
                 {
@@ -309,13 +319,20 @@ namespace minij
                     {
                         aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
-
+                    else
+                    {
+                        this.err += Data.Instance.tds.err + "\n";
+                    }
                 }
                 else
                 {
-                    if (Data.Instance.tds.compareTypes(idAmbito.ToString(), input[1].Key, iType))
+                    if (Data.Instance.tds.compareTypes(idAmbito.ToString(), input[0].Key, iType))
                     {
                         aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
+                    }
+                    else
+                    {
+                        this.err += Data.Instance.tds.err + "\n";
                     }
                 }
 
