@@ -621,6 +621,48 @@ namespace minij
                     }
                     break;
 
+                case "%":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    int iVal = int.Parse(var1.value) % int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, iVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                double dVal = double.Parse(var1.value) % double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else if ((var1.type == 1 && var2.type == 2) || (var1.type == 2 && var2.type == 1))
+                    {
+                        double dVal = double.Parse(var1.value) % double.Parse(var2.value);
+                        result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+
                 case "&&":
 
                     if (var1.type == var2.type)
