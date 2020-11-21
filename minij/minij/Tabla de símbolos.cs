@@ -22,7 +22,7 @@ namespace minij
         /// <param name="symbol">objeto TDSobj</param>
         public void Insert(TDSobj symbol)
         {
-            string key = symbol.idAmbito.ToString() + "," + symbol.name;
+            string key = symbol.idAmbito + "," + symbol.name;
             string value = symbol.type.ToString() + "|" + symbol.value + "|" + symbol._base + "|";
 
             if (symbol.args != null)
@@ -57,7 +57,7 @@ namespace minij
         /// <param name="symbol">objeto TDSobj</param>
         public void Delete(TDSobj symbol)
         {
-            string key = symbol.idAmbito.ToString() + "," + symbol.name;
+            string key = symbol.idAmbito + "," + symbol.name;
 
             if (table.ContainsKey(key))
             {
@@ -74,9 +74,9 @@ namespace minij
         /// </summary>
         /// <param name="idAmbito">identificador del ámbito actual</param>
         /// <param name="name">nombre de la variable o constante</param>
-        public void Delete(int idAmbito, string name)
+        public void Delete(string idAmbito, string name)
         {
-            string key = idAmbito.ToString() + "," + name;
+            string key = idAmbito + "," + name;
 
             if (table.ContainsKey(key))
             {
@@ -94,13 +94,13 @@ namespace minij
         /// <param name="idAmbito">Número identificador del ámbito actual</param>
         /// <param name="name">Nombre de la variable que se modifica</param>
         /// <param name="newValue">Nuevo valor para la variable</param>
-        public void Update(int idAmbito, string name, string newValue)
+        public void Update(string idAmbito, string name, string newValue)
         {
             TDSobj aux = Search(idAmbito, name);
 
             if (aux != null)
             {
-                string key = idAmbito.ToString() + "," + name;
+                string key = idAmbito + "," + name;
                 aux.value = newValue;
 
                 string value = aux.type.ToString() + "|" + aux.value + "|" + aux._base + "|";
@@ -135,7 +135,7 @@ namespace minij
         /// <returns>TDSobj si encuentra un registro con la misma llave, null si no fue encontrado</returns>
         public TDSobj Search(TDSobj symbol)
         {
-            string key = symbol.idAmbito.ToString() + "," + symbol.name;
+            string key = symbol.idAmbito + "," + symbol.name;
 
             if (table.ContainsKey(key))
             {
@@ -162,7 +162,7 @@ namespace minij
         /// </summary>
         /// <param name="idAmbito">Número identificador del ámbito actual</param>
         /// <returns>TDSobj si encuentra un registro con la misma llave, null si no fue encontrado</returns>
-        public TDSobj Search(int idAmbito, string name)
+        public TDSobj Search(string idAmbito, string name)
         {
             string key = idAmbito.ToString() + "," + name;
 
@@ -177,7 +177,7 @@ namespace minij
                     iTypes.Add(int.Parse(item));
                 }
 
-                TDSobj obj = new TDSobj(idAmbito, name, int.Parse(vals[0]), vals[1], int.Parse(vals[2]), iTypes.ToArray());
+                TDSobj obj = new TDSobj(idAmbito.ToString(), name, int.Parse(vals[0]), vals[1], int.Parse(vals[2]), iTypes.ToArray());
                 return obj;
             }
             else
@@ -185,7 +185,7 @@ namespace minij
                 return null;
             }
         }
-        
+
         /// <summary>
         /// Compara tipos de dos variables en un mismo ámbito
         /// </summary>
@@ -193,7 +193,7 @@ namespace minij
         /// <param name="varName1">Nombre de la primera variable o constante</param>
         /// <param name="varName2">Nombre de la segunda variable o constante</param>
         /// <returns>true si ambos tipos son iguales</returns>
-        public bool compareTypes(int idAmbito, string varName1, string varName2)
+        public bool compareTypes(string idAmbito, string varName1, string varName2)
         {
             TDSobj var1 = Search(idAmbito, varName1);
             TDSobj var2 = Search(idAmbito, varName2);
@@ -231,7 +231,7 @@ namespace minij
         /// <param name="varName1">Nombre de la varialbe o constante</param>
         /// <param name="typeOfValue">Identificador del tipo de dato que se le asigna a <paramref name="varName1"/></param>
         /// <returns></returns>
-        public bool compareTypes(int idAmbito, string varName1, int typeOfValue)
+        public bool compareTypes(string idAmbito, string varName1, int typeOfValue)
         {
             TDSobj var1 = Search(idAmbito, varName1);
 
@@ -263,7 +263,7 @@ namespace minij
         /// <param name="idAmbito">Número identificador del ámbito actual</param>
         /// <param name="varName">Nombre de la variable o constante</param>
         /// <param name="varName2">Nombre de la variable o constante que se le asigna a <paramref name="varName"/></param>
-        public void tradIntToDouble(int idAmbito, string varName, string varName2, int x = 0)
+        public void tradIntToDouble(string idAmbito, string varName, string varName2, int x = 0)
         {
             TDSobj var1 = Search(idAmbito, varName);
 
@@ -311,7 +311,7 @@ namespace minij
         /// <param name="idAmbito">Número identificador del ámbito actual</param>
         /// <param name="varName">Nombre de la variable o constante</param>
         /// <param name="intValue">Valor que se le asigna a <paramref name="varName"/></param>
-        public void tradIntToDouble(int idAmbito, string varName, string intValue)
+        public void tradIntToDouble(string idAmbito, string varName, string intValue)
         {
             TDSobj var1 = Search(idAmbito, varName);
             string key = idAmbito + "," + varName;
@@ -352,7 +352,7 @@ namespace minij
         /// <param name="funcName">Nombre de la función</param>
         /// <param name="sendedArgs">Arreglo de tipos de los parámetros enviados</param>
         /// <returns>true si los argumentos son del mismo tipo y en la misma cantidad</returns>
-        public bool compareArguments(int idAmbito, string funcName, int[] sendedArgs)
+        public bool compareArguments(string idAmbito, string funcName, int[] sendedArgs)
         {
             TDSobj var1 = Search(idAmbito, funcName);
 
@@ -389,7 +389,7 @@ namespace minij
         /// <param name="op2">Valor o nombre de la variable operanda 1</param>
         /// <param name="idAmbito">Opcional, número identificador del ámbito actual</param>
         /// <returns>TDSobj con el atributo value igual a la operación realizada</returns>
-        public TDSobj doOperation(string signOp, string op1, string op2, int idAmbito = 0)
+        public TDSobj doOperation(string signOp, string op1, string op2, string idAmbito = "0")
         {
             TDSobj var1 = Search(idAmbito, op1);
             TDSobj var2 = Search(idAmbito, op2);
@@ -480,7 +480,7 @@ namespace minij
             return result;
         }
 
-        private TDSobj operate(TDSobj var1, TDSobj var2, string operacion, int idAmbito = 0)
+        private TDSobj operate(TDSobj var1, TDSobj var2, string operacion, string idAmbito = "0")
         {
             TDSobj result = new TDSobj();
             switch (operacion)

@@ -96,13 +96,13 @@ namespace minij
                             {
                                 idBase = 1;
                             }
-                            TDSobj newArg = new TDSobj(idAmbito, tokens[i].Key, argTypes[argTypes.Count - 1], "", idBase);
+                            TDSobj newArg = new TDSobj(idAmbito.ToString(), tokens[i].Key, argTypes[argTypes.Count - 1], "", idBase);
                             Data.Instance.tds.Insert(newArg);
                         }
                         i++;
                     }
 
-                    TDSobj newFunc = new TDSobj(0, tokens[pos+1].Key, iType, "", argTypes.ToArray());
+                    TDSobj newFunc = new TDSobj("0", tokens[pos+1].Key, iType, "", argTypes.ToArray());
                     Data.Instance.tds.Insert(newFunc);
                 }
                 else {  // termina la linea
@@ -162,24 +162,24 @@ namespace minij
                 // comparar tipos 
                 if (input[3].Value.Equals("ident"))
                 {
-                    if (tabla.compareTypes(idAmbito, input[1].Key, input[3].Key))
+                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, input[3].Key))
                     {
-                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                        aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
 
                 }
                 else
                 {
-                    if (tabla.compareTypes(idAmbito, input[1].Key, iType))
+                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, iType))
                     {
-                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                        aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }                    
                 }
 
                 if (aux != null)
                 {
                     // public void Update(int idAmbito, string name, string newValue)
-                    Data.Instance.tds.Update(idAmbito, input[1].Key, input[3].Key);
+                    Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
                 }               
             }
 
@@ -227,23 +227,23 @@ namespace minij
                 // comparar tipos 
                 if (input[3].Value.Equals("ident"))
                 {
-                    if (tabla.compareTypes(idAmbito, input[1].Key, input[3].Key))
+                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, input[3].Key))
                     {
-                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                        aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
 
                 }
                 else
                 {
-                    if (tabla.compareTypes(idAmbito, input[1].Key, iType))
+                    if (tabla.compareTypes(idAmbito.ToString(), input[1].Key, iType))
                     {
-                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                        aux = new TDSobj(idAmbito.ToString(), input[1].Key, iType, input[3].Key, _base);
                     }
                 }
 
                 if (aux != null)
                 {
-                    Data.Instance.tds.Update(idAmbito, input[1].Key, input[3].Key);
+                    Data.Instance.tds.Update(idAmbito.ToString(), input[1].Key, input[3].Key);
                 }
             }            
 
