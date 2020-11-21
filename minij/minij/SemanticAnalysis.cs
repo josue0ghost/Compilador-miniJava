@@ -108,6 +108,21 @@ namespace minij
                     TDSobj newFunc = new TDSobj("0", tokens[pos+1].Key, iType, "", argTypes.ToArray());
                     Data.Instance.tds.Insert(newFunc);
                 }
+                else if (tokens[i].Value == "T_KeyWord") // condiciones o ciclos
+                {
+                    if (tokens[i].Key == "while")
+                    {
+
+                    }
+                    else if (tokens[i].Key == "for")
+                    {
+
+                    }
+                    else if (tokens[i].Key == "if")
+                    {
+
+                    }
+                }
                 else {  // termina la linea
                     Console.WriteLine("tokens por linea");
                     declare(line);
