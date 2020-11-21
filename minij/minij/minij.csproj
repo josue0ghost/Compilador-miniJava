@@ -59,6 +59,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularExpressions.cs" />
+    <Compile Include="SemanticAnalysis.cs" />
     <Compile Include="Tabla de símbolos.cs" />
     <Compile Include="TDSobj.cs" />
     <EmbeddedResource Include="Form1.resx">
