@@ -9,7 +9,7 @@ namespace minij
     class TDSobj
     {
         /* key = idAmbito,name */
-        public int idAmbito { get; set; }
+        public string idAmbito { get; set; }
         public string name { get; set; }
 
         /* type
@@ -39,7 +39,7 @@ namespace minij
 
         public TDSobj() { }
 
-        public TDSobj(int iAmbito, string Name, int iType, string Value)
+        public TDSobj(string iAmbito, string Name, int iType, string Value)
         {
             this.idAmbito = iAmbito;
             this.name = Name;
@@ -49,7 +49,7 @@ namespace minij
             this.args = null;
         }
 
-        public TDSobj(int iAmbito, string Name, int iType, string Value, int Base)
+        public TDSobj(string iAmbito, string Name, int iType, string Value, int Base)
         {
             this.idAmbito = iAmbito;
             this.name = Name;
@@ -59,7 +59,7 @@ namespace minij
             this.args = null;
         }
 
-        public TDSobj(int iAmbito, string Name, int iType, string Value, int[] argumentTypes)
+        public TDSobj(string iAmbito, string Name, int iType, string Value, int[] argumentTypes)
         {
             this.idAmbito = iAmbito;
             this.name = Name;
@@ -69,7 +69,7 @@ namespace minij
             this.args = argumentTypes;
         }
 
-        public TDSobj(int iAmbito, string Name, int iType, string Value, int Base, int[] argumentTypes)
+        public TDSobj(string iAmbito, string Name, int iType, string Value, int Base, int[] argumentTypes)
         {
             this.idAmbito = iAmbito;
             this.name = Name;
