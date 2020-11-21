@@ -126,12 +126,12 @@ namespace minij
             SemanticAnalysis semantic = new SemanticAnalysis(FileReader.semantic);
             semantic.Analysis();
             semantic.write();
+            semantic.errors();
 
             if (semantic.err != "")
             {
                 MessageBox.Show(semantic.err);
             }
-            semantic.errors();
         }
     }
 }
