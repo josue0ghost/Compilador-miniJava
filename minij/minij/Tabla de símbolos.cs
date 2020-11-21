@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -963,6 +964,25 @@ namespace minij
             }
 
             return result;
+        }
+
+        public void writeTable() {
+            string basePath = string.Format(@"{0}Outputs\", AppContext.BaseDirectory);
+            DirectoryInfo directory = Directory.CreateDirectory(basePath);
+
+            // table format
+            //string key = symbol.idAmbito.ToString() + "," + symbol.name;
+            //string value = symbol.type.ToString() + "|" + symbol.value + "|" + symbol._base + "|";
+
+            using (StreamWriter file = new StreamWriter(basePath + "TablaDeSimbolos.txt"))
+            {
+                file.WriteLine("ambito, name => type|value|base");
+                for (int i = 0; i < table.Count; i++)
+                {
+                    file.WriteLine(table.Keys + " => " + table.Values);
+                }
+                file.Close();
+            }
         }
     }
 }
