@@ -55,7 +55,7 @@ namespace minij
             }
         }
 
-        public bool assign(List<KeyValuePair<string, string>> input) {
+        public void assign(List<KeyValuePair<string, string>> input) {
 
             if (input[0].Value.Equals("T_ValueType") && 
                 input[1].Value.Equals("ident") &&
@@ -127,11 +127,7 @@ namespace minij
                 {
 
                     string value = input[3].Key;
-                    if (value[value.Length] == 'h')
-                    {
-                        _base = 3;
-                    }
-                    else if (value[value.Length] == 'o')
+                    if (value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
                     {
                         _base = 2;
                     }
@@ -142,11 +138,7 @@ namespace minij
                 }
                 TDSobj aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
                 Data.Instance.tds.Insert(aux);
-            }
-
-
-
-            return true;
+            }            
         }
 
     }
