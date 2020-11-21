@@ -38,6 +38,8 @@ namespace minij
         /* arreglo de tipos para los argumentos de una función */
         public int[] args { get; set; }
 
+        public TDSobj() { }
+
         public TDSobj(int iAmbito, string Name, int iType, string Value)
         {
             this.idAmbito = iAmbito;
