@@ -38,7 +38,8 @@ namespace minij
             { "New", "T_KeyWord"},
             { "System", "T_JavaLang"},
             { "out", "T_SystemClass"},
-            { "println", "T_Method"}
+            { "println", "T_Method"},
+            { "static", "T_KeyWord"}
         };
 
         List<string> operators = new List<string>()
