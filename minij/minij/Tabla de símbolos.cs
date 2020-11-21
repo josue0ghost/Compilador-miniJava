@@ -145,7 +145,14 @@ namespace minij
                 List<int> iTypes = new List<int>();
                 foreach (var item in sTypes)
                 {
-                    iTypes.Add(int.Parse(item));
+                    if (item == "NULL")
+                    {
+                        iTypes.Add(0);
+                    }
+                    else
+                    {
+                        iTypes.Add(int.Parse(item));
+                    }
                 }
 
                 TDSobj obj = new TDSobj(symbol.idAmbito, symbol.name, int.Parse(vals[0]), vals[1], int.Parse(vals[2]), iTypes.ToArray());
