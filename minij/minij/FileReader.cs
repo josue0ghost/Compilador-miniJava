@@ -12,29 +12,8 @@ namespace minij
     {
         public static string errors = "";
         public static List<string> tokens = new List<string>();
-        public static List<string> lexems = new List<string>();       
-        Tabla_de_símbolos tabla = new Tabla_de_símbolos();
-        int ambito = 0;
-
-
-        /* type
-        * 0 = null
-        * 1 = int
-        * 2 = double
-        * 3 = boolean
-        * 4 = string
-        * 5 = void
-        */
-
-        Dictionary<string, int> type = new Dictionary<string, int>() {
-            { "null", 0 },
-            { "int", 1},
-            { "double", 2 },
-            { "boolean", 3},
-            { "String", 4},
-            { "void", 5}
-        };
-
+        public static List<string> lexems = new List<string>();
+        public static List<KeyValuePair<string, string>> semantic = new List<KeyValuePair<string, string>>();
 
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
@@ -73,6 +52,13 @@ namespace minij
             return tokens;
         }
 
+        public void sentenceProperties(string input) {
+
+            // assign             
+
+
+        }
+
 
         public string LexicalAnalysis(string input, List<string> origin)
         {
@@ -92,7 +78,7 @@ namespace minij
             {
                 int cont = origin.FindIndex(x => x.Contains(item.Replace("\r", ""))) + 1;
                 for (int i = 0; i < item.Length; i++)
-                {
+                {                    
                     if (Char.IsWhiteSpace(item[i]))
                     {
                         if (temp != "")
@@ -275,6 +261,7 @@ namespace minij
                 }
 
                 //cont++;
+                semantic.Add(new KeyValuePair<string, string>("", ""));
             }
 
             return response;
@@ -288,6 +275,7 @@ namespace minij
             Console.WriteLine($"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}");
             tokens.Add(result[0].Value);
             lexems.Add(result[0].Key);
+            semantic.Add(new KeyValuePair<string, string>(result[0].Key, result[0].Value));
             return $"{result[0].Key}\t line {cont} cols {start}-{end} is {result[0].Value}\n";
         }
 
@@ -299,6 +287,7 @@ namespace minij
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
             tokens.Add(result[0]);
             lexems.Add(result[0]);
+            semantic.Add(new KeyValuePair<string, string>(result[0], result[0]));
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
         }
 
@@ -310,6 +299,7 @@ namespace minij
             Console.WriteLine($"{result[0]}\t line {cont} cols {start}-{end} is {result[0]}");
             tokens.Add(result[0]);
             lexems.Add(result[0]);
+            semantic.Add(new KeyValuePair<string, string>(result[0], result[0]));
             return $"{result[0]}\t line {cont} cols {start}-{end} is \'{result[0]}\'\n";
         }
 
@@ -348,6 +338,7 @@ namespace minij
                     {
                         tokens.Add(result);
                         lexems.Add(result);
+                        semantic.Add(new KeyValuePair<string, string>(result, "ident"));
                         return $"'{result}'\t line {cont} cols {start}-{end} is Token_Identifier\n";
                     }
                 }                
@@ -367,6 +358,7 @@ namespace minij
             Console.WriteLine($"{result}\t line {cont} cols {start}-{end} is Token_Double");
             tokens.Add(result);
             lexems.Add(result);
+            semantic.Add(new KeyValuePair<string, string>(result, "double"));
             return $"'{result}'\t line {cont} cols {start}-{end} is Token_Double\n";
         }
 
@@ -377,6 +369,7 @@ namespace minij
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_IntConstant");
             tokens.Add(input);
             lexems.Add(input);
+            semantic.Add(new KeyValuePair<string, string>(input, "int"));
             return $"'{input}'\t line {cont} cols {start}-{end} is T_IntConstant\n";
         }
 
@@ -387,6 +380,7 @@ namespace minij
             Console.WriteLine($"{input}\t line {cont} cols {start}-{end} is T_BooleanConstant");
             tokens.Add(input);
             lexems.Add(input);
+            semantic.Add(new KeyValuePair<string, string>(input, "boolean"));
             return $"'{input}'\t line {cont} cols {start}-{end} is T_BooleanConstant\n";
         }
 

@@ -125,7 +125,8 @@ namespace minij
 
         private void semanticoBtn_Click(object sender, EventArgs e)
         {
-
+            SemanticAnalysis semantic = new SemanticAnalysis(FileReader.semantic);
+            semantic.Analysis();
         }
     }
 }
