@@ -16,6 +16,26 @@ namespace minij
         Tabla_de_símbolos tabla = new Tabla_de_símbolos();
         int ambito = 0;
 
+
+        /* type
+        * 0 = null
+        * 1 = int
+        * 2 = double
+        * 3 = boolean
+        * 4 = string
+        * 5 = void
+        */
+
+        Dictionary<string, int> type = new Dictionary<string, int>() {
+            { "null", 0 },
+            { "int", 1},
+            { "double", 2 },
+            { "boolean", 3},
+            { "String", 4},
+            { "void", 5}
+        };
+
+
         Dictionary<string, string> reserved = new Dictionary<string, string>()
         {
             { "void", "T_void"},
