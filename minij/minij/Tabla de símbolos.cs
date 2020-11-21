@@ -154,17 +154,14 @@ namespace minij
         /// <returns>true si ambos tipos son iguales</returns>
         public bool compareTypes(int idAmbito, string varName1, string varName2)
         {
-            string key1 = idAmbito.ToString() + "," + varName1;
-            string key2 = idAmbito.ToString() + "," + varName2;
+            TDSobj var1 = Search(idAmbito, varName1);
+            TDSobj var2 = Search(idAmbito, varName2);
 
-            if (table.TryGetValue(key1, out string val1))
+            if (var1 != null)
             {
-                if (table.TryGetValue(key2, out string val2))
+                if (var2 != null)
                 {
-                    string[] data1 = val1.Split('|');
-                    string[] data2 = val2.Split('|');
-
-                    if (data1[0] == data2[0])
+                    if (var1.type == var2.type)
                     {
                         return true;
                     }
@@ -195,17 +192,15 @@ namespace minij
         /// <returns></returns>
         public bool compareTypes(int idAmbito, string varName1, int typeOfValue)
         {
-            string key1 = idAmbito.ToString() + "," + varName1;
+            TDSobj var1 = Search(idAmbito, varName1);
 
-            if (table.TryGetValue(key1, out string val1))
+            if (var1 != null)
             {
-                string[] data1 = val1.Split('|');
-
-                if (data1[0] == typeOfValue.ToString()) // mismos tipos
+                if (var1.type == typeOfValue) // mismos tipos
                 {
                     return true;
                 }
-                else if (data1[0] == "2" && typeOfValue == 1) // asignacion de entero (type 1) a un double (type 2)
+                else if (var1.type == 2 && typeOfValue == 1) // asignacion de entero (type 1) a un double (type 2)
                 {
                     return true;
                 }
@@ -229,21 +224,21 @@ namespace minij
         /// <param name="varName2">Nombre de la variable o constante que se le asigna a <paramref name="varName"/></param>
         public void tradIntToDouble(int idAmbito, string varName, string varName2, int x = 0)
         {
-            string key = idAmbito + "," + varName;
+            TDSobj var1 = Search(idAmbito, varName);
 
-            if (table.TryGetValue(key, out string values))
+            if (var1 != null)
             {
-                string[] data = values.Split('|');
-
-                if (data[0] == "2")
+                if (var1.type == 2)
                 {
-                    string key2 = idAmbito + "," + varName2;
-                    if (table.TryGetValue(key2, out string values2))
+                    TDSobj var2 = Search(idAmbito, varName2);
+
+                    if (var2 != null)
                     {
-                        string[] data2 = values2.Split('|');
-                        if (data2[0] == "1")
+                        string key = idAmbito + "," + varName;
+                        string[] data = table[key].Split('|');
+                        if (var2.type == 1)
                         {
-                            data[1] = data2[1] + ".0";
+                            data[1] = var2.value + ".0";
                             string newVal = data[0] + "|" + data[1] + "|" + data[2] + "|" + data[3];
                             // cambio de atributos
                             table[key] = newVal;
@@ -277,13 +272,14 @@ namespace minij
         /// <param name="intValue">Valor que se le asigna a <paramref name="varName"/></param>
         public void tradIntToDouble(int idAmbito, string varName, string intValue)
         {
+            TDSobj var1 = Search(idAmbito, varName);
             string key = idAmbito + "," + varName;
 
-            if (table.TryGetValue(key, out string values))
+            if (var1 != null)
             {
-                string[] data = values.Split('|');
+                string[] data = table[key].Split('|');
 
-                if (data[0] == "2")
+                if (var1.type == 2)
                 {
                     if (int.TryParse(intValue, out _))
                     {
@@ -314,27 +310,18 @@ namespace minij
         /// <param name="idAmbito">Número identificador del ámbito actual</param>
         /// <param name="funcName">Nombre de la función</param>
         /// <param name="sendedArgs">Arreglo de tipos de los parámetros enviados</param>
-        /// <returns></returns>
+        /// <returns>true si los argumentos son del mismo tipo y en la misma cantidad</returns>
         public bool compareArguments(int idAmbito, string funcName, int[] sendedArgs)
         {
-            string key = idAmbito + "," + funcName;
+            TDSobj var1 = Search(idAmbito, funcName);
 
-            if (table.ContainsKey(key))
+            if (var1 != null)
             {
-                string[] data = table[key].Split('|');
-                List<string> funcArgs = data[3].Split().ToList();
-                List<int> iTypes = new List<int>();
-                foreach (var item in funcArgs)
-                {
-                    iTypes.Add(int.Parse(item));
-                }
-                int[] funcArgTypes = iTypes.ToArray();
-
-                if (sendedArgs.Length == funcArgTypes.Length)
+                if (sendedArgs.Length == var1.args.Length)
                 {
                     for (int i = 0; i < sendedArgs.Length; i++)
                     {
-                        if (sendedArgs[i] != funcArgTypes[i])
+                        if (sendedArgs[i] != var1.args[i])
                         {
                             this.err = "Un argumento de la función " + funcName + " es inválido";
                             return false;
@@ -354,32 +341,586 @@ namespace minij
         }
 
         /// <summary>
-        /// Realiza la operación entre dos datos
+        /// Realiza la operación entre dos valores
         /// </summary>
-        /// <param name="signOp"></param>
-        /// <param name="op1"></param>
-        /// <param name="op2"></param>
-        public void doOperation(string signOp, string op1, string op2)
+        /// <param name="signOp">Signo de la operación</param>
+        /// <param name="op1">Valor o nombre de la variable operanda 1</param>
+        /// <param name="op2">Valor o nombre de la variable operanda 1</param>
+        /// <param name="idAmbito">Opcional, número identificador del ámbito actual</param>
+        /// <returns>TDSobj con el atributo value igual a la operación realizada</returns>
+        public TDSobj doOperation(string signOp, string op1, string op2, int idAmbito = 0)
         {
-            switch (signOp)
+            TDSobj var1 = Search(idAmbito, op1);
+            TDSobj var2 = Search(idAmbito, op2);
+            TDSobj result = new TDSobj();
+
+            if (var1 != null && var2 != null) // ambos son variables
             {
-                case "+":
+                operate(var1, var2, signOp, idAmbito);
+            }
+            else if (var1 != null) // solo op1 es una variable
+            {
+                if (int.TryParse(op2, out _))
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 1, op2);
+                }
+                else if (double.TryParse(op2, out _))
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 2, op2);
+                }
+                else if (op2 == "true" || op2 == "false")
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 3, op2);
+                }
+                else // string type
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 4, op2);
+                }
+                result = operate(var1, var2, signOp, idAmbito);
+            }
+            else if (var2 != null) // solo op2 es una variable
+            {
+                if (int.TryParse(op1, out _))
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 1, op1);
+                }
+                else if (double.TryParse(op1, out _))
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 2, op1);
+                }
+                else if (op1 == "true" || op1 == "false")
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 3, op1);
+                }
+                else // string type
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 4, op1);
+                }
+                result = operate(var1, var2, signOp, idAmbito);
+            }
+            else // ni op1 ni op2 son variables
+            {
+                if (int.TryParse(op1, out _))
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 1, op1);
+                }
+                else if (double.TryParse(op1, out _))
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 2, op1);
+                }
+                else if (op1 == "true" || op1 == "false")
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 3, op1);
+                }
+                else // string type
+                {
+                    var1 = new TDSobj(idAmbito, "temp", 4, op1);
+                }
+
+                if (int.TryParse(op2, out _))
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 1, op2);
+                }
+                else if (double.TryParse(op2, out _))
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 2, op2);
+                }
+                else if (op2 == "true" || op2 == "false")
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 3, op2);
+                }
+                else // string type
+                {
+                    var2 = new TDSobj(idAmbito, "temp", 4, op2);
+                }
+                result = operate(var1, var2, signOp, idAmbito);
+            }
+
+            return result;
+        }
+
+        private TDSobj operate(TDSobj var1, TDSobj var2, string operacion, int idAmbito = 0)
+        {
+            TDSobj result = new TDSobj();
+            switch (operacion)
+            {
+                case "+": // suma o concatenación
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    int iVal = int.Parse(var1.value) + int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, iVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                double dVal = double.Parse(var1.value) + double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                                break;
+
+                            case 4: // string concatenación
+                                string sVal = var1.value + var2.value;
+                                result = new TDSobj(idAmbito, "temp", 1, sVal);
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else if ((var1.type == 1 && var2.type == 2) || (var1.type == 2 && var2.type == 1))
+                    {
+                        double dVal = double.Parse(var1.value) + double.Parse(var2.value);
+                        result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
                     break;
+
                 case "-":
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    int iVal = int.Parse(var1.value) - int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, iVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                double dVal = double.Parse(var1.value) - double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else if ((var1.type == 1 && var2.type == 2) || (var1.type == 2 && var2.type == 1))
+                    {
+                        double dVal = double.Parse(var1.value) - double.Parse(var2.value);
+                        result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
                     break;
+
                 case "*":
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    int iVal = int.Parse(var1.value) * int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, iVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                double dVal = double.Parse(var1.value) * double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else if ((var1.type == 1 && var2.type == 2) || (var1.type == 2 && var2.type == 1))
+                    {
+                        double dVal = double.Parse(var1.value) * double.Parse(var2.value);
+                        result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
                     break;
+
                 case "/":
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    int iVal = int.Parse(var1.value) / int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, iVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                double dVal = double.Parse(var1.value) / double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else if ((var1.type == 1 && var2.type == 2) || (var1.type == 2 && var2.type == 1))
+                    {
+                        double dVal = double.Parse(var1.value) / double.Parse(var2.value);
+                        result = new TDSobj(idAmbito, "temp", 1, dVal.ToString());
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
                     break;
-                case "==":
-                    break;
+
                 case "&&":
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 3: // boolean
+                                bool b1 = (var1.value == "true") ? true : false;
+                                bool b2 = (var2.value == "true") ? true : false;
+                                bool bVal = b1 && b2;
+
+                                result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos no booleanos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes no booleanos";
+                    }
                     break;
+
                 case "||":
+
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 3: // boolean
+                                bool b1 = (var1.value == "true") ? true : false;
+                                bool b2 = (var2.value == "true") ? true : false;
+                                bool bVal = b1 || b2;
+
+                                result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos no booleanos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes no booleanos";
+                    }
                     break;
+
+                case "==":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) == int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) == double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            case 3: // boolean
+                                bool b1 = (var1.value == "true") ? true : false;
+                                bool b2 = (var2.value == "true") ? true : false;
+                                bool bVal = b1 == b2;
+
+                                result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
+                                break;
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+
+                case "!=":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) != int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) != double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            case 3: // boolean
+                                bool b1 = (var1.value == "true") ? true : false;
+                                bool b2 = (var2.value == "true") ? true : false;
+                                bool bVal = b1 != b2;
+
+                                result = new TDSobj(idAmbito, "temp", 1, bVal.ToString());
+                                break;
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+
+                case "<":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) < int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) < double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break; 
+
+                case ">":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) > int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) > double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+
+                case ">=":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) >= int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) >= double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+
+                case "<=":
+                    if (var1.type == var2.type)
+                    {
+                        switch (var1.type)
+                        {
+                            case 0:
+                                this.err = "Error de referencia a valor nulo";
+                                break;
+
+                            case 1: // int
+                                if (var1._base == var2._base)
+                                {
+                                    bool biVal = int.Parse(var1.value) <= int.Parse(var2.value);
+                                    result = new TDSobj(idAmbito, "temp", 1, biVal.ToString());
+                                }
+                                else
+                                {
+                                    this.err = "Intento de operación sobre enteros de diferente base";
+                                }
+                                break;
+
+                            case 2: // double
+                                bool bdVal = double.Parse(var1.value) <= double.Parse(var2.value);
+                                result = new TDSobj(idAmbito, "temp", 1, bdVal.ToString());
+                                break;
+
+                            default:
+                                this.err = "Operación inválida sobre tipos";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        this.err = "Operación inválida sobre tipos diferentes";
+                    }
+                    break;
+                
                 default:
+                    this.err = "Operador inválido";
                     break;
             }
+
+            return result;
         }
     }
 }
