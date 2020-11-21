@@ -8,6 +8,10 @@ namespace minij
 {
     class TDSobj
     {
+        /* key = idAmbito,name */
+        public int idAmbito { get; set; }
+        public string name { get; set; }
+
         /* type
          * 0 = null
          * 1 = int
@@ -18,6 +22,11 @@ namespace minij
          */
         public int type { get; set; }
 
+        /* value
+         * string con el valor
+         */
+        public string value { get; set; }
+
         /*_base
          * 0 = NaN
          * 1 = decimal
@@ -26,32 +35,47 @@ namespace minij
          */
         public int _base { get; set; }
 
-        /* value
-         * string con el valor
-         */
-        public string value { get; set; }
+        /* arreglo de tipos para los argumentos de una función */
+        public int[] args { get; set; }
 
-        public string name { get; set; }
-
-        /* key = idAmbito,name */
-        public int idAmbito { get; set; }
-
-        public TDSobj(int iType, int Base, string Name, string Value, int iAmbito)
+        public TDSobj(int iAmbito, string Name, int iType, string Value)
         {
-            this.type = iType;
-            this._base = Base;
-            this.value = Value;
-            this.name = Name;
             this.idAmbito = iAmbito;
+            this.name = Name;
+            this.type = iType;
+            this.value = Value;
+            this._base = 0;
+            this.args = null;
         }
 
-        public TDSobj(int iType, string Name, string Value, int iAmbito)
+        public TDSobj(int iAmbito, string Name, int iType, string Value, int Base)
         {
+            this.idAmbito = iAmbito;
+            this.name = Name;
             this.type = iType;
             this.value = Value;
-            this.name = Name;
+            this._base = Base;
+            this.args = null;
+        }
+
+        public TDSobj(int iAmbito, string Name, int iType, string Value, int[] argumentTypes)
+        {
             this.idAmbito = iAmbito;
+            this.name = Name;
+            this.type = iType;
+            this.value = Value;
             this._base = 0;
+            this.args = argumentTypes;
+        }
+
+        public TDSobj(int iAmbito, string Name, int iType, string Value, int Base, int[] argumentTypes)
+        {
+            this.idAmbito = iAmbito;
+            this.name = Name;
+            this.type = iType;
+            this.value = Value;
+            this._base = Base;
+            this.args = argumentTypes;
         }
     }
 }
