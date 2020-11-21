@@ -42,6 +42,7 @@
             this.fileTextBox.Location = new System.Drawing.Point(12, 27);
             this.fileTextBox.Multiline = true;
             this.fileTextBox.Name = "fileTextBox";
+            this.fileTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.fileTextBox.Size = new System.Drawing.Size(498, 411);
             this.fileTextBox.TabIndex = 0;
             // 
@@ -114,6 +115,6 @@
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
 		private System.Windows.Forms.Button analizeLex_btn;
-	}
+    }
 }
 
