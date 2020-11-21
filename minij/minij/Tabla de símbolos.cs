@@ -171,7 +171,7 @@ namespace minij
         /// <returns>TDSobj si encuentra un registro con la misma llave, null si no fue encontrado</returns>
         public TDSobj Search(string idAmbito, string name)
         {
-            string key = idAmbito.ToString() + "," + name;
+            string key = idAmbito + "," + name;
 
             if (table.ContainsKey(key))
             {
@@ -181,7 +181,14 @@ namespace minij
                 List<int> iTypes = new List<int>();
                 foreach (var item in sTypes)
                 {
-                    iTypes.Add(int.Parse(item));
+                    if (item == "NULL")
+                    {
+                        iTypes.Add(0);
+                    }
+                    else
+                    {
+                        iTypes.Add(int.Parse(item));
+                    }                    
                 }
 
                 TDSobj obj = new TDSobj(idAmbito.ToString(), name, int.Parse(vals[0]), vals[1], int.Parse(vals[2]), iTypes.ToArray());
