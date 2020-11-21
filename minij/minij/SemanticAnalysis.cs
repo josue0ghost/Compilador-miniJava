@@ -34,6 +34,32 @@ namespace minij
             this.tokens = tokens;
         }
 
+        private int getIdType(string type)
+        {
+            int iType = 0;
+            switch (type)
+            {
+                case "int":
+                    iType = 1;
+                    break;
+                case "double":
+                    iType = 2;
+                    break;
+                case "boolean":
+                    iType = 3;
+                    break;
+                case "string":
+                    iType = 4;
+                    break;
+                case "void":
+                    iType = 5;
+                    break;
+                default:
+                    break;
+            }
+
+            return iType;
+        }
 
         // la posición nula de la lista de tokens indica nueva linea
         public void Analysis() {
@@ -45,6 +71,39 @@ namespace minij
                 if (!tokens[i].Key.Equals(""))
                 {
                     line.Add(tokens[i]);
+                }
+                else if (tokens[i].Value == "T_ValueType" && tokens[i+1].Value == "ident" && tokens[i+2].Value == "(")
+                {
+                    // una nueva función, un nuevo ámbito
+                    idAmbito++;
+
+                    int iType = getIdType(tokens[i].Value);
+                    int pos = i;
+
+                    i += 2;
+                    List<int> argTypes = new List<int>();
+                    while (tokens[i].Key != ")")
+                    {
+                        if (tokens[i].Value == "T_ValueType")
+                        {
+                            argTypes.Add(getIdType(tokens[i].Key));
+                        }
+                        else if (tokens[i].Value == "ident")
+                        {
+                            int argType = getIdType(tokens[i - 1].Key);
+                            int idBase = 0;
+                            if (argType == 1)
+                            {
+                                idBase = 1;
+                            }
+                            TDSobj newArg = new TDSobj(idAmbito, tokens[i].Key, argTypes[argTypes.Count - 1], "", idBase);
+                            Data.Instance.tds.Insert(newArg);
+                        }
+                        i++;
+                    }
+
+                    TDSobj newFunc = new TDSobj(0, tokens[pos+1].Key, iType, "", argTypes.ToArray());
+                    Data.Instance.tds.Insert(newFunc);
                 }
                 else {  // termina la linea
                     Console.WriteLine("tokens por linea");
