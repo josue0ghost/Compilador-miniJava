@@ -12,8 +12,7 @@ namespace minij
     {
         public static string errors = "";
         public static List<string> tokens = new List<string>();
-        public static List<string> lexems = new List<string>();
-        TDSobj tds = new TDSobj();
+        public static List<string> lexems = new List<string>();       
         Tabla_de_símbolos tabla = new Tabla_de_símbolos();
         int ambito = 0;
 
@@ -23,7 +22,7 @@ namespace minij
             { "int", "T_ValueType"},
             { "double", "T_ValueType"},
             { "boolean", "T_ValueType"},
-            { "string", "T_ValueType"},
+            { "String", "T_ValueType"},
             { "class", "T_ReferenceType"},
             { "const", "T_ValueType"},
             { "interface", "T_ReferenceType"},
