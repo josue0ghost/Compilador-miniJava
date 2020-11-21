@@ -112,15 +112,45 @@ namespace minij
                 {
                     if (tokens[i].Key == "while")
                     {
+                        Stack<string> parentesis = new Stack<string>();
+                        parentesis.Push("(");
 
+                        i+=2;
+                        while (parentesis.Count > 0)
+                        {
+                            if (tokens[i].Value == "(") // puede haber ((true) == (true))
+                            {
+                                parentesis.Push("(");
+                            }
+                            else if (tokens[i].Value == ")")
+                            {
+                                parentesis.Pop();
+                            }
+                            else if (tokens[i].Value == "ident")
+                            {
+                                
+                            }
+                            else if (type.ContainsKey(tokens[i].Value)) // si es un valor de cierto tipo
+                            {
+
+                            }
+                        }
+                        whileCount++;
                     }
                     else if (tokens[i].Key == "for")
                     {
 
+                        forCount++;
                     }
                     else if (tokens[i].Key == "if")
                     {
 
+                        ifCount++;
+                    }
+                    else if (tokens[i].Key == "else")
+                    {
+
+                        elseCount++;
                     }
                 }
                 else {  // termina la linea
