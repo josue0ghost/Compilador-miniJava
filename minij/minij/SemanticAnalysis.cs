@@ -218,17 +218,39 @@ namespace minij
                         _base = 1;
                     }
                 }
-                TDSobj aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
-                Data.Instance.tds.Insert(aux);
+
+
+                TDSobj aux = null;
+                // comparar tipos 
+                if (input[3].Value.Equals("ident"))
+                {
+                    if (tabla.compareTypes(idAmbito, input[1].Key, input[3].Key))
+                    {
+                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                    }
+
+                }
+                else
+                {
+                    if (tabla.compareTypes(idAmbito, input[1].Key, iType))
+                    {
+                        aux = new TDSobj(idAmbito, input[1].Key, iType, input[3].Key, _base);
+                    }
+                }
+
+                if (aux != null)
+                {
+                    Data.Instance.tds.Insert(aux);
+                }
             }            
 
-            // asignación de variable a variable
+            // ASIGNACION DE OBJETOS
         }
 
         /// <summary>
         /// Metodo para insertar declaraciones de variables en la tabla de simbolos
         /// </summary>
-        public void declare() { 
+        public void declare(List<KeyValuePair<string, string>> input) { 
             
         }
 
