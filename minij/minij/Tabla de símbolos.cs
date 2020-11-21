@@ -1016,10 +1016,10 @@ namespace minij
 
             using (StreamWriter file = new StreamWriter(basePath + "TablaDeSimbolos.txt"))
             {
-                file.WriteLine("ambito, name => type|value|base");
+                file.WriteLine("ambito, name => type|value|base|");
                 for (int i = 0; i < table.Count; i++)
                 {
-                    file.WriteLine(table.Keys + " => " + table.Values);
+                    file.WriteLine(table.Keys.ElementAt(i) + " => " + table.Values.ElementAt(i));
                 }
                 file.Close();
             }

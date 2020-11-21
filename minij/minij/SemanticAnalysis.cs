@@ -176,7 +176,8 @@ namespace minij
 
                 if (aux != null)
                 {
-                    Data.Instance.tds.Insert(aux);
+                    // public void Update(int idAmbito, string name, string newValue)
+                    Data.Instance.tds.Update(idAmbito, input[1].Key, input[3].Key);
                 }               
             }
 
@@ -240,7 +241,7 @@ namespace minij
 
                 if (aux != null)
                 {
-                    Data.Instance.tds.Insert(aux);
+                    Data.Instance.tds.Update(idAmbito, input[1].Key, input[3].Key);
                 }
             }            
 
